@@ -1,0 +1,246 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import profileImage from "../assets/Andrew-Riefenstahl.jpg";
+const metaTags = {
+  title: "Andrew Riefenstahl: Full Stack Web Developer",
+  description:
+    "Discover Andrew Riefenstahl's journey in full stack web development, showcasing skills in modern technologies and innovative solutions.",
+  image: profileImage.src,
+  url: "https://andrewriefenstahl.com",
+  twitterHandle: "@riefer02",
+};
+---
+
+<Layout title={metaTags.title}>
+  <head>
+    <title>{metaTags.title}</title>
+    <meta name="description" content={metaTags.description} />
+    <meta property="og:title" content={metaTags.title} />
+    <meta property="og:description" content={metaTags.description} />
+    <meta property="og:image" content={metaTags.image} />
+    <meta property="og:url" content={metaTags.url} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content={metaTags.twitterHandle} />
+    <meta name="twitter:title" content={metaTags.title} />
+    <meta name="twitter:description" content={metaTags.description} />
+    <meta name="twitter:image" content={metaTags.image} />
+  </head>
+  <main class="p-4 max-w-4xl mx-auto">
+    <div class="text-center">
+      <Image
+        src={profileImage}
+        alt="Andrew Riefenstahl smiling with his arms crossed against a multicolored background with hues of purple and maroon to pink."
+        width="200"
+        height="200"
+        class="rounded-full mx-auto mb-4"
+      />
+      <h1 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-4">
+        Andrew Riefenstahl
+      </h1>
+      <h2 class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-4">
+        Full Stack Web Development
+      </h2>
+    </div>
+    <p class="text-base sm:text-lg mb-6">
+      With a proven track record of innovation and problem-solving, Andrew
+      Riefenstahl stands at the forefront of digital transformation. His
+      expertise in web and software development drives businesses and projects
+      to new heights of success.
+    </p>
+
+    <section class="mb-8">
+      <h2 class="text-lg sm:text-xl mb-3">Professional Skills</h2>
+      <ul class="list-disc pl-5">
+        <li>
+          <strong>Web Development:</strong> Mastery in modern web technologies
+          including Gatsby.js, Next.js, WordPress, Astro, and Vite, delivering
+          responsive and dynamic user experiences.
+        </li>
+        <li>
+          <strong>Full Stack Development:</strong> Expertise in creating robust
+          web applications using Express.js and Node.js, integrating frontend
+          and backend seamlessly.
+        </li>
+        <li>
+          <strong>CMS Integration:</strong> Skilled in deploying and customizing
+          content management systems like Strapi CMS and Headless WordPress for
+          dynamic content delivery.
+        </li>
+        <li>
+          <strong>E-commerce Integration:</strong> Proficient in implementing
+          e-commerce solutions with Stripe, enhancing online transaction
+          capabilities for businesses.
+        </li>
+        <li>
+          <strong>API Development:</strong> Adept at building and managing APIs,
+          enabling efficient data exchange and integration with various
+          services.
+        </li>
+        <li>
+          <strong>Database Management:</strong> Competent in handling complex
+          data structures with PostgreSQL, MongoDB, and Supabase, ensuring data
+          integrity and performance.
+        </li>
+        <li>
+          <strong>Emerging Technologies:</strong> Forward-thinking in adapting
+          new technologies like Deno and blockchain, staying ahead in the tech
+          curve.
+        </li>
+        <li>
+          <strong>Other Technologies:</strong> Versatile in utilizing a range of
+          languages and tools including TypeScript, Rust, PHP, CSS, HTML, and
+          Python, showcasing a comprehensive tech skillset.
+        </li>
+      </ul>
+    </section>
+    <section class="mb-8">
+      <h2 class="text-lg sm:text-xl mb-3">Key Projects</h2>
+      <ul class="list-disc pl-5">
+        <li>
+          <a
+            href="https://propane.com"
+            target="_blank"
+            class="no-underline hover:underline text-black"
+          >
+            <div class="mb-4">
+              <h3 class="text-md font-bold">Enterprise Site - Propane.com</h3>
+              <p class="text-sm lg:text-base">
+                Spearheaded the development of Propane.com, an enterprise-level
+                WordPress site featuring advanced customizations and
+                integrations. Implemented a robust CI pipeline, 2FA
+                authentication via OAuth Okta, and developed stateful web
+                applications. Enhanced user engagement by integrating Algolia
+                for advanced search capabilities and HubSpot for CRM.
+                Additionally, optimized React-based components for improved site
+                performance and user experience.
+              </p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://flockx.io"
+            target="_blank"
+            class="no-underline hover:underline text-black"
+          >
+            <div class="mb-4">
+              <h3 class="text-md font-bold">
+                Start-Up Sites - Flockx.io & App.Flockx.io
+              </h3>
+              <p class="text-sm lg:text-base">
+                Led the front-end development of Flockx.io and its companion app
+                using Gatsby and Next.js, establishing a seamless integration
+                with a Django backend. Incorporated cutting-edge features like
+                interactive Mapbox maps and ElasticSearch for dynamic content
+                delivery. Pioneered the use of Intercom and Slack integrations
+                to enhance user engagement and communication, significantly
+                boosting the platform's SEO and overall digital presence.
+              </p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://abowlofred.com"
+            target="_blank"
+            class="no-underline hover:underline text-black"
+          >
+            <div class="mb-4">
+              <h3 class="text-md font-bold">
+                Non-Profit Charity - ABowlofRed.com
+              </h3>
+              <p class="text-sm lg:text-base">
+                Orchestrated the development of ABowlofRed.com, a Gatsby-based
+                front-end platform, with a focus on high-performance and
+                accessible design. Utilized Strapi CMS on AWS EC2 with Node.js
+                for content management, ensuring optimal image rendering and
+                SEO-friendly metadata. Successfully integrated Stripe for secure
+                ticket transactions, contributing to a significant fundraising
+                success of around $16k.
+              </p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://junkerri.com"
+            target="_blank"
+            class="no-underline hover:underline text-black"
+          >
+            <div class="mb-4">
+              <h3 class="text-md font-bold">E-commerce Site - Junkerri.com</h3>
+              <p class="text-sm lg:text-base">
+                Engineered Junkerri.com, a sleek and efficient e-commerce
+                platform using Next.js. Implemented Stripe for a streamlined
+                payment process, and integrated SparkPost for effective customer
+                communication. This project highlights my ability to create
+                user-centric shopping experiences with robust back-end
+                functionalities.
+              </p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://github.com/riefer02/electron-chat-app"
+            target="_blank"
+            class="no-underline hover:underline text-black"
+          >
+            <div class="mb-4">
+              <h3 class="text-md font-bold">Electron Chat App</h3>
+              <p class="text-sm lg:text-base">
+                Conceptualized and developed a cutting-edge chat application
+                using React and Electron, demonstrating expertise in
+                cross-platform software development. This app features real-time
+                messaging capabilities, a user-friendly interface, and
+                high-performance chat functionalities. It showcases my
+                proficiency in seamlessly blending front-end technologies with
+                Electron for a cohesive desktop application experience.
+              </p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section class="mb-8">
+      <h2 class="text-lg sm:text-xl mb-3">Connect with Me</h2>
+      <ul class="list-none pl-0">
+        <li class="mb-2">
+          <a
+            href="https://www.linkedin.com/in/andrewriefenstahl/"
+            target="_blank"
+            class="text-blue-600 hover:text-blue-800"
+            >LinkedIn: Andrew Riefenstahl</a
+          >
+        </li>
+        <li class="mb-2">
+          <a
+            href="https://github.com/riefer02"
+            target="_blank"
+            class="text-gray-900 hover:text-black">GitHub: @riefer02</a
+          >
+        </li>
+        <li class="mb-2">
+          <a
+            href="https://twitter.com/riefer02"
+            target="_blank"
+            class="text-blue-400 hover:text-blue-600">Twitter: @riefer02</a
+          >
+        </li>
+        <li class="mb-2">
+          Email: <a
+            href="mailto:andrew.riefenstahl@gmail.com"
+            class="text-green-600 hover:text-green-800"
+            >&#97;&#110;&#100;&#114;&#101;&#119;&#46;&#114;&#105;&#101;&#102;&#101;&#110;&#115;&#116;&#97;&#104;&#108;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a
+          >
+        </li>
+      </ul>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* You can add custom Tailwind CSS styles here if needed */
+</style>
