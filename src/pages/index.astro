@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import profileImage from "../assets/Andrew-Riefenstahl.jpg";
+import { ViewTransitions } from "astro:transitions";
 const metaTags = {
   title: "Andrew Riefenstahl: Full Stack Web Developer",
   description:
@@ -26,7 +27,20 @@ const metaTags = {
     <meta name="twitter:title" content={metaTags.title} />
     <meta name="twitter:description" content={metaTags.description} />
     <meta name="twitter:image" content={metaTags.image} />
+    <ViewTransitions />
   </head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X0GP8G25YE"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-X0GP8G25YE");
+  </script>
   <main class="p-4 max-w-4xl mx-auto">
     <div class="text-center">
       <Image
@@ -63,9 +77,10 @@ const metaTags = {
           responsive and dynamic user experiences.
         </li>
         <li>
-          <strong>Full Stack Development:</strong> Expertise in creating robust
-          web applications using Express.js and Node.js, integrating frontend
-          and backend seamlessly.
+          <strong>Full Stack Development:</strong> Skilled in developing robust
+          web applications with Python (Django, Flask), PHP, Express.js, and
+          Node.js. Expertise in integrating diverse front-end and back-end
+          technologies for efficient, scalable solutions.
         </li>
         <li>
           <strong>CMS Integration:</strong> Skilled in deploying and customizing
