@@ -1,0 +1,46 @@
+---
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("posts");
+console.log(posts);
+---
+
+<div class="relative">
+  <button class="absolute top-0 right-0 p-4" id="menu-btn">
+    ☰ <!-- Hamburger icon -->
+  </button>
+  <ul
+    id="menu"
+    class="absolute right-0 bg-white shadow-md flex flex-col items-start w-40 mt-12"
+  >
+    {
+      posts.map((post) => (
+        <li class="w-full">
+          <a href={post.slug} class="block px-4 py-2 hover:bg-gray-100">
+            {post.data.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+<script>
+  let menuOpen = false; // Initial state of the menu
+
+  function updateMenuVisibility() {
+    const menu = document.getElementById("menu");
+    if (menuOpen) {
+      menu.classList.remove("hidden");
+    } else {
+      menu.classList.add("hidden");
+    }
+  }
+
+  function toggleMenu() {
+    menuOpen = !menuOpen;
+    updateMenuVisibility();
+  }
+
+  document.getElementById("menu-btn").addEventListener("click", toggleMenu);
+  updateMenuVisibility();
+</script>
