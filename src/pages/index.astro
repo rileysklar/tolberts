@@ -4,6 +4,8 @@ import { Image } from "astro:assets";
 import profileImage from "../assets/Andrew-Riefenstahl.jpg";
 import ogImage from "../assets/ar-ogimage-optimized.png";
 import { ViewTransitions } from "astro:transitions";
+import Analytics from "../components/Analytics.astro";
+
 const metaTags = {
   title: "Andrew Riefenstahl: Full Stack Web Developer",
   description:
@@ -31,18 +33,7 @@ const metaTags = {
     <link rel="canonical" href={metaTags.url} />
     <ViewTransitions />
   </head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X0GP8G25YE"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-X0GP8G25YE");
-  </script>
+  <Analytics />
   <main class="p-4 max-w-4xl mx-auto">
     <div class="text-center">
       <Image
