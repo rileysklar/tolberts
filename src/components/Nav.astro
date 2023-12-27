@@ -6,8 +6,11 @@ console.log(posts);
 ---
 
 <div class="relative">
-  <button class="absolute top-0 right-0 p-4" id="menu-btn">
-    ☰ <!-- Hamburger icon -->
+  <button
+    class="absolute top-0 right-0 p-4 h-12 w-12 m-4 flex flex-col items-center justify-center rounded-lg shadow-sm bg-stone-300"
+    id="menu-btn"
+  >
+    <span class="text-3xl relative bottom-1">☰</span>
   </button>
   <ul
     id="menu"
@@ -16,7 +19,10 @@ console.log(posts);
     {
       posts.map((post) => (
         <li class="w-full">
-          <a href={post.slug} class="block px-4 py-2 hover:bg-gray-100">
+          <a
+            href={`/posts/${post.slug}/`}
+            class="block px-4 py-2 hover:bg-gray-100"
+          >
             {post.data.title}
           </a>
         </li>
