@@ -1,0 +1,12 @@
+---
+// Header component in Astro
+import Nav from "./Nav.astro";
+const { title } = Astro.props;
+---
+
+<header>
+  <!-- 1<h1>{title}</h1> -->
+  <nav>
+    <Nav />
+  </nav>
+</header>

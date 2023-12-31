@@ -1,0 +1,36 @@
+---
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+
+const metaTags = {
+  title: frontmatter.title,
+  description: frontmatter.description,
+  image: frontmatter.image.url.src,
+  url: `https://andrewriefenstahl.com/posts/${frontmatter.slug}`,
+};
+---
+
+<Layout metaTags={metaTags}>
+  <div class="max-w-2xl mx-auto px-5 py-8">
+    <p class="text-xs sm:text-sm text-gray-600">
+      {frontmatter.pubDate.toString().slice(0, 10)}
+    </p>
+    <h1 class="text-2xl sm:text-4xl font-bold text-gray-900 mt-2 mb-4">
+      {frontmatter.title}
+    </h1>
+    <p class="text-base sm:text-lg italic text-gray-700 mb-4">
+      {frontmatter.description}
+    </p>
+    <p class="text-sm font-medium mb-6">
+      Written by: <span class="text-indigo-600">{frontmatter.author}</span>
+    </p>
+    <img
+      class="w-full h-auto rounded-lg shadow-md mb-8"
+      src={frontmatter.image.url.src}
+      alt={frontmatter.image.alt}
+    />
+    <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
+      <slot />
+    </article>
+  </div>
+</Layout>

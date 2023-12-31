@@ -1,0 +1,52 @@
+---
+
+---
+
+<div class="relative">
+  <button
+    class="absolute top-0 right-0 p-4 h-12 w-12 m-4 flex flex-col items-center justify-center rounded-lg shadow-sm bg-stone-300"
+    id="menu-btn"
+  >
+    <span class="text-3xl relative bottom-1">☰</span>
+  </button>
+  <ul
+    id="menu"
+    class="absolute right-4 top-[20px] bg-stone-100 rounded-md hidden shadow-md flex flex-col items-start w-48 mt-12 p-2"
+  >
+    <li class="w-full">
+      <a
+        href="/"
+        class="block px-4 py-2 hover:bg-stone-200 focus:bg-stone-200 rounded-md"
+      >
+        Home</a
+      >
+    </li>
+    <li class="w-full">
+      <a
+        href="/posts"
+        class="block px-4 py-2 hover:bg-stone-200 focus:bg-stone-200 rounded-md"
+      >
+        Blog Posts</a
+      >
+    </li>
+  </ul>
+</div>
+<script>
+  document.addEventListener("astro:page-load", () => {
+    let menuOpen = false; // reset or reapply the menu state
+
+    function toggleMenu() {
+      menuOpen = !menuOpen;
+      updateMenuVisibility();
+    }
+
+    function updateMenuVisibility() {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("hidden", !menuOpen);
+    }
+
+    // Reset the event listener for the menu button
+    document.getElementById("menu-btn").addEventListener("click", toggleMenu);
+    updateMenuVisibility(); // Ensure correct initial state
+  });
+</script>
