@@ -2,37 +2,20 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import profileImage from "../assets/Andrew-Riefenstahl.jpg";
-import ogImage from "../assets/ar-ogimage-optimized.png";
 import Analytics from "../components/Analytics.astro";
 
 const metaTags = {
   title: "Andrew Riefenstahl: Full Stack Web Developer",
   description:
     "Discover Andrew Riefenstahl's journey in full stack web development, showcasing skills in modern technologies and innovative solutions.",
-  image: ogImage.src,
   url: "https://andrewriefenstahl.com",
   twitterHandle: "@riefer02",
 };
 ---
 
-<Layout title={metaTags.title}>
-  <head>
-    <title>{metaTags.title}</title>
-    <meta name="description" content={metaTags.description} />
-    <meta property="og:title" content={metaTags.title} />
-    <meta property="og:description" content={metaTags.description} />
-    <meta property="og:image" content={metaTags.image} />
-    <meta property="og:url" content={metaTags.url} />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:creator" content={metaTags.twitterHandle} />
-    <meta name="twitter:title" content={metaTags.title} />
-    <meta name="twitter:description" content={metaTags.description} />
-    <meta name="twitter:image" content={metaTags.image} />
-    <link rel="canonical" href={metaTags.url} />
-  </head>
+<Layout metaTags={metaTags}>
   <Analytics />
-  <main class="p-4 max-w-4xl mx-auto">
+  <main class="p-4 max-w-3xl mx-auto">
     <div class="text-center">
       <Image
         src={profileImage}
@@ -46,11 +29,6 @@ const metaTags = {
       >
         Andrew Riefenstahl
       </h1>
-      <h2
-        class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-4 font-semibold"
-      >
-        Full Stack Web Development
-      </h2>
     </div>
     <p class="text-base sm:text-lg mb-6">
       With a proven track record of innovation and problem-solving, Andrew
