@@ -5,7 +5,7 @@ const { frontmatter } = Astro.props;
 const metaTags = {
   title: frontmatter.title,
   description: frontmatter.description,
-  image: frontmatter.image.url,
+  image: frontmatter.image.url.src,
   url: `https://andrewriefenstahl.com/posts/${frontmatter.slug}`,
 };
 ---
