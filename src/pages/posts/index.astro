@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import PostCard from "../../components/PostCard.astro";
+
+const allPosts = await getCollection("posts");
+
+const metaTags = {
+  title: "Archive of Blog Posts - Andrew Riefenstahl",
+  description:
+    "Dive into a comprehensive collection of all my blog posts. Explore various topics, insightful articles, and more spanning from 2023 to the present.",
+  url: "https://andrewriefenstahl.com/posts",
+};
+---
+
+<Layout metaTags={metaTags}>
+  <main class="p-4 max-w-3xl mx-auto">
+    <div class="text-center">
+      <h1 class="text-2xl md:text-3xl lg:text-4xl mb-4 font-semibold">
+        Blog Posts
+      </h1>
+      <h2 class="text-lg sm:text-xl mb-4 max-w-xs mx-auto sm:max-w-xl">
+        Dive into a comprehensive collection of all my blog posts.
+      </h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
+      {allPosts.map((post) => <PostCard post={post} />)}
+    </div>
+  </main>
+</Layout>

@@ -1,12 +1,18 @@
 ---
 import Header from "../components/Header.astro";
 import { ViewTransitions } from "astro:transitions";
-
+import ogImage from "../assets/ar-ogimage-optimized.png";
 interface Props {
-  title: string;
+  metaTags: {
+    title: string;
+    description: string;
+    image?: string;
+    url: string;
+    twitterHandle?: string;
+  };
 }
 
-const { title } = Astro.props;
+const { metaTags } = Astro.props;
 ---
 
 <!doctype html>
@@ -14,18 +20,28 @@ const { title } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-    <meta name="theme-color" content="#e7e5e4" />
+    <title>{metaTags.title}</title>
+    <meta name="description" content={metaTags.description} />
+    <meta property="og:title" content={metaTags.title} />
+    <meta property="og:description" content={metaTags.description} />
+    <meta property="og:image" content={metaTags.image || ogImage.src} />
+    <meta property="og:url" content={metaTags.url} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:creator"
+      content={metaTags.twitterHandle || "@riefer02"}
+    />
+    <meta name="twitter:title" content={metaTags.title} />
+    <meta name="twitter:description" content={metaTags.description} />
+    <meta name="twitter:image" content={metaTags.image || ogImage.src} />
+    <link rel="canonical" href={metaTags.url} />
     <ViewTransitions />
   </head>
   <body class="bg-stone-200 text-gray-950">
-    <Header title={title} />
+    <Header title={metaTags.title} />
     <slot />
+
     <style is:global>
       :root {
         --accent: 136, 58, 234;

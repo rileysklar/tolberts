@@ -1,9 +1,16 @@
 ---
 import Layout from "./Layout.astro";
 const { frontmatter } = Astro.props;
+
+const metaTags = {
+  title: frontmatter.title,
+  description: frontmatter.description,
+  image: frontmatter.image.url,
+  url: `https://andrewriefenstahl.com/posts/${frontmatter.slug}`,
+};
 ---
 
-<Layout title={frontmatter.title}>
+<Layout metaTags={metaTags}>
   <div class="max-w-2xl mx-auto px-5 py-8">
     <p class="text-xs sm:text-sm text-gray-600">
       {frontmatter.pubDate.toString().slice(0, 10)}
@@ -19,7 +26,7 @@ const { frontmatter } = Astro.props;
     </p>
     <img
       class="w-full h-auto rounded-lg shadow-md mb-8"
-      src={frontmatter.image.url}
+      src={frontmatter.image.url.src}
       alt={frontmatter.image.alt}
     />
     <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
