@@ -1,11 +1,11 @@
 ---
 title: "My Philosophies"
-pubDate: 2023-01-01
+pubDate: 2023-12-31
 description: "In the following passages, I delve into the core philosophies that have steered my life's journey: hard work, dreaming big, the importance of history, and the joy in the minutiae."
 author: "Andrew Riefenstahl"
 image:
   url: "../../assets/images/my-philosophies.jpg"
-  alt: "The full Astro logo."
+  alt: "Dayzee the Shih-Tzu working in her studio."
 tags: ["philosophy", "ideologies", "mentality", "passion"]
 ---
 
@@ -20,8 +20,6 @@ When I was a teenager, my mother enrolled me in fencing classes — fencing as i
 Later in life, I taught myself how to play basketball, a sport I hadn't been exposed to at a competitive level when I was younger. I put in the time, was determined, and had fun while getting a great workout. I even coached for two years, which is a whole other story.
 
 Then there was the time after I finished school and had been working as a teacher for six years, feeling unfulfilled. I knew it was time for a change. That's when I began to study web development. Through hard work and determination, I was able to transition into a new career and found, once again, that I was enjoying it and having fun.
-
-On a side note, this principle doesn't apply in all situations. For example, when mixing audio, there comes a time when you have put in enough effort for that project and begin to experience diminishing returns. Then, it's time to finish the work and move onto the next project.
 
 The act of learning, if one can even call it an act and not a response, is something I find great joy in. Taking areas of complete mystery and, after some time, transforming them into understanding through the persevering pursuit of dedication and hard work, will yield results.
 
@@ -69,7 +67,7 @@ I wish there were a better way to see what my ancestors looked like just a few h
 
 No matter how intense and dramatic life can be, or the great achievements you may receive, the real essence of life lies in the finer things, the details. This is why, for the last philosophy I'll discuss today, I suggest you begin to appreciate the little things.
 
-No pun intended, but my favorite little thing to enjoy is my pet dog, Daisy. She's a Shih Tzu and very sweet. She likes to go for walks and loves fresh white chicken with a little rice mixed into her dry food. She enjoys sunbathing, sniffing the grass, and wandering around the yard. The time I spend with her might not move mountains on a geopolitical scale, but it has the power to move my heart and helps me find appreciation in all things in life.
+No pun intended, but my favorite little thing to enjoy is my pet dog, Dayzee. She's a Shih Tzu and very sweet. She likes to go for walks and loves fresh white chicken with a little rice mixed into her dry food. She enjoys sunbathing, sniffing the grass, and wandering around the yard. The time I spend with her might not move mountains on a geopolitical scale, but it has the power to move my heart and helps me find appreciation in all things in life.
 
 Enjoying the little things can lead to a broader level of contentment. You'll find contentment in sitting outside in the sun, walking your dog, taking a drive, sipping coffee, surfing the web, learning something new, or finally reading that book you've always wanted to. There are many amazing aspects of our world, and everyone deserves to enjoy the little things.
 

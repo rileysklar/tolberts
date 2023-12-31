@@ -1,12 +1,12 @@
 ---
-title: My Second Blog Post
-author: Astro Learner
-description: "After learning some Astro, I couldn't stop!"
+title: TBD Post 🛠️
+author: Andrew Riefenstahl
+description: "Working on another blog post! Under construction."
 image:
   url: "../../assets/images/second-one.jpg"
-  alt: "Thumbnails of websites from the Astro Showcase site."
-pubDate: 2022-07-08
-tags: ["astro", "blogging", "learning in public", "successes"]
+  alt: "Dayzee the Shih Tzu editing my latest blog post."
+pubDate: 2023-12-31
+tags: ["placeholder", "blogging", "tbd", "research"]
 ---
 
-After a successful first week learning Astro, I decided to try some more. I wrote and imported a small component from memory!
+Hello this is just a placeholder blog 🛠️ until I get around to writing some more content please enjoy the cute image and take some time to read my first blog, [My Philosophies](/posts/my-philosophies)
