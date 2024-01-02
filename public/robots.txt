@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://andrewriefenstahl.com/sitemap-index.xml
