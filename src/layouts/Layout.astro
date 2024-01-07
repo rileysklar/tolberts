@@ -36,6 +36,7 @@ const { metaTags } = Astro.props;
     <meta name="twitter:description" content={metaTags.description} />
     <meta name="twitter:image" content={metaTags.image || ogImage.src} />
     <link rel="canonical" href={metaTags.url} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <ViewTransitions />
   </head>
   <body class="bg-stone-200 text-gray-950">
