@@ -29,6 +29,17 @@ const metaTags = {
       src={frontmatter.image.url.src}
       alt={frontmatter.image.alt}
     />
+    {
+      frontmatter.tags && frontmatter.tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mb-4">
+          {frontmatter.tags.map((tag) => (
+            <span class="bg-stone-700 text-stone-100 text-xs font-semibold px-2.5 py-1.5 rounded-3xl">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )
+    }
     <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
       <slot />
     </article>
