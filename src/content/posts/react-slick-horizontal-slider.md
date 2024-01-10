@@ -1,0 +1,105 @@
+---
+title: "React Slick Horizontal Slider"
+pubDate: 2024-01-09
+description: "A practical guide on developing an efficient, responsive horizontal scroll slider using React Slick, tailored for modern web projects."
+author: "Andrew Riefenstahl"
+image:
+  url: "../../assets/images/react-slick-horizontal-slider.jpg"
+  alt: "Illustration of a responsive horizontal slider in action."
+tags: ["React", "web development", "React Slick", "UI components", "Nextjs"]
+---
+
+Its time to build a responsive horizontal scroll slider with react slick.
+
+## Introduction
+
+Working in a startup often requires adaptability and creative solutions, especially in web development. A common feature that has continually resurfaced in my projects is the need for a horizontal scroll slider. Despite the prevalence of various libraries and frameworks, finding a straightforward, CSS-based solution has been challenging. Today, I tackled this issue head-on for a landing page that featured multiple information cards. To avoid extensive vertical scrolling, I turned to an old ally: React Slick.
+
+## The Challenge
+
+The primary challenge was incorporating a horizontal scroll slider that is both efficient and aesthetically pleasing. After a thorough online search for a vanilla CSS solution yielded no satisfying results, I decided to create my own using React Slick. This library, while having decent documentation, often presents quirky challenges, especially when dealing with logo carousels and maintaining aspect ratios.
+
+## Installing React Slick
+
+To incorporate React Slick into your project, start by installing it through NPM. In your project directory, execute the following command:
+
+```shell
+npm install react-slick --save
+```
+
+This command adds React Slick to your project, allowing you to leverage its carousel functionality in your web applications.
+
+Note: In our `HorizontalSlider` component, we're using a different method to include the required CSS for React Slick, which will be detailed in the component section.
+
+## React Slick Horizontal Slider Component
+
+Below is the code for the `HorizontalSlider` component I developed. It uses React Slick to create a responsive, customizable horizontal scroll slider.
+
+### Code Snippet
+
+```jsx
+import React from "react";
+import Slider from "react-slick";
+import { Helmet } from "react-helmet";
+
+const HorizontalSlider = ({ children, className }) => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 3, slidesToScroll: 1 },
+      },
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 2, slidesToScroll: 2 },
+      },
+      {
+        breakpoint: 480,
+        settings: { slidesToShow: 1 },
+      },
+    ],
+  };
+
+  const sliderClassName = `horizontal-slider ${className}`;
+
+  return (
+    <div className={sliderClassName}>
+      <Helmet>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          charset="UTF-8"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+        />
+      </Helmet>
+      <Slider {...settings}>{children}</Slider>
+    </div>
+  );
+};
+
+export default HorizontalSlider;
+```
+
+In this component, I've included React Helmet to dynamically add the CSS scripts to the head of the page. This is necessary because the slider is a nested child component, and the styles need to be added at the top level of the document. However, this approach can lead to optimization issues. When the JavaScript loads client-side, it fetches these styles, which happens late in the page load process. To mitigate this, it's advisable to keep these components below the fold to avoid a "flash of unstyled content." Despite these concerns, I haven't noticed significant issues lately.
+
+> **Version Alert**: The CSS links included in the component are specific to the version used at the time of this writing. Always check for the latest version of React Slick to ensure compatibility and access to the most up-to-date features.
+
+```plaintext
+https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css
+https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css
+```
+
+## Conclusion
+
+This React component demonstrates a practical approach to creating a responsive horizontal slider. It's designed to be easily integrated and customized within various web projects. By sharing this solution, I hope to assist others facing similar challenges and contribute to the web development community.
