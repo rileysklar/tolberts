@@ -6,7 +6,7 @@ author: "Andrew Riefenstahl"
 image:
   url: "../../assets/images/react-slick-horizontal-slider.jpg"
   alt: "Illustration of a responsive horizontal slider in action."
-tags: ["React", "web development", "React Slick", "UI components", "Nextjs"]
+tags: ["React", "web development", "React Slick", "UI components","Gatsby", "Nextjs"]
 ---
 
 Its time to build a responsive horizontal scroll slider with react slick.
@@ -91,7 +91,11 @@ const HorizontalSlider = ({ children, className }) => {
 export default HorizontalSlider;
 ```
 
-In this component, I've included React Helmet to dynamically add the CSS scripts to the head of the page. This is necessary because the slider is a nested child component, and the styles need to be added at the top level of the document. However, this approach can lead to optimization issues. When the JavaScript loads client-side, it fetches these styles, which happens late in the page load process. To mitigate this, it's advisable to keep these components below the fold to avoid a "flash of unstyled content." Despite these concerns, I haven't noticed significant issues lately.
+In this component, I've included React Helmet to dynamically add the CSS scripts to the head of the page. This is necessary because the slider is a nested child component, and the styles need to be added at the top level of the document. 
+
+> If you're using `nextjs` you can just use the head component from `next/head`, and come to think of it. I believe the latest gatsby may have a different way of handling adding elements to the head.
+
+However, this approach can lead to optimization issues. When the JavaScript loads client-side, it fetches these styles, which happens late in the page load process. To mitigate this, it's advisable to keep these components below the fold to avoid a "flash of unstyled content." Despite these concerns, I haven't noticed significant issues lately.
 
 > **Version Alert**: The CSS links included in the component are specific to the version used at the time of this writing. Always check for the latest version of React Slick to ensure compatibility and access to the most up-to-date features.
 
