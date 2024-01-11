@@ -91,9 +91,11 @@ const HorizontalSlider = ({ children, className }) => {
 export default HorizontalSlider;
 ```
 
+Important that you make sure the parent element for this component has a width of one hundred percent.
+
 In this component, I've included React Helmet to dynamically add the CSS scripts to the head of the page. This is necessary because the slider is a nested child component, and the styles need to be added at the top level of the document. 
 
-> If you're using `nextjs` you can just use the head component from `next/head`, and come to think of it. I believe the latest gatsby may have a different way of handling adding elements to the head.
+If you're using `nextjs` you can just use the head component from `next/head`, and come to think of it. I believe the latest gatsby may have a different way of handling adding elements to the head.
 
 However, this approach can lead to optimization issues. When the JavaScript loads client-side, it fetches these styles, which happens late in the page load process. To mitigate this, it's advisable to keep these components below the fold to avoid a "flash of unstyled content." Despite these concerns, I haven't noticed significant issues lately.
 
