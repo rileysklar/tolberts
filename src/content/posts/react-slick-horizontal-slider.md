@@ -6,7 +6,15 @@ author: "Andrew Riefenstahl"
 image:
   url: "../../assets/images/react-slick-horizontal-slider.jpg"
   alt: "Illustration of a responsive horizontal slider in action."
-tags: ["React", "web development", "React Slick", "UI components","Gatsby", "Nextjs"]
+tags:
+  [
+    "React",
+    "web development",
+    "React Slick",
+    "UI components",
+    "Gatsby",
+    "Nextjs",
+  ]
 ---
 
 Its time to build a responsive horizontal scroll slider with react slick.
@@ -91,13 +99,13 @@ const HorizontalSlider = ({ children, className }) => {
 export default HorizontalSlider;
 ```
 
-Important that you make sure the parent element for this component has a width of one hundred percent.
+Important that you make sure the parent element for this component has `width: 100%`, and it is likely that the parent or the slide children themselves will need to have a set `height`.
 
-In this component, I've included React Helmet to dynamically add the CSS scripts to the head of the page. This is necessary because the slider is a nested child component, and the styles need to be added at the top level of the document. 
+I've included React Helmet to dynamically add the CSS scripts to the head of the page. This is necessary because the slider is a nested child component, and the styles need to be added at the top level of the document. Plus you might not want to add this script to every page on your website.
 
-If you're using `nextjs` you can just use the head component from `next/head`, and come to think of it. I believe the latest gatsby may have a different way of handling adding elements to the head.
+If you're using `nextjs` you can just use the head component from `next/head`, and come to think of it the latest gatsby may have a different way of handling adding elements to the head - but that maybe at the page component level.
 
-However, this approach can lead to optimization issues. When the JavaScript loads client-side, it fetches these styles, which happens late in the page load process. To mitigate this, it's advisable to keep these components below the fold to avoid a "flash of unstyled content." Despite these concerns, I haven't noticed significant issues lately.
+This approach can lead to optimization issues. When the JavaScript loads client-side, it fetches these styles, which happens late in the page load process. To mitigate this, it's advisable to keep these components below the fold to avoid a "flash of unstyled content." Despite these concerns, I haven't noticed significant issues lately.
 
 > **Version Alert**: The CSS links included in the component are specific to the version used at the time of this writing. Always check for the latest version of React Slick to ensure compatibility and access to the most up-to-date features.
 
@@ -105,6 +113,18 @@ However, this approach can lead to optimization issues. When the JavaScript load
 https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css
 https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css
 ```
+
+Another huge headache I was having on mobile was that when there's a single card showing and you slide to the next there was no margin between them I had to do some digging but here's what I found to fix that.
+
+```css
+.horizontal-slider .slick-slide {
+  padding: 0 8px; /* Adjust to Taste */
+  box-sizing: border-box;
+}
+```
+
+I'm using a specific selector class on the parent element so that in the case I have multiple sliders across my application these styles won't fight each other.
+
 
 ## Conclusion
 
