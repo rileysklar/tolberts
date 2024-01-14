@@ -21,7 +21,7 @@ Its time to build a responsive horizontal scroll slider with react slick.
 
 ## Introduction
 
-Working in a startup often requires adaptability and creative solutions, especially in web development. A common feature that has continually resurfaced in my projects is the need for a horizontal scroll slider. Despite the prevalence of various libraries and frameworks, finding a straightforward, CSS-based solution has been challenging. Today, I tackled this issue head-on for a landing page that featured multiple information cards. To avoid extensive vertical scrolling, I turned to an old ally: React Slick.
+Working in a startup often requires adaptability and creative solutions, especially in web development. A common feature that has continually resurfaced in my projects is the need for a horizontal scroll slider. Despite the prevalence of various libraries and frameworks, finding a straightforward, vanilla CSS-based solution has been challenging. Today, I tackled this issue head-on for a landing page that featured multiple information cards. To avoid extensive vertical scrolling, I turned to an old ally: React Slick.
 
 ## The Challenge
 
@@ -114,7 +114,7 @@ https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css
 https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css
 ```
 
-Another huge headache I was having on mobile was that when there's a single card showing and you slide to the next there was no margin between them I had to do some digging but here's what I found to fix that.
+Another huge headache I was having on mobile was that when there's a single card showing and you slide to the next there was no `margin` between them I had to do some digging but here's what I found to fix that.
 
 ```css
 .horizontal-slider .slick-slide {
