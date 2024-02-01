@@ -17,8 +17,6 @@ tags:
   ]
 ---
 
-Its time to build a responsive horizontal scroll slider with react slick.
-
 ## Introduction
 
 Working in a startup often requires adaptability and creative solutions, especially in web development. A common feature that has continually resurfaced in my projects is the need for a horizontal scroll slider. Despite the prevalence of various libraries and frameworks, finding a straightforward, vanilla CSS-based solution has been challenging. Today, I tackled this issue head-on for a landing page that featured multiple information cards. To avoid extensive vertical scrolling, I turned to an old ally: React Slick.
