@@ -11,7 +11,7 @@
   </button>
   <ul
     id="menu"
-    class="absolute right-4 top-[20px] bg-stone-100 rounded-md shadow-md flex flex-col items-start w-48 mt-12 p-2"
+    class="absolute hidden right-4 top-[20px] bg-stone-100 rounded-md shadow-md flex-col items-start w-48 mt-12 p-2"
   >
     <li class="w-full">
       <a
@@ -33,20 +33,19 @@
 </div>
 <script>
   document.addEventListener("astro:page-load", () => {
-    let menuOpen = false; // reset or reapply the menu state
-
     function toggleMenu() {
-      menuOpen = !menuOpen;
-      updateMenuVisibility();
-    }
-
-    function updateMenuVisibility() {
       const menu = document.getElementById("menu");
-      menu.classList.toggle("hidden", !menuOpen);
+      if (menu.classList.contains("hidden")) {
+        menu.classList.remove("hidden");
+        menu.classList.add("flex");
+      } else {
+        menu.classList.add("hidden");
+        menu.classList.remove("flex");
+      }
     }
 
-    // Reset the event listener for the menu button
-    document.getElementById("menu-btn").addEventListener("click", toggleMenu);
-    updateMenuVisibility(); // Ensure correct initial state
+    const menuBtn = document.getElementById("menu-btn");
+    menuBtn.removeEventListener("click", toggleMenu);
+    menuBtn.addEventListener("click", toggleMenu);
   });
 </script>
