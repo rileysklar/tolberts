@@ -6,18 +6,20 @@ import profileImage from "../assets/Andrew-Riefenstahl.jpg";
 ---
 
 <header
-  class="fixed top-0 z-50 flex h-14 w-full items-center justify-between bg-stone-800 px-6 py-1 text-stone-100 shadow-md sm:relative"
+  class="fixed top-0 z-50 w-full bg-stone-700 px-6 py-1 text-stone-100 shadow-md sm:relative"
 >
-  <div class="px-4">
-    <Image
-      src={profileImage}
-      alt="Andrew Riefenstahl smiling with his arms crossed against a multicolored background with hues of purple and maroon to pink."
-      width="34"
-      height="34"
-      class="rounded-full"
-    />
+  <div class="mx-auto flex w-full max-w-7xl items-center justify-between">
+    <div class="px-4">
+      <!-- <Image
+        src={profileImage}
+        alt="Andrew Riefenstahl smiling with his arms crossed against a multicolored background with hues of purple and maroon to pink."
+        width="36"
+        height="36"
+        class="rounded-full"
+      /> -->
+    </div>
+    <nav>
+      <Nav />
+    </nav>
   </div>
-  <nav>
-    <Nav />
-  </nav>
 </header>

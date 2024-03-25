@@ -11,7 +11,7 @@ const metaTags = {
 ---
 
 <Layout metaTags={metaTags}>
-  <div class="mx-auto max-w-2xl px-5 py-8">
+  <div class="mx-auto max-w-2xl py-6">
     <p class="text-xs text-gray-600 sm:text-sm">
       {frontmatter.pubDate.toString().slice(0, 10)}
     </p>
@@ -40,7 +40,9 @@ const metaTags = {
         </div>
       )
     }
-    <article class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl">
+    <article
+      class="prose prose-sm sm:prose prose-stone lg:prose-lg xl:prose-xl"
+    >
       <slot />
     </article>
   </div>
