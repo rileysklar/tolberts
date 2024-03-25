@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import profileImage from "../assets/Andrew-Riefenstahl.jpg";
 import Analytics from "../components/Analytics.astro";
+import "@/styles/globals.css";
+import { Button } from "@/components/ui/button.tsx";
 
 const metaTags = {
   title: "Andrew Riefenstahl: Full Stack Web Developer",
@@ -15,22 +17,22 @@ const metaTags = {
 
 <Layout metaTags={metaTags}>
   <Analytics />
-  <main class="p-4 max-w-3xl mx-auto prose">
+  <main class="prose mx-auto max-w-3xl p-4">
     <div class="text-center">
       <Image
         src={profileImage}
         alt="Andrew Riefenstahl smiling with his arms crossed against a multicolored background with hues of purple and maroon to pink."
         width="800"
         height="800"
-        class="rounded-full mx-auto mb-4 md:mb-8 w-[320px]"
+        class="mx-auto mb-4 w-[320px] rounded-full md:mb-8"
       />
       <h1
-        class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-4 font-semibold"
+        class="mb-4 text-2xl font-semibold md:text-3xl lg:text-4xl xl:text-5xl"
       >
         Andrew Riefenstahl
       </h1>
     </div>
-    <p class="text-base sm:text-lg mb-6 indent-8">
+    <p class="mb-6 indent-8 text-base sm:text-lg">
       With a proven track record of innovation and problem-solving, Andrew
       Riefenstahl stands at the forefront of digital transformation. His
       expertise in web and software development drives businesses and projects
@@ -38,8 +40,8 @@ const metaTags = {
     </p>
 
     <section class="mb-8">
-      <h2 class="text-lg sm:text-xl mb-3 font-semibold">Professional Skills</h2>
-      <ul class="list-disc pl-5 flex flex-col gap-2">
+      <h2 class="mb-3 text-lg font-semibold sm:text-xl">Professional Skills</h2>
+      <ul class="flex list-disc flex-col gap-2 pl-5">
         <li>
           <strong>Web Development:</strong> Mastery in modern web technologies including
           React, Gatsby.js, Next.js, WordPress, Astro, Vue, Nuxt.js and Vite, delivering
@@ -91,7 +93,7 @@ const metaTags = {
       </ul>
     </section>
     <section class="mb-8">
-      <h2 class="text-lg sm:text-xl mb-3 font-semibold">Key Projects</h2>
+      <h2 class="mb-3 text-lg font-semibold sm:text-xl">Key Projects</h2>
       <ul class="list-disc pl-5">
         <li>
           <a
@@ -224,7 +226,7 @@ const metaTags = {
       </ul>
     </section>
     <section class="mb-8">
-      <h2 class="text-lg sm:text-xl mb-3 font-semibold">Connect with Me</h2>
+      <h2 class="mb-3 text-lg font-semibold sm:text-xl">Connect with Me</h2>
       <ul class="list-none pl-0">
         <li class="mb-2">
           <a
@@ -238,7 +240,7 @@ const metaTags = {
           <a
             href="https://github.com/riefer02"
             target="_blank"
-            class="text-gray-900 hover:">GitHub: @riefer02</a
+            class="hover: text-gray-900">GitHub: @riefer02</a
           >
         </li>
         <li class="mb-2">

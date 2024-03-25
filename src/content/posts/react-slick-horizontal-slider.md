@@ -123,7 +123,6 @@ Another huge headache I was having on mobile was that when there's a single card
 
 I'm using a specific selector class on the parent element so that in the case I have multiple sliders across my application these styles won't fight each other.
 
-
 ## Conclusion
 
 This React component demonstrates a practical approach to creating a responsive horizontal slider. It's designed to be easily integrated and customized within various web projects. By sharing this solution, I hope to assist others facing similar challenges and contribute to the web development community.
