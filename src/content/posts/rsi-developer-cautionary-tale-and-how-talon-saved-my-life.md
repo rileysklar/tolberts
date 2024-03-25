@@ -22,7 +22,7 @@ The story I'm about to share is for those who feel lost or discouraged, enduring
 
 In late July 2023, I experienced a wrist blowout. It was a Sunday, and I had been deeply engrossed in making meticulous edits to drum machine MIDI for my album. After finishing, I couldn't quite remember if my hands felt overworked, but I then shifted to gaming, embracing my "Sunday funday" with no obligations. After gaming for another three hours, my hands began to tire; I felt fatigued and discomfort setting in. I logged off, but it was too late — my tendons had given way.
 
-A few weeks earlier, I had intensified my weightlifting routine, perhaps too zealously. I recall a moment of strain as I pushed for one more bicep curl, inspired by Arnold Schwarzenegger's resilience. This ambition, I believe, contributed to my injury.
+Unbeknownst to me the foundation for the wrist injury had started a few weeks earlier. I had intensified my weightlifting routine, perhaps too zealously. I recall a moment of particular strain as I pushed for one more bicep curl, inspired by Arnold Schwarzenegger's resilience. This ambition caused spinal compression which eventually created a degenerative disk in my C5-C6 vertebrae setting the foundation for my wrist issues.
 
 Despite the clear signals from my body to rest, I persisted. The following day, as a software developer, I continued my usual activities and even attempted to strengthen my wrist with a 25-pound weight, thinking it would alleviate the tendonitis. This decision only dug me deeper into trouble. During a yoga session, while in the plank pose, I felt a significant give in my right wrist, a moment I pinpoint to the origin of a ganglion cyst that developed later.
 
