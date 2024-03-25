@@ -28,7 +28,7 @@ Despite the clear signals from my body to rest, I persisted. The following day, 
 
 I worked excessively long, ignoring the necessity for rest, driven by a wish for a time machine. Eventually, I scheduled an appointment with an orthopedic hand specialist, opting to pay out-of-pocket for expert advice. This decision spiraled into a larger narrative of navigating the healthcare system, a story for another time.
 
-The doctor offered little help, and I continued working until, in October, I urgently requested time off from work, fearing I wouldn't survive without it. This break was a turning point, allowing me to rest fully for the first time and discover Talon, the speech control software that became my lifeline. I dedicated two weeks to mastering computer use via voice control, as my hands were in too much pain for any physical task.
+The doctor offered little help, and I continued working until, in October, I urgently requested time off from work, fearing I wouldn't survive without it. This break was a turning point, allowing me to rest fully for the first time and discover [Talon](https://talon.wiki/getting_started/), the speech control software that became my lifeline. I dedicated two weeks to mastering computer use via voice control, as my hands were in too much pain for any physical task.
 
 As I continued to work through the pain, I managed to schedule an MRI (Magnetic Resonance Imaging). Upon reviewing the results, the hand specialist I was seeing seemed baffled and offered no real assistance — it was as if he hadn't even looked at the report.
 
