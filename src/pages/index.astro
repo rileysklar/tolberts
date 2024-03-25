@@ -3,8 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import profileImage from "../assets/Andrew-Riefenstahl.jpg";
 import Analytics from "../components/Analytics.astro";
-import "@/styles/globals.css";
-import { Button } from "@/components/ui/button.tsx";
 
 const metaTags = {
   title: "Andrew Riefenstahl: Full Stack Web Developer",
@@ -17,22 +15,20 @@ const metaTags = {
 
 <Layout metaTags={metaTags}>
   <Analytics />
-  <main class="prose mx-auto max-w-3xl p-4">
+  <main class="prose mx-auto max-w-3xl px-4 py-2">
     <div class="text-center">
       <Image
         src={profileImage}
         alt="Andrew Riefenstahl smiling with his arms crossed against a multicolored background with hues of purple and maroon to pink."
         width="800"
         height="800"
-        class="mx-auto mb-4 w-[320px] rounded-full md:mb-8"
+        class="mx-auto mb-4 w-[280px] rounded-full md:mb-8"
       />
-      <h1
-        class="mb-4 text-2xl font-semibold md:text-3xl lg:text-4xl xl:text-5xl"
-      >
+      <h1 class="mb-4 text-2xl font-semibold md:text-3xl lg:text-4xl">
         Andrew Riefenstahl
       </h1>
     </div>
-    <p class="mb-6 indent-8 text-base sm:text-lg">
+    <p class="mb-6 indent-8 text-base">
       With a proven track record of innovation and problem-solving, Andrew
       Riefenstahl stands at the forefront of digital transformation. His
       expertise in web and software development drives businesses and projects
