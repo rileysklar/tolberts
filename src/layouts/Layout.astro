@@ -3,6 +3,7 @@ import Header from "../components/Header.astro";
 import { ViewTransitions } from "astro:transitions";
 import ogImage from "../assets/ar-ogimage-optimized.png";
 import "../styles/globals.css";
+import TopNav from "@/components/ui/TopNav";
 interface Props {
   metaTags: {
     title: string;
@@ -42,6 +43,7 @@ const { metaTags } = Astro.props;
   </head>
   <body class="bg-stone-200 text-stone-800">
     <Header title={metaTags.title} />
+    <TopNav />
     <div class="px-4 py-8 lg:py-2">
       <slot />
     </div>
