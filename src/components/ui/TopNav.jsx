@@ -12,13 +12,14 @@ export default function TopNav() {
         </div>
         <div className="menu flex w-full justify-end space-x-4">
           <Button variant="link" className="text-xl text-white">
-            Home
+            <a href="/">Home</a>
           </Button>
+
           <Button variant="link" className="text-xl text-white">
             Menu
           </Button>
           <Button variant="link" className="text-xl text-white">
-            About
+            <a href="/about">About</a>
           </Button>
           <Button variant="link" className=" text-xl text-white">
             Order
