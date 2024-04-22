@@ -11,7 +11,7 @@ const metaTags = {
   title: "Tolbert's Restaurant",
   description:
     "Discover Andrew Riefenstahl's journey in full stack web development, showcasing skills in modern technologies and innovative solutions.",
-  url: "https://andrewriefenstahl.com",
+  url: "https://tolbertsrestaurant.com",
   twitterHandle: "@riefer02",
 };
 
@@ -21,7 +21,7 @@ console.log(events);
 
 <Layout metaTags={metaTags}>
   <Analytics />
-  <main class=" mx-auto max-w-3xl">
+  <main class="mx-auto max-w-3xl content">
    <h1> Tolbert's Restaurant </h1>
    <Card />
    <Button variant="link">Hello</Button>
@@ -29,5 +29,7 @@ console.log(events);
 </Layout>
 
 <style>
-  /* You can add custom Tailwind CSS styles here if needed */
+ .content {
+  flex: 1 0 auto;
+}
 </style>
