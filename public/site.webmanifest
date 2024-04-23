@@ -1,6 +1,6 @@
 {
-  "name": "Andrew Riefenstahl: Full Stack Web Developer",
-  "short_name": "Andrew Riefenstahl",
+  "name": " Tolbert's Restaurant",
+  "short_name": "Tolbert's Restaurant",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -16,6 +16,6 @@
   "theme_color": "#e7e5e4",
   "background_color": "#ffffff",
   "display": "standalone",
-  "start_url": "https://andrewriefenstahl.com",
-  "description": "Discover Andrew Riefenstahl's journey in full stack web development, showcasing skills in modern technologies and innovative solutions."
+  "start_url": "https://tolebrtsrestaurant.com",
+  "description": "The tradition continues as Tolbert’s Restaurant & Chili Parlor features classic southwestern cuisine with our signature Bowl of Red, using the same recipe developed by Frank X. Tolbert and his son."
 }
