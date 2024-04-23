@@ -1,0 +1,30 @@
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+  margin: 10px;
+  flex: 1 0 21%; /* default size */
+}
+
+.card.large {
+  flex: 2 0 46%; /* larger size */
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* added this line */
+}
+
+.card:not(:first-child) img {
+  width: 200px; /* adjust this value as needed */
+  height: auto;
+  object-fit: cover;
+}

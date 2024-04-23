@@ -4,8 +4,9 @@ import { Image } from "astro:assets";
 import profileImage from "../assets/Andrew-Riefenstahl.jpg";
 import Analytics from "../components/Analytics.astro";
 import { getEvents } from "../lib/wordpress/fetchEvents";
-import { Button } from "../components/ui/button"
-import Card from "../components/Card"
+
+
+import Hero from "../components/ui/Hero";
 
 const metaTags = {
   title: "Tolbert's Restaurant",
@@ -21,10 +22,9 @@ console.log(events);
 
 <Layout metaTags={metaTags}>
   <Analytics />
-  <main class="mx-auto max-w-3xl content">
-   <h1> Tolbert's Restaurant </h1>
-   <Card />
-   <Button variant="link">Hello</Button>
+  <main class=" content">
+    <Hero events={events} client:load/>
+
   </main>
 </Layout>
 
