@@ -11,16 +11,17 @@ export default function TopNav() {
           <img src="src/assets/logo-white.png" alt="Logo" />
         </div>
         <div className="menu flex w-full justify-end space-x-4">
-          <Button variant="link" className="text-2xl text-white">
-            Home
+          <Button variant="link" className="text-xl text-white">
+            <a href="/">Home</a>
           </Button>
-          <Button variant="link" className="text-2xl text-white">
+
+          <Button variant="link" className="text-xl text-white">
             Menu
           </Button>
-          <Button variant="link" className="text-2xl text-white">
-            About
+          <Button variant="link" className="text-xl text-white">
+            <a href="/about">About</a>
           </Button>
-          <Button variant="link" className=" text-2xl text-white">
+          <Button variant="link" className=" text-xl text-white">
             Order
           </Button>
         </div>
