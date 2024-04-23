@@ -22,15 +22,10 @@ console.log(events);
 
 <Layout metaTags={metaTags}>
   <Analytics />
-  <main class="mx-auto max-w-3xl content">
-   <h1> Tolbert's Restaurant </h1>
-   <Card />
-   <Button variant="link">Hello</Button>
+  <main class="content">
+    <Hero events={events} client:load/>
+
   </main>
 </Layout>
 
-<style>
- .content {
-  flex: 1 0 auto;
-}
-</style>
+
