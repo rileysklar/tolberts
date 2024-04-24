@@ -7,30 +7,29 @@ const Hero = ({ events }) => {
 
   console.log(events);
   return (
-    <div className="grid h-[60dvh] grid-cols-1 md:grid-cols-3">
+    <div className="grid h-[100dvh] grid-cols-1 md:grid-cols-3">
       <div
-        className="flex items-end justify-end bg-cover bg-center md:col-span-2"
+        className="mt-[80px] flex items-end justify-end bg-cover bg-center sm:mt-[20px] md:col-span-2"
         style={{
           backgroundImage: `url(${events[0].node.postTypeEvent.image.sourceUrl})`,
         }}
       >
         <div
-          className="overflow-hidden rounded-t-lg bg-slate-800/30 p-4 shadow-indigo-500/50 backdrop-blur-md
+          className="overflow-hidden rounded-t-lg bg-slate-800/30 p-4 shadow-lg backdrop-blur-md
 
 "
         >
-          <h2 className="text-4xl text-white">
+          <h2 className="noto text-xl text-white sm:text-3xl">
             {events[0].node.postTypeEvent.primaryHeader}
           </h2>
-          <h3 className="text-2xl text-white">
+          <h3 className="sm:text-md text-sm text-white">
             {events[0].node.postTypeEvent.secondaryHeader}
           </h3>
-          <p className="text-xl text-white">
+          <p className="sm:text-md text-sm text-white">
             {events[0].node.postTypeEvent.date}
           </p>
         </div>
       </div>
-
       <div className="flex flex-col md:col-span-1">
         {events.slice(1, 3).map((event, index) => {
           const {
@@ -40,6 +39,7 @@ const Hero = ({ events }) => {
                 image: { sourceUrl } = {},
                 primaryHeader,
                 secondaryHeader,
+                showDescription,
                 date,
               } = {},
             } = {},
@@ -48,15 +48,24 @@ const Hero = ({ events }) => {
           return (
             <div
               key={id}
-              className="flex flex-1 items-end justify-end overflow-hidden bg-cover bg-center shadow-indigo-500/50
+              className="group flex flex-1 items-end justify-end overflow-hidden bg-cover bg-center shadow-lg
 
               "
               style={{ backgroundImage: `url(${sourceUrl})` }}
             >
               <div className="rounded-t-lg bg-slate-800/30 p-4 backdrop-blur-md">
-                <h2 className="text-3xl text-white">{primaryHeader}</h2>
-                <h3 className="text-2xl text-white">{secondaryHeader}</h3>
-                <p className="text-lg text-white">{date}</p>
+                <h2 className="noto text-xl text-white sm:text-3xl">
+                  {primaryHeader}
+                </h2>
+                <h3 className="sm:text-md text-sm text-white">
+                  {secondaryHeader}
+                </h3>
+                <p className="sm:text-md text-sm text-white">{date}</p>
+                <div className="hidden group-hover:block">
+                  <p className="sm:text-md text-sm text-white">
+                    {showDescription}
+                  </p>
+                </div>
               </div>
             </div>
           );
