@@ -73,7 +73,7 @@ const Hero = ({ events }) => {
             return (
               <div
                 key={id}
-                className=" flex flex-1 items-end justify-end overflow-hidden bg-cover bg-bottom  bg-center shadow-lg
+                className=" flex flex-1 items-end justify-end overflow-hidden bg-cover bg-bottom  bg-top shadow-lg
 
               "
                 style={{ backgroundImage: `url(${sourceUrl})` }}
