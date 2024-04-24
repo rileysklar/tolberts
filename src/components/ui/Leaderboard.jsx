@@ -1,6 +1,7 @@
 // create a leaderboard with text left and image right and a button below the text
 
 import { Button } from "./button";
+import { ChevronRight } from "lucide-react";
 
 const Leaderboard = () => {
   return (
@@ -27,8 +28,8 @@ const Leaderboard = () => {
             recipe developed by Frank X. Tolbert and his son. Enjoy your visit
             and tell your friends! Kathleen, Paul and Steven Ryan
           </p>
-          <Button variant="secondary" className="mt-2">
-            CTA
+          <Button variant="default" className="mt-2">
+            Learn More <ChevronRight className="h-4 w-4" />
           </Button>
         </div>
         <div

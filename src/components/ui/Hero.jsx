@@ -1,6 +1,7 @@
 import { useState } from "react";
 import React from "react";
 import { Button } from "./button";
+import { ChevronRight } from "lucide-react";
 
 const Hero = ({ events }) => {
   console.log(events);
@@ -42,11 +43,12 @@ const Hero = ({ events }) => {
             <p className="mt-1 text-sm text-white"> {description}</p>
           )}
           <Button
-            variant="secondary"
-            className="mt-2"
+            variant="outline"
+            className="color-white mt-2 bg-transparent"
             onClick={() => setShowDescription(!showDescription)}
           >
             {showDescription ? "Hide Details" : "Show Details"}
+            <ChevronRight className="h-4 w-4" />
           </Button>
         </div>
       </div>
@@ -90,11 +92,12 @@ const Hero = ({ events }) => {
                     <p className="mt-1 text-sm text-white">{description}</p>
                   )}
                   <Button
-                    variant="secondary"
-                    className="border-1 mt-2 bg-transparent text-white"
+                    variant="outline"
+                    className="color-white mt-2 bg-transparent"
                     onClick={() => setShowDescription(!showDescription)}
                   >
-                    {showDescription ? "Hide Details" : "Show Details"}
+                    {showDescription ? "Hide Details" : "Show Details"}{" "}
+                    <ChevronRight className="h-4 w-4" />
                   </Button>
                 </div>
               </div>
