@@ -32,15 +32,17 @@ export default function TopNav() {
           className="logo duration-800 transition-all"
           style={{ width: isScrolled ? "75px" : "125px" }}
         >
-          <img
-            className="h-auto"
-            src={
-              isScrolled
-                ? "src/assets/logo-black.png"
-                : "src/assets/logo-white.png"
-            }
-            alt="Logo"
-          />
+          <a href="/">
+            <img
+              className="h-auto"
+              src={
+                isScrolled
+                  ? "src/assets/logo-black.png"
+                  : "src/assets/logo-white.png"
+              }
+              alt="Logo"
+            />
+          </a>
         </div>
 
         {/* Mobile menu button */}
@@ -81,9 +83,9 @@ export default function TopNav() {
           </a>
           <a
             href="/"
-            className={`text-xl hover:underline ${isScrolled ? "text-black" : "text-white"}`}
+            className={`rounded-full bg-lime-500 px-4 py-1 text-xl hover:bg-lime-600 ${isScrolled ? "text-white" : "text-black"}`}
           >
-            Order
+            Order Food
           </a>
         </div>
       </div>
@@ -119,9 +121,9 @@ export default function TopNav() {
         </a>
         <a
           href="/"
-          className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
+          className={`mb-6 rounded-full bg-lime-500 px-5 py-2 text-3xl hover:bg-lime-600  ${isScrolled ? "text-white" : "text-black"}`}
         >
-          Order
+          Order Food
         </a>
       </div>
     </nav>
