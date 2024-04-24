@@ -15,7 +15,7 @@ const Hero = ({ events }) => {
         }}
       >
         <div
-          className="overflow-hidden rounded-t-lg bg-slate-800/30 p-4 shadow-lg backdrop-blur-md
+          className="overflow-hidden rounded-tl-lg border-l border-t border-t bg-slate-800/30 p-4 shadow-lg backdrop-blur-md
 
 "
         >
@@ -53,7 +53,7 @@ const Hero = ({ events }) => {
               "
               style={{ backgroundImage: `url(${sourceUrl})` }}
             >
-              <div className="rounded-t-lg bg-slate-800/30 p-4 backdrop-blur-md">
+              <div className="rounded-tl-lg border-l border-t bg-slate-800/30 p-4 backdrop-blur-md">
                 <h2 className="noto text-xl text-white sm:text-3xl">
                   {primaryHeader}
                 </h2>
