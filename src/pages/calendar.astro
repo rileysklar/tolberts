@@ -1,8 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Analytics from "../components/Analytics.astro";
-import Calendar from "@/components/ui/Calendar";
+import Calendar from "@/components/Calendar"
 import { getEvents } from "../lib/wordpress/fetchEvents";
+import Hero from "@/components/Hero"
 
 const metaTags = {
   title: "About Tolbert's Restaurant",
@@ -18,6 +19,7 @@ console.log(events);
 <Layout metaTags={metaTags}>
   <Analytics />
   <main class="">
+    <Hero events={events} client:load/>
    <Calendar events={events} client:load/>
   </main>
 </Layout>

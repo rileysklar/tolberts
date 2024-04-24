@@ -1,6 +1,6 @@
 // create a leaderboard with text left and image right and a button below the text
 
-import { Button } from "./button";
+import { Button } from "./ui/button";
 import { ChevronRight } from "lucide-react";
 
 const Leaderboard = () => {

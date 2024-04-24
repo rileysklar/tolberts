@@ -1,13 +1,13 @@
 import { useState } from "react";
 import React from "react";
-import { Button } from "./button";
+import { Button } from "./ui/button";
 
 const Calendar = ({ events }) => {
   console.log(events);
   const [showDescription, setShowDescription] = useState(false); // add this line
 
   return (
-    <div className="mt-[72px] grid grid-cols-1 gap-4 p-4 md:grid-cols-3">
+    <div className=" grid grid-cols-1 gap-4 p-4 md:grid-cols-3">
       {events &&
         [...events].reverse().map((event, index) => {
           const {
