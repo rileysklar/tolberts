@@ -25,7 +25,7 @@ export default function TopNav() {
 
   return (
     <nav
-      className={`duration-800 fixed top-0 z-50 w-full justify-between rounded-b-lg p-4 text-xl font-semibold shadow-lg	transition-all ${isScrolled ? "bg-white text-black" : "bg-black text-white"}`}
+      className={`duration-800 urbanist fixed top-0 z-50 w-full justify-between rounded-b-lg p-4 text-xl font-semibold shadow-lg	transition-all ${isScrolled ? "bg-white text-black" : "bg-black text-white"}`}
     >
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between">
         <div
