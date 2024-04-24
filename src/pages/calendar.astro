@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Analytics from "../components/Analytics.astro";
+import Calendar from "@/components/ui/Calendar";
+import { getEvents } from "../lib/wordpress/fetchEvents";
+
+const metaTags = {
+  title: "About Tolbert's Restaurant",
+  description:
+    "Frank X. Tolbert’s life-long passion for chili inspired him to write his world-famous book “A Bowl of Red” 50 years ago.  He founded the Terlingua Championship Chili Cook-Off in 1967 and joined forces with son Frank 2 in 1976 to open the first Tolbert’s Restaurant in Dallas, with daughter Kathleen helping manage starting in 1977.",
+  url: "https://tolbertsrestaurant.com/about",
+  twitterHandle: "@riefer02",
+};
+
+const events = await getEvents();
+console.log(events);
+---
+<Layout metaTags={metaTags}>
+  <Analytics />
+  <main class="">
+   <Calendar events={events} client:load/>
+  </main>
+</Layout>
