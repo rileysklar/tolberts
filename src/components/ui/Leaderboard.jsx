@@ -28,9 +28,11 @@ const Leaderboard = () => {
             recipe developed by Frank X. Tolbert and his son. Enjoy your visit
             and tell your friends! Kathleen, Paul and Steven Ryan
           </p>
-          <Button variant="default" className="mt-2">
-            Learn More <ChevronRight className="h-4 w-4" />
-          </Button>
+          <a href="/about">
+            <Button variant="default" className="mt-2">
+              Learn More <ChevronRight className="h-4 w-4" />
+            </Button>
+          </a>
         </div>
         <div
           className="flex items-end justify-end rounded-lg bg-cover bg-center shadow-2xl"
