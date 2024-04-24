@@ -41,10 +41,16 @@ const { metaTags } = Astro.props;
     <link rel="canonical" href={metaTags.url} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <ViewTransitions />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+
   </head>
   <divs class="bg-stone-200 text-stone-800">
     <Header title={metaTags.title} />
-    <TopNav />
+    <TopNav client:load/>
     <div>
       <slot />
     </div>
