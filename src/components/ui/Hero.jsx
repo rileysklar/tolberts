@@ -19,13 +19,13 @@ const Hero = ({ events }) => {
 
 "
         >
-          <h2 className="text-lg text-white sm:text-3xl">
+          <h2 className="noto text-xl text-white sm:text-3xl">
             {events[0].node.postTypeEvent.primaryHeader}
           </h2>
-          <h3 className="text-sm text-white sm:text-xl">
+          <h3 className="sm:text-md text-sm text-white">
             {events[0].node.postTypeEvent.secondaryHeader}
           </h3>
-          <p className="text-sm text-white sm:text-xl">
+          <p className="sm:text-md text-sm text-white">
             {events[0].node.postTypeEvent.date}
           </p>
         </div>
@@ -53,13 +53,13 @@ const Hero = ({ events }) => {
               style={{ backgroundImage: `url(${sourceUrl})` }}
             >
               <div className="rounded-t-lg bg-slate-800/30 p-4 backdrop-blur-md">
-                <h2 className="text-lg text-white sm:text-3xl">
+                <h2 className="noto text-xl text-white sm:text-3xl">
                   {primaryHeader}
                 </h2>
-                <h3 className="text-sm text-white sm:text-xl">
+                <h3 className="sm:text-md text-sm text-white">
                   {secondaryHeader}
                 </h3>
-                <p className="text-sm text-white sm:text-xl">{date}</p>
+                <p className="sm:text-md text-sm text-white">{date}</p>
               </div>
             </div>
           );

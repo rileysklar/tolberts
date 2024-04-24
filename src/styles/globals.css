@@ -6,6 +6,21 @@
   box-sizing: border-box;
 }
 
+.urbanist {
+  font-family: "Urbanist", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400; /* Example weight */
+  font-style: normal;
+}
+
+.noto {
+  font-family: "Noto Serif", serif;
+  font-optical-sizing: auto;
+  font-weight: 700; /* Example weight */
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
