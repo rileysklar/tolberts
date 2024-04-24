@@ -62,7 +62,13 @@ export default function TopNav() {
             Home
           </a>
           <a
-            href="/menu"
+            href="/calendar"
+            className={`text-xl hover:underline ${isScrolled ? "text-black" : "text-white"}`}
+          >
+            Calendar
+          </a>
+          <a
+            href="/"
             className={`text-xl hover:underline ${isScrolled ? "text-black" : "text-white"}`}
           >
             Menu
@@ -74,7 +80,7 @@ export default function TopNav() {
             About
           </a>
           <a
-            href="/order"
+            href="/"
             className={`text-xl hover:underline ${isScrolled ? "text-black" : "text-white"}`}
           >
             Order
@@ -94,7 +100,13 @@ export default function TopNav() {
           Home
         </a>
         <a
-          href="/menu"
+          href="/calendar"
+          className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
+        >
+          Calendar
+        </a>
+        <a
+          href="/"
           className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
         >
           Menu
@@ -106,7 +118,7 @@ export default function TopNav() {
           About
         </a>
         <a
-          href="/order"
+          href="/"
           className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
         >
           Order
