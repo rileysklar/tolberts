@@ -54,28 +54,28 @@ export default function TopNav() {
 
         {/* Desktop navigation links */}
 
-        <div className="menu flex hidden w-full items-center justify-end space-x-4 sm:flex">
+        <div className="menu flex hidden w-full items-center justify-end space-x-4 underline-offset-4 sm:flex">
           <a
             href="/"
-            className={`text-xl ${isScrolled ? "text-black" : "text-white"}`}
+            className={`text-xl hover:underline ${isScrolled ? "text-black" : "text-white"}`}
           >
             Home
           </a>
           <a
             href="/menu"
-            className={`text-xl ${isScrolled ? "text-black" : "text-white"}`}
+            className={`text-xl hover:underline ${isScrolled ? "text-black" : "text-white"}`}
           >
             Menu
           </a>
           <a
             href="/about"
-            className={`text-xl ${isScrolled ? "text-black" : "text-white"}`}
+            className={`text-xl hover:underline ${isScrolled ? "text-black" : "text-white"}`}
           >
             About
           </a>
           <a
             href="/order"
-            className={`text-xl ${isScrolled ? "text-black" : "text-white"}`}
+            className={`text-xl hover:underline ${isScrolled ? "text-black" : "text-white"}`}
           >
             Order
           </a>
@@ -85,29 +85,29 @@ export default function TopNav() {
       {/* Mobile navigation links */}
 
       <div
-        className={`menu flex w-full items-center justify-end gap-4 transition-opacity duration-500 sm:hidden md:flex md:hidden ${isMenuOpen ? "visible flex h-auto flex-col opacity-100 sm:block" : "invisible h-0 opacity-0 md:flex"}`}
+        className={`menu flex w-full items-center justify-end gap-4 underline-offset-4 transition-opacity duration-500 sm:hidden md:flex md:hidden ${isMenuOpen ? "visible flex h-auto flex-col opacity-100 sm:block" : "invisible h-0 opacity-0 md:flex"}`}
       >
         <a
           href="/"
-          className={`p-2 text-3xl ${isScrolled ? "text-black" : "text-white"}`}
+          className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
         >
           Home
         </a>
         <a
           href="/menu"
-          className={`p-2 text-3xl ${isScrolled ? "text-black" : "text-white"}`}
+          className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
         >
           Menu
         </a>
         <a
           href="/about"
-          className={`p-2 text-3xl ${isScrolled ? "text-black" : "text-white"}`}
+          className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
         >
           About
         </a>
         <a
           href="/order"
-          className={`p-2 text-3xl ${isScrolled ? "text-black" : "text-white"}`}
+          className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
         >
           Order
         </a>
