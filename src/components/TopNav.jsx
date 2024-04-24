@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import style from "../../styles/topnav.module.css";
+import style from "../styles/topnav.module.css";
 
 export default function TopNav() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -72,7 +72,7 @@ export default function TopNav() {
             Calendar
           </a>
           <a
-            href="/"
+            href="https://tolbertscms.com/wp-content/uploads/2024/04/TolbertsNewMenu010324.pdf"
             className={`text-xl hover:underline ${isScrolled ? "text-black" : "text-white"}`}
           >
             Menu
@@ -106,25 +106,31 @@ export default function TopNav() {
           href="/"
           className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
         >
-          Home
+          🏠 Home
         </a>
         <a
           href="/calendar"
           className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
         >
-          Calendar
+          🗓️ Calendar
         </a>
         <a
-          href="/"
+          href="https://tolbertscms.com/wp-content/uploads/2024/04/TolbertsNewMenu010324.pdf"
           className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
         >
-          Menu
+          🌶️ Menu
+        </a>
+        <a
+          href="http://tolbertscms.com/wp-content/uploads/2024/04/Brunch-Menu-Current-April-2023.pdf"
+          className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
+        >
+          🍳 Brunch
         </a>
         <a
           href="/about"
           className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
         >
-          About
+          👋 About
         </a>
         <select
           className={`mb-4 rounded-full bg-lime-500 p-2 px-5 text-center text-3xl hover:bg-lime-600  ${isScrolled ? "text-white" : "text-black"}`}
