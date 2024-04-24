@@ -10,13 +10,6 @@ module.exports = {
       screens: {
         "2xl": "1400px",
       },
-      screens: {
-        sm: "640px",
-        md: "768px",
-        lg: "1024px",
-        xl: "1280px",
-        "2xl": "1536px",
-      },
     },
     extend: {
       colors: {
@@ -73,6 +66,11 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+    },
+  },
+  variants: {
+    extend: {
+      display: ["group-hover"],
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],

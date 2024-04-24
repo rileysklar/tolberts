@@ -39,6 +39,7 @@ const Hero = ({ events }) => {
                 image: { sourceUrl } = {},
                 primaryHeader,
                 secondaryHeader,
+                showDescription,
                 date,
               } = {},
             } = {},
@@ -47,7 +48,7 @@ const Hero = ({ events }) => {
           return (
             <div
               key={id}
-              className="flex flex-1 items-end justify-end overflow-hidden bg-cover bg-center shadow-lg
+              className="group flex flex-1 items-end justify-end overflow-hidden bg-cover bg-center shadow-lg
 
               "
               style={{ backgroundImage: `url(${sourceUrl})` }}
@@ -60,6 +61,11 @@ const Hero = ({ events }) => {
                   {secondaryHeader}
                 </h3>
                 <p className="sm:text-md text-sm text-white">{date}</p>
+                <div className="hidden group-hover:block">
+                  <p className="sm:text-md text-sm text-white">
+                    {showDescription}
+                  </p>
+                </div>
               </div>
             </div>
           );
