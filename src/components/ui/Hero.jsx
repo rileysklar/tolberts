@@ -7,7 +7,7 @@ const Hero = ({ events }) => {
 
   console.log(events);
   return (
-    <div className="grid h-[100dvh] grid-cols-1 md:grid-cols-3">
+    <div className="grid h-[90dvh] grid-cols-1 md:grid-cols-3">
       <div
         className="mt-[80px] flex items-end justify-end bg-cover bg-center sm:mt-[20px] md:col-span-2"
         style={{
