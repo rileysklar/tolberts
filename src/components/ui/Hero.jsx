@@ -9,13 +9,13 @@ const Hero = ({ events }) => {
   return (
     <div className="grid h-[90dvh] grid-cols-1 md:grid-cols-3">
       <div
-        className="mt-[80px] flex items-end justify-end bg-cover bg-center sm:mt-[20px] md:col-span-2"
+        className="group mt-[80px] flex items-end justify-end bg-cover bg-center sm:mt-[20px] md:col-span-2"
         style={{
           backgroundImage: `url(${events[0].node.postTypeEvent.image.sourceUrl})`,
         }}
       >
         <div
-          className="overflow-hidden rounded-tl-lg border-l border-t border-t bg-slate-800/30 p-4 shadow-lg backdrop-blur-md
+          className=" overflow-hidden rounded-tl-lg border-l border-t border-t bg-slate-800/30 p-4 shadow-lg backdrop-blur-md 
 
 "
         >
@@ -26,8 +26,13 @@ const Hero = ({ events }) => {
             {events[0].node.postTypeEvent.secondaryHeader}
           </h3>
           <p className="sm:text-md text-sm text-white">
-            {events[0].node.postTypeEvent.date}
+            🗓️ {events[0].node.postTypeEvent.date}
           </p>
+          <div className="hidden group-hover:block">
+            <p className=" text-sm text-white">
+              {events[0].node.postTypeEvent.description}
+            </p>
+          </div>
         </div>
       </div>
       <div className="flex flex-col md:col-span-1">
@@ -39,7 +44,7 @@ const Hero = ({ events }) => {
                 image: { sourceUrl } = {},
                 primaryHeader,
                 secondaryHeader,
-                showDescription,
+                description,
                 date,
               } = {},
             } = {},
@@ -60,11 +65,9 @@ const Hero = ({ events }) => {
                 <h3 className="sm:text-md text-sm text-white">
                   {secondaryHeader}
                 </h3>
-                <p className="sm:text-md text-sm text-white">{date}</p>
+                <p className="sm:text-md text-sm text-white">🗓️ {date}</p>
                 <div className="hidden group-hover:block">
-                  <p className="sm:text-md text-sm text-white">
-                    {showDescription}
-                  </p>
+                  <p className=" text-sm text-white">{description}</p>
                 </div>
               </div>
             </div>
