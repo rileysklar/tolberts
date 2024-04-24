@@ -27,22 +27,26 @@ const Calendar = ({ events }) => {
           return (
             <div
               key={id}
-              className=" flex h-96 flex-1 items-end justify-end overflow-hidden rounded-lg bg-cover bg-center shadow-lg
+              className=" flex h-96 flex-1 items-end overflow-hidden rounded-lg bg-cover bg-center shadow-lg
 
               "
               style={{ backgroundImage: `url(${sourceUrl})` }}
             >
-              <div className=" rounded-tl-lg border-l border-t bg-slate-800/30 p-4 backdrop-blur-md">
-                <h2 className="noto text-xl text-white sm:text-3xl">
-                  {primaryHeader}
-                </h2>
-                <h3 className="sm:text-md mt-1 text-sm text-white">
-                  {secondaryHeader}
-                </h3>
-                <p className="sm:text-md mt-1 text-sm text-white">🗓️ {date}</p>
-                {showDescription && (
-                  <p className="mt-1 text-sm text-white">{description}</p>
-                )}
+              <div className="flex w-full	 flex-row items-center justify-between rounded-tl-lg border-l border-t bg-slate-800/30 p-4 backdrop-blur-md">
+                <div>
+                  <h2 className="noto text-xl text-white sm:text-3xl">
+                    {primaryHeader}
+                  </h2>
+                  <h3 className="sm:text-md mt-1 text-sm text-white">
+                    {secondaryHeader}
+                  </h3>
+                  <p className="sm:text-md mt-1 text-sm text-white">
+                    🗓️ {date}
+                  </p>
+                  {showDescription && (
+                    <p className="mt-1 text-sm text-white">{description}</p>
+                  )}
+                </div>
                 <Button
                   variant="secondary"
                   className="mt-2"
