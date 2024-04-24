@@ -44,7 +44,7 @@ const { metaTags } = Astro.props;
   </head>
   <divs class="bg-stone-200 text-stone-800">
     <Header title={metaTags.title} />
-    <TopNav />
+    <TopNav client:load/>
     <div>
       <slot />
     </div>
