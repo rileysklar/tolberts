@@ -87,7 +87,10 @@ export default function TopNav() {
             className={` rounded-full bg-lime-500 px-5 py-2 text-xl hover:bg-lime-600  ${isScrolled ? "text-white" : "text-black"}`}
             onChange={(e) => (window.location.href = e.target.value)}
           >
-            <option value="">Order Food</option>
+            {" "}
+            <option value="" selected disabled>
+              Order Food
+            </option>
             <option value="https://www.ubereats.com">Uber Eats</option>
             <option value="https://www.doordash.com">Door Dash</option>
           </select>
