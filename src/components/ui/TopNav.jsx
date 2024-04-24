@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import style from "../../styles/topnav.module.css";
 
 export default function TopNav() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       // Set initial state based on scroll position on the client
@@ -81,12 +83,14 @@ export default function TopNav() {
           >
             About
           </a>
-          <a
-            href="/"
-            className={`rounded-full bg-lime-500 px-4 py-1 text-xl hover:bg-lime-600 ${isScrolled ? "text-white" : "text-black"}`}
+          <select
+            className={` rounded-full bg-lime-500 px-5 py-2 text-xl hover:bg-lime-600  ${isScrolled ? "text-white" : "text-black"}`}
+            onChange={(e) => (window.location.href = e.target.value)}
           >
-            Order Food
-          </a>
+            <option value="">Order Food</option>
+            <option value="https://www.ubereats.com">Uber Eats</option>
+            <option value="https://www.doordash.com">Door Dash</option>
+          </select>
         </div>
       </div>
 
@@ -119,12 +123,14 @@ export default function TopNav() {
         >
           About
         </a>
-        <a
-          href="/"
-          className={`mb-6 rounded-full bg-lime-500 px-5 py-2 text-3xl hover:bg-lime-600  ${isScrolled ? "text-white" : "text-black"}`}
+        <select
+          className={`mb-4 rounded-full bg-lime-500 p-2 px-5 text-center text-3xl hover:bg-lime-600  ${isScrolled ? "text-white" : "text-black"}`}
+          onChange={(e) => (window.location.href = e.target.value)}
         >
-          Order Food
-        </a>
+          <option value="">Order Food</option>
+          <option value="https://www.ubereats.com">Uber Eats</option>
+          <option value="https://www.doordash.com">Door Dash</option>
+        </select>
       </div>
     </nav>
   );
