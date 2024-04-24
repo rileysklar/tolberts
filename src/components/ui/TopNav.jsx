@@ -3,7 +3,7 @@ import { Button } from "./button";
 export default function TopNav() {
   return (
     <nav
-      className="flex w-full justify-between border-b bg-black
+      className="flex w-full justify-between bg-black
        p-4 text-xl font-semibold text-white"
     >
       <div className="mx-auto flex w-full max-w-7xl ">
