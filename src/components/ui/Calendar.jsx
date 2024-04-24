@@ -9,7 +9,7 @@ const Calendar = ({ events }) => {
   return (
     <div className="mt-[72px] grid grid-cols-1 gap-4 p-4 md:grid-cols-3">
       {events &&
-        events.map((event, index) => {
+        [...events].reverse().map((event, index) => {
           const {
             node: {
               id,
@@ -32,7 +32,7 @@ const Calendar = ({ events }) => {
               "
               style={{ backgroundImage: `url(${sourceUrl})` }}
             >
-              <div className="flex w-full	 flex-row items-center justify-between rounded-tl-lg border-l border-t bg-slate-800/30 p-4 backdrop-blur-md">
+              <div className="flex w-full	 flex-row items-center justify-between rounded-t-lg border-l border-t bg-slate-800/30 p-4 backdrop-blur-md">
                 <div>
                   <h2 className="noto text-xl text-white sm:text-3xl">
                     {primaryHeader}
@@ -44,7 +44,9 @@ const Calendar = ({ events }) => {
                     🗓️ {date}
                   </p>
                   {showDescription && (
-                    <p className="mt-1 text-sm text-white">{description}</p>
+                    <p className="mt-1 pr-5 text-sm text-white">
+                      {description}
+                    </p>
                   )}
                 </div>
                 <Button
