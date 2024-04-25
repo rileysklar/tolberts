@@ -8,7 +8,7 @@ import Hero from "../components/Hero"
 import Leaderboard from "../components/Leaderboard"
 import PhotoGallery from "@/components/PhotoGallery";
 import Testimonials from "@/components/Testimonials";
-
+import HeroMain from "@/components/HeroMain";
 
 const metaTags = {
   title: "Tolbert's Restaurant",
@@ -25,6 +25,7 @@ console.log(events);
 <Layout metaTags={metaTags}>
   <Analytics />
   <main class="content">
+    <HeroMain client:load />
     <Hero events={events} client:load/>
     <Leaderboard client:load/>
      <Testimonials client:load/>
