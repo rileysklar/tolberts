@@ -14,11 +14,10 @@
 }
 
 .noto {
-  font-family: "Noto Serif", serif;
+  font-family: "Lora", serif;
   font-optical-sizing: auto;
-  font-weight: 700; /* Example weight */
+  font-weight: <weight>;
   font-style: normal;
-  font-variation-settings: "wdth" 100;
 }
 
 .morphism {
