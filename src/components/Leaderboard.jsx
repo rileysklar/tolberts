@@ -7,7 +7,7 @@ const Leaderboard = () => {
   return (
     <div className="chili-white w-full">
       <div
-        className=" mx-auto max-w-7xl
+        className="mx-auto max-w-7xl
   "
       >
         <div
@@ -15,7 +15,7 @@ const Leaderboard = () => {
    justify-center gap-4 p-12 md:grid-cols-2"
         >
           <div className="flex flex-col items-start justify-center">
-            <h1 className="noto mark text-2xl text-black sm:text-4xl">
+            <h1 className="work-sans mark text-2xl text-black sm:text-4xl">
               Tolbert's Restaurant
             </h1>
             <p className="sm:text-md mt-1 text-black">

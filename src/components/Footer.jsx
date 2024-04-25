@@ -47,8 +47,10 @@ export default function Footer() {
               </Button>
             </form>
             <div className="morphism flex flex-col items-center gap-0 rounded-lg border-white bg-transparent p-8 shadow-lg">
-              <p>817.421.4888</p>
-              <p>info@tolbertsrestaurant.com</p>
+              <a href="tel:(817)421-4888<"> 📲 (817) 421-4888</a>
+              <a href="mailto:info@tolbertsrestaurant.com">
+                ✉️ info@tolbertsrestaurant.com
+              </a>
             </div>
           </div>
           <div className="morphism flex flex-col items-center gap-2 p-4">
@@ -58,9 +60,7 @@ export default function Footer() {
                 <a href="/" className={`p-2 text-xl hover:underline`}>
                   🏠 Home
                 </a>
-                <a href="/calendar" className={`p-2 text-xl hover:underline`}>
-                  🗓️ Calendar
-                </a>
+
                 <a
                   href="https://tolbertscms.com/wp-content/uploads/2024/04/TolbertsNewMenu010324.pdf"
                   className={`p-2 text-xl hover:underline`}
@@ -72,6 +72,9 @@ export default function Footer() {
                   className={`p-2 text-xl hover:underline`}
                 >
                   🍳 Brunch
+                </a>
+                <a href="/calendar" className={`p-2 text-xl hover:underline`}>
+                  🗓️ Calendar
                 </a>
                 <a href="/about" className={`p-2 text-xl hover:underline`}>
                   👋 About

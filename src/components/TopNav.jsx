@@ -65,12 +65,7 @@ export default function TopNav() {
           >
             Home
           </a>
-          <a
-            href="/calendar"
-            className={`text-xl hover:underline ${isScrolled ? "text-black" : "text-white"}`}
-          >
-            Calendar
-          </a>
+
           <a
             href="https://tolbertscms.com/wp-content/uploads/2024/04/TolbertsNewMenu010324.pdf"
             className={`text-xl hover:underline ${isScrolled ? "text-black" : "text-white"}`}
@@ -78,10 +73,22 @@ export default function TopNav() {
             Menu
           </a>
           <a
+            href="http://tolbertscms.com/wp-content/uploads/2024/04/Brunch-Menu-Current-April-2023.pdf"
+            className={`p-2 text-xl hover:underline`}
+          >
+            Brunch
+          </a>
+          <a
             href="/about"
             className={`text-xl hover:underline ${isScrolled ? "text-black" : "text-white"}`}
           >
             About
+          </a>
+          <a
+            href="/calendar"
+            className={`text-xl hover:underline ${isScrolled ? "text-black" : "text-white"}`}
+          >
+            Calendar
           </a>
           <select
             className={` rounded-full bg-lime-500 px-5 py-2 text-xl hover:bg-lime-600  ${isScrolled ? "text-white" : "text-black"}`}
@@ -108,12 +115,7 @@ export default function TopNav() {
         >
           🏠 Home
         </a>
-        <a
-          href="/calendar"
-          className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
-        >
-          🗓️ Calendar
-        </a>
+
         <a
           href="https://tolbertscms.com/wp-content/uploads/2024/04/TolbertsNewMenu010324.pdf"
           className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
@@ -125,6 +127,12 @@ export default function TopNav() {
           className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
         >
           🍳 Brunch
+        </a>
+        <a
+          href="/calendar"
+          className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
+        >
+          🗓️ Calendar
         </a>
         <a
           href="/about"

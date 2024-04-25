@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro"
 import Analytics from "../components/Analytics.astro";
 import { AccordionDemo } from "@/components/Accordion";
 import { YouTube } from 'astro-embed';
+import PhotoGallery from "@/components/PhotoGallery";
 
 const metaTags = {
   title: "About Tolbert's Restaurant",
@@ -32,16 +33,10 @@ const metaTags = {
 
   </div>
   
-  <div class="grid grid-cols-4">
-    <img src="../../public/tlb-1.jpg" alt="Description of the image" class="h-auto w-full object-cover object-center" />
-    <img src="../../public/tlb-2.jpg" alt="Description of the image" class="h-full w-full object-cover object-center" />
-    <img src="../../public/tlb-3.jpg" alt="Description of the image" class="h-full w-full object-cover object-center" />
-    <img src="../../public/tlb-4.jpg" alt="Description of the image" class="h-full w-full object-cover object-center" />
-  </div>
+ <PhotoGallery client:load />
     <div class="w-full p-8 bg-black text-white text-2xl">
       <div class="max-w-5xl mx-auto">
-    <h2 class="text-4xl noto mt-12">FAQ</h2>
-    <AccordionDemo client:load />
-  </div>
-  </div>
+      <h2 class="text-4xl noto mt-12">FAQ</h2>
+      <AccordionDemo client:load />
+    </div>
 </Layout>

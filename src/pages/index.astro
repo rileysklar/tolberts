@@ -6,6 +6,9 @@ import Analytics from "../components/Analytics.astro";
 import { getEvents } from "../lib/wordpress/fetchEvents";
 import Hero from "../components/Hero"
 import Leaderboard from "../components/Leaderboard"
+import PhotoGallery from "@/components/PhotoGallery";
+import Testimonials from "@/components/Testimonials";
+
 
 const metaTags = {
   title: "Tolbert's Restaurant",
@@ -24,12 +27,8 @@ console.log(events);
   <main class="content">
     <Hero events={events} client:load/>
     <Leaderboard client:load/>
-    <div class="grid grid-cols-4">
-      <img src="../../public/tlb-1.jpg" alt="Description of the image" class="h-auto w-full object-cover object-center" />
-      <img src="../../public/tlb-2.jpg" alt="Description of the image" class="h-full w-full object-cover object-center" />
-      <img src="../../public/tlb-3.jpg" alt="Description of the image" class="h-full w-full object-cover object-center" />
-      <img src="../../public/tlb-4.jpg" alt="Description of the image" class="h-full w-full object-cover object-center" />
-    </div>
+     <Testimonials client:load/>
+    <PhotoGallery client:load/>
   </main>
 </Layout>
 
