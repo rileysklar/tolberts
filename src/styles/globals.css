@@ -6,19 +6,20 @@
   box-sizing: border-box;
 }
 
-.urbanist {
+.urbanist,
+.noto {
   font-family: "Urbanist", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400; /* Example weight */
   font-style: normal;
 }
 
-.noto {
+/* .noto {
   font-family: "Lora", serif;
   font-optical-sizing: auto;
   font-weight: <weight>;
   font-style: normal;
-}
+} */
 
 .morphism {
   background: rgba(14, 14, 14, 0.05);
