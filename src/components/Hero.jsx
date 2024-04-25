@@ -22,7 +22,7 @@ const Hero = ({ events }) => {
   return (
     <div className="grid h-[90dvh] grid-cols-1 md:grid-cols-3">
       <div
-        className="group mt-[80px] flex items-end justify-end bg-cover bg-bottom bg-center sm:mt-[20px] md:col-span-2"
+        className="group flex items-end justify-end bg-cover  bg-top md:col-span-2"
         style={{
           backgroundImage: `url(${sourceUrl})`,
         }}
@@ -73,7 +73,7 @@ const Hero = ({ events }) => {
             return (
               <div
                 key={id}
-                className=" flex flex-1 items-end justify-end overflow-hidden bg-cover bg-bottom  bg-top shadow-lg
+                className=" bg-r flex flex-1 items-end justify-end overflow-hidden bg-center shadow-lg
 
               "
                 style={{ backgroundImage: `url(${sourceUrl})` }}
