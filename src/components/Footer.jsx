@@ -4,12 +4,14 @@ import styles from "../styles/globals.css";
 export default function Footer() {
   return (
     <footer className=" urbanist bg-black pb-10 pt-8 ">
-      <div className="morphism mx-auto max-w-7xl rounded-lg border-white bg-transparent p-8 shadow-lg">
+      <div className="morphism chili mx-auto max-w-7xl rounded-lg border-white bg-transparent p-8 shadow-lg">
         <div className="grid grid-cols-1 gap-4 p-4  text-center text-white lg:grid-cols-3">
-          <div className="flex flex-col items-center justify-between gap-2	">
+          <div className="morphism flex flex-col items-center justify-between gap-2	p-4">
             <h3 className="noto text-3xl">Our Location</h3>
 
-            <div className="overflow-hidden rounded-lg">
+            <div className="morphism overflow-hidden rounded-lg pt-2">
+              <p>423 South Main Street</p>
+              <p>Grapevine, TX 76051</p>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.44830472116!2d-97.07334468481859!3d32.93418988093237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c2bf77a1f8503%3A0x96f6083fb3909e6d!2s423%20S%20Main%20St%2C%20Grapevine%2C%20TX%2076051%2C%20USA!5e0!3m2!1sen!2s!4v1632432943826!5m2!1sen!2s"
                 width="300"
@@ -19,9 +21,15 @@ export default function Footer() {
                 loading="lazy"
               ></iframe>
             </div>
-            <div className="morphism flex flex-col items-center gap-0 rounded-lg border-white bg-transparent p-8 shadow-lg">
-              <p>423 South Main Street</p>
-              <p>Grapevine, TX 76051</p>
+            <div className=" flex flex-col items-center gap-0 rounded-lg border-white bg-transparent shadow-lg">
+              <h3 className="noto text-3xl">Restaurant Hours</h3>
+              <p>
+                Open daily at 11:00am
+                <p>
+                  Closing times may vary so please call first to verify. Enjoy
+                  Happy Hour Monday thru Friday!
+                </p>
+              </p>
             </div>
           </div>
 
@@ -43,8 +51,8 @@ export default function Footer() {
               <p>info@tolbertsrestaurant.com</p>
             </div>
           </div>
-          <div className="flex flex-col items-center gap-2">
-            <div className="flex flex-col items-center gap-2">
+          <div className="morphism flex flex-col items-center gap-2 p-4">
+            <div className=" flex flex-col items-center gap-2">
               <h3 className="noto text-3xl">Site Map</h3>
               <div className="flex flex-col items-center gap-0 pt-2">
                 <a href="/" className={`p-2 text-xl hover:underline`}>
