@@ -21,6 +21,24 @@
   font-variation-settings: "wdth" 100;
 }
 
+.morphism {
+  background: rgba(14, 14, 14, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(175, 175, 175, 0.07);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+input,
+textarea {
+  border-radius: 8px;
+  padding: 8px;
+  color: #fff;
+  background-color: transparent;
+  border: solid 1px #fff;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

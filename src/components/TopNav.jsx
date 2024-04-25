@@ -89,7 +89,7 @@ export default function TopNav() {
           >
             {" "}
             <option value="" selected disabled>
-              Order Food
+              Order Food 🚙
             </option>
             <option value="https://www.ubereats.com">Uber Eats</option>
             <option value="https://www.doordash.com">Door Dash</option>
@@ -137,7 +137,7 @@ export default function TopNav() {
           onChange={(e) => (window.location.href = e.target.value)}
         >
           <option value="" selected disabled>
-            Order Food
+            Order Food 🚙
           </option>
           <option value="https://www.ubereats.com">Uber Eats</option>
           <option value="https://www.doordash.com">Door Dash</option>
