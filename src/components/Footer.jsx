@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className=" urbanist bg-black pb-10 pt-8 ">
       <div className="morphism mx-auto max-w-7xl rounded-lg border-white bg-transparent p-8 shadow-lg">
-        <div className="grid grid-cols-1 gap-4 p-4  text-center text-white sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 p-4  text-center text-white lg:grid-cols-3">
           <div className="flex flex-col items-center justify-between gap-2	">
             <h3 className="noto text-3xl">Our Location</h3>
 
