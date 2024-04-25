@@ -3,8 +3,8 @@ import styles from "../styles/globals.css";
 
 export default function Footer() {
   return (
-    <footer className=" urbanist bg-black pb-10 pt-8 ">
-      <div className="morphism chili mx-auto max-w-7xl rounded-lg border-white bg-transparent p-8 shadow-lg">
+    <footer className=" urbanist chili bg-black pb-10 pt-8 ">
+      <div className="morphism  mx-auto max-w-7xl rounded-lg border-white bg-transparent p-8 shadow-lg">
         <div className="grid grid-cols-1 gap-4 p-4  text-center text-white lg:grid-cols-3">
           <div className="morphism flex flex-col items-center justify-between gap-2	p-4">
             <h3 className="noto text-3xl">Our Location</h3>

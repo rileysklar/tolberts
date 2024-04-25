@@ -23,11 +23,11 @@ const testimonials = [
 
 function Testimonials() {
   return (
-    <section className="chili-white flex flex-col gap-4 py-[148px]">
-      <h2 className="noto text-center text-3xl font-bold">
-        What our patrons say
-      </h2>
-      <div className="morphism container w-[300px] p-12 shadow-lg sm:w-[600px]">
+    <section className="flex flex-col gap-4 bg-[url('./public/tolbs-outside.jpg')] bg-cover bg-center bg-no-repeat	py-[148px] text-white">
+      <div className="morphism container flex w-[300px] flex-col gap-4 p-12 shadow-lg sm:w-[600px]">
+        <h2 className="noto text-center text-3xl font-bold">
+          What our patrons say
+        </h2>
         <Carousel>
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
