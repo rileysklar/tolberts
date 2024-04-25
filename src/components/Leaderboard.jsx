@@ -14,7 +14,9 @@ const Leaderboard = () => {
    justify-center gap-4 p-12 md:grid-cols-2"
       >
         <div className="flex flex-col items-start justify-center">
-          <h2 className="noto text-xl text-black sm:text-3xl">Our Story</h2>
+          <h1 className="noto mark text-2xl text-black sm:text-4xl">
+            Tolbert's Restaurant
+          </h1>
           <p className="sm:text-md mt-1 text-black">
             Frank X. Tolbert’s life-long passion for chili inspired him to write
             his world-famous book “A Bowl of Red” 50 years ago. He founded the

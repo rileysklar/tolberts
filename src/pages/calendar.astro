@@ -18,8 +18,10 @@ console.log(events);
 ---
 <Layout metaTags={metaTags}>
   <Analytics />
-  <main class="">
-    <Hero events={events} client:load/>
+  <main class="mt-[90px] md:mt-0">
+    <div class="hidden md:block">
+      <Hero events={events} client:load/>
+      </div>
    <Calendar events={events} client:load/>
   </main>
 </Layout>
