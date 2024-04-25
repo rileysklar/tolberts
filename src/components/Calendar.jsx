@@ -32,7 +32,7 @@ const Calendar = ({ events }) => {
               "
               style={{ backgroundImage: `url(${sourceUrl})` }}
             >
-              <div className="flex w-full	 flex-row items-center justify-between rounded-t-lg border-l border-t bg-slate-800/30 p-4 backdrop-blur-md">
+              <div className="flex w-full	 flex-row items-center justify-between rounded-t-lg border-l border-t bg-slate-800/50 p-4 backdrop-blur-md">
                 <div>
                   <h2 className="noto text-xl text-white sm:text-3xl">
                     {primaryHeader}

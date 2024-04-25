@@ -23,11 +23,11 @@ const testimonials = [
 
 function Testimonials() {
   return (
-    <section className="chili-white  py-[148px]">
+    <section className="chili-white flex flex-col gap-4 py-[148px]">
       <h2 className="noto text-center text-3xl font-bold">
         What our patrons say
       </h2>
-      <div className="morphism container mx-auto p-12">
+      <div className="morphism container w-[300px] p-12 shadow-lg sm:w-[600px]">
         <Carousel>
           <CarouselContent>
             {testimonials.map((testimonial, index) => (

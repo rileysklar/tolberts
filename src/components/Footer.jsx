@@ -40,13 +40,13 @@ export default function Footer() {
               <input type="email" placeholder="Your Email" />
               <textarea placeholder="Your Message"></textarea>
               <Button
-                className="rounded-full bg-lime-500 px-5 py-2 text-xl hover:bg-lime-600"
+                className="rounded-full bg-lime-500 px-5 py-2 text-xl text-black hover:bg-lime-600 "
                 type="submit"
               >
                 Submit
               </Button>
             </form>
-            <div className="morphism flex flex-col items-center gap-0 rounded-lg border-white bg-transparent p-8 shadow-lg">
+            <div className="morphism flex w-full flex-col items-center gap-0 rounded-lg border-white bg-transparent p-8 shadow-lg">
               <a href="tel:(817)421-4888<"> 📲 (817) 421-4888</a>
               <a href="mailto:info@tolbertsrestaurant.com">
                 ✉️ info@tolbertsrestaurant.com
