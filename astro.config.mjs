@@ -1,4 +1,3 @@
-import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
@@ -14,7 +13,7 @@ export default defineConfig({
   ],
   buildOptions: {
     rollupOptions: {
-      external: ["@/components/Hero"],
+      external: ["@/components/Hero", "@/components/Calendar"],
     },
   },
 });
