@@ -50,10 +50,11 @@ export default function TopNav() {
         {/* Mobile menu button */}
 
         <button
-          className="flex items-center pb-2 text-4xl sm:hidden"
+          className="flex items-center pb-2 text-4xl opacity-100 transition-all duration-200 sm:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          style={{ opacity: isMenuOpen ? 0.5 : 1 }}
         >
-          ☰
+          {isMenuOpen ? "✕" : "☰"}
         </button>
 
         {/* Desktop navigation links */}
@@ -99,8 +100,12 @@ export default function TopNav() {
             <option value="" selected disabled>
               Order Food 🚙
             </option>
-            <option value="https://www.ubereats.com">Uber Eats</option>
-            <option value="https://www.doordash.com">Door Dash</option>
+            <option value="https://www.ubereats.com/dallas/food-delivery/tolberts-restaurant/E0auRfDRQ_e9RRP32vWMQw?fbclid=IwAR0qXPc6YEgE8uzjHTcMQ_kVj-eVv1NcGkO8PCDLkA-8tgO9NC6Z1XBT6yM">
+              Uber Eats
+            </option>
+            <option value="https://www.doordash.com/store/tolbert's-restaurant-grapevine-27945/?fbclid=IwAR34uGVgDg3xEm0VoUWg4rKZafHMrEgQLDWPmzhNHhM2gvIx36rCwemQcEo">
+              Door Dash
+            </option>
           </select>
         </div>
       </div>
@@ -148,8 +153,12 @@ export default function TopNav() {
           <option value="" selected disabled>
             Order Food 🚙
           </option>
-          <option value="https://www.ubereats.com">Uber Eats</option>
-          <option value="https://www.doordash.com">Door Dash</option>
+          <option value="https://www.ubereats.com/dallas/food-delivery/tolberts-restaurant/E0auRfDRQ_e9RRP32vWMQw?fbclid=IwAR0qXPc6YEgE8uzjHTcMQ_kVj-eVv1NcGkO8PCDLkA-8tgO9NC6Z1XBT6yM">
+            Uber Eats
+          </option>
+          <option value="https://www.doordash.com/store/tolbert's-restaurant-grapevine-27945/?fbclid=IwAR34uGVgDg3xEm0VoUWg4rKZafHMrEgQLDWPmzhNHhM2gvIx36rCwemQcEo">
+            Door Dash
+          </option>
         </select>
       </div>
     </nav>

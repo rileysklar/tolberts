@@ -67,9 +67,8 @@ export function AccordionDemo() {
           What are the operating hours of Tolbert's Chili Parlor?
         </AccordionTrigger>
         <AccordionContent>
-          The operating hours can vary, so it's best to check Tolbert's Chili
-          Parlor's official website or contact them directly to get the most
-          accurate and up-to-date information on their hours of operation.
+          Open daily at 11:00am. Closing times may vary so please call first to
+          verify. Enjoy Happy Hour Monday thru Friday!
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-7">
