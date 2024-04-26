@@ -48,7 +48,7 @@ function Testimonials() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex justify-between">
+          <div className="mt-4 flex justify-between">
             <CarouselPrevious />
             <CarouselNext />
           </div>
