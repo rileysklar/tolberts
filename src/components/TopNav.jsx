@@ -50,10 +50,11 @@ export default function TopNav() {
         {/* Mobile menu button */}
 
         <button
-          className="flex items-center pb-2 text-4xl sm:hidden"
+          className="flex items-center pb-2 text-4xl opacity-100 transition-all duration-200 sm:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          style={{ opacity: isMenuOpen ? 0.5 : 1 }}
         >
-          ☰
+          {isMenuOpen ? "✕" : "☰"}
         </button>
 
         {/* Desktop navigation links */}
