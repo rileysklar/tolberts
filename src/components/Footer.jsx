@@ -81,11 +81,11 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-            <div className="morphism flex flex-col justify-between rounded-lg border-white bg-transparent p-8 shadow-lg">
+            <div className="morphism flex w-full flex-col justify-between rounded-lg border-white bg-transparent p-8 shadow-lg">
               <h3 className="noto text-lg">Join the Chilihead Club</h3>
               <Button
                 variant="default"
-                className="rounded-full bg-white px-5 py-2 text-xl text-black transition-all duration-300 hover:translate-y-[-1px] hover:bg-white active:translate-y-[1px] active:scale-90"
+                className="mt-2 rounded-full bg-white px-5 py-2 text-xl text-black transition-all duration-300 hover:translate-y-[-1px] hover:bg-white active:translate-y-[1px] active:scale-90"
               >
                 🌶️ Join Now
               </Button>
