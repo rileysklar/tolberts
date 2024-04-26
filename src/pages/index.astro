@@ -9,11 +9,12 @@ import Leaderboard from "../components/Leaderboard"
 import PhotoGallery from "@/components/PhotoGallery";
 import Testimonials from "@/components/Testimonials";
 import HeroMain from "@/components/HeroMain";
+import FormHorizontal from "@/components/FormHorizontal";
 
 const metaTags = {
   title: "Tolbert's Restaurant",
   description:
-    "Discover Andrew Riefenstahl's journey in full stack web development, showcasing skills in modern technologies and innovative solutions.",
+    "Tolbert's Restaurant is a family owned and operated restaurant located in Grapevine, Texas. We serve the best chili in Texas and have a full menu of delicious food and drinks.",
   url: "https://tolbertsrestaurant.com",
   twitterHandle: "@riefer02",
 };
@@ -26,6 +27,7 @@ console.log(events);
   <Analytics />
   <main class="content">
     <HeroMain client:load />
+    <FormHorizontal client:load />
     <Hero events={events} client:load/>
     <Leaderboard client:load/>
      <Testimonials client:load/>

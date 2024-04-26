@@ -4,7 +4,7 @@ import styles from "../styles/globals.css";
 export default function Footer() {
   return (
     <footer className=" urbanist chili bg-black pb-10 pt-8 ">
-      <div className="morphism  mx-auto max-w-7xl rounded-lg border-white bg-transparent p-8 shadow-lg">
+      <div className="morphism  mx-auto max-w-7xl rounded-lg border-white bg-transparent p-2 shadow-lg shadow-lg sm:p-8">
         <div className="grid grid-cols-1 gap-4 p-4  text-center text-white lg:grid-cols-3">
           <div className="morphism flex flex-col items-center justify-between gap-2	p-4">
             <h3 className="noto text-3xl">Our Location</h3>
@@ -40,7 +40,7 @@ export default function Footer() {
               <input type="email" placeholder="Your Email" />
               <textarea placeholder="Your Message"></textarea>
               <Button
-                className="rounded-full bg-lime-500 px-5 py-2 text-xl text-black hover:bg-lime-600 "
+                className="rounded-full bg-white px-5 py-2 text-xl text-black transition-all duration-300 hover:translate-y-[-1px] hover:bg-white active:translate-y-[1px] active:scale-90"
                 type="submit"
               >
                 Submit
@@ -58,26 +58,26 @@ export default function Footer() {
               <h3 className="noto text-3xl">Site Map</h3>
               <div className="flex flex-col items-center gap-0 pt-2">
                 <a href="/" className={`p-2 text-xl hover:underline`}>
-                  🏠 Home
+                  Home
                 </a>
 
                 <a
                   href="https://tolbertscms.com/wp-content/uploads/2024/04/TolbertsNewMenu010324.pdf"
                   className={`p-2 text-xl hover:underline`}
                 >
-                  🌶️ Menu
+                  Menu
                 </a>
                 <a
                   href="http://tolbertscms.com/wp-content/uploads/2024/04/Brunch-Menu-Current-April-2023.pdf"
                   className={`p-2 text-xl hover:underline`}
                 >
-                  🍳 Brunch
+                  Brunch
                 </a>
                 <a href="/calendar" className={`p-2 text-xl hover:underline`}>
-                  🗓️ Calendar
+                  Calendar
                 </a>
                 <a href="/about" className={`p-2 text-xl hover:underline`}>
-                  👋 About
+                  About
                 </a>
               </div>
             </div>
@@ -85,7 +85,7 @@ export default function Footer() {
               <h3 className="noto text-lg">Join the Chilihead Club</h3>
               <Button
                 variant="default"
-                className="rounded-full bg-lime-500 px-5 py-2 text-xl text-black hover:bg-lime-600"
+                className="rounded-full bg-white px-5 py-2 text-xl text-black transition-all duration-300 hover:translate-y-[-1px] hover:bg-white active:translate-y-[1px] active:scale-90"
               >
                 🌶️ Join Now
               </Button>

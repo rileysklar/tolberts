@@ -30,6 +30,15 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.morphism-x {
+  background: rgba(14, 14, 14, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(175, 175, 175, 0.27);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
 .chili {
   background-image: url("/chili.svg");
   background-repeat: repeat;
@@ -47,6 +56,10 @@ textarea {
   color: #fff;
   background-color: transparent;
   border: solid 1px #fff;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #fff;
 }
 
 @layer base {
