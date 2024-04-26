@@ -2,8 +2,8 @@ import { Button } from "../components/ui/button";
 
 function FormHorizontal() {
   return (
-    <div className="bg-black p-8">
-      <div className="morphism-x w-full">
+    <div className="chili bg-black  p-8">
+      <div className="morphism w-full">
         <h3 className="noto text-pretty pt-4 text-center text-xl text-white sm:text-3xl">
           Rent our space, book your band, or get in touch about our chili! 🌶️
         </h3>

@@ -47,6 +47,7 @@
 .chili-white {
   background-image: url("/chili-white.svg");
   background-repeat: repeat;
+  background-size: 400px;
 }
 
 input,
