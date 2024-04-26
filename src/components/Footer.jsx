@@ -83,12 +83,14 @@ export default function Footer() {
             </div>
             <div className="morphism flex w-full flex-col justify-between rounded-lg border-white bg-transparent p-8 shadow-lg">
               <h3 className="noto text-lg">Join the Chilihead Club</h3>
-              <Button
-                variant="default"
-                className="mt-2 rounded-full bg-white px-5 py-2 text-xl text-black transition-all duration-300 hover:translate-y-[-1px] hover:bg-white active:translate-y-[1px] active:scale-90"
-              >
-                🌶️ Join Now
-              </Button>
+              <a href="https://visitor.r20.constantcontact.com/manage/optin?v=0014Ogu2wnBvl8_ZbMlMzQ9KVX9rpr_smoVitHZKZig-keypGiny6WIeEEgXcEOx1-AiOhKLXw2Q2L0sW0VsGJ6VT7G5BoeQ4qErEvgGW2CZEo%3D">
+                <Button
+                  variant="default"
+                  className="mt-2 rounded-full bg-white px-5 py-2 text-xl text-black transition-all duration-300 hover:translate-y-[-1px] hover:bg-white active:translate-y-[1px] active:scale-90"
+                >
+                  🌶️ Join Now
+                </Button>
+              </a>
             </div>
           </div>
         </div>
