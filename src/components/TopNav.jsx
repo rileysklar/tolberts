@@ -37,11 +37,7 @@ export default function TopNav() {
           <a href="/">
             <img
               className="h-auto"
-              src={
-                isScrolled
-                  ? "src/assets/logo-black.png"
-                  : "src/assets/logo-white.png"
-              }
+              src={isScrolled ? "/logo-black.png" : "/logo-white.png"}
               alt="Logo"
             />
           </a>
@@ -119,32 +115,32 @@ export default function TopNav() {
           href="/"
           className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
         >
-          🏠 Home
+          Home
         </a>
 
         <a
           href="https://tolbertscms.com/wp-content/uploads/2024/04/TolbertsNewMenu010324.pdf"
           className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
         >
-          🌶️ Menu
+          Menu
         </a>
         <a
           href="http://tolbertscms.com/wp-content/uploads/2024/04/Brunch-Menu-Current-April-2023.pdf"
           className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
         >
-          🍳 Brunch
+          Brunch
         </a>
         <a
           href="/calendar"
           className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
         >
-          🗓️ Calendar
+          Calendar
         </a>
         <a
           href="/about"
           className={`p-2 text-3xl hover:underline  ${isScrolled ? "text-black" : "text-white"}`}
         >
-          👋 About
+          About
         </a>
         <select
           className={`mb-4 rounded-full bg-lime-500 p-2 px-5 text-center text-3xl hover:bg-lime-600  ${isScrolled ? "text-white" : "text-black"}`}

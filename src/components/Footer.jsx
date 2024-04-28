@@ -34,6 +34,13 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col items-center justify-between gap-2">
+            <a href="/">
+              <img
+                className="h-auto w-[150px]"
+                src="/logo-white.png"
+                alt="Logo"
+              />
+            </a>
             <h3 className="noto text-3xl">Contact Us</h3>
             <form className="flex w-full flex-col gap-2 rounded-lg p-4">
               <input type="text" placeholder="Your Name" />
