@@ -19,10 +19,10 @@ export default function HeroMain() {
         <div className=" urbanist relative z-10 flex flex-col justify-center bg-gradient-to-r  from-stone-700 to-transparent p-4 sm:col-span-1 sm:p-[64px]">
           <div className="">
             <h1 className="text-6xl	font-bold text-white sm:text-7xl">
-              Tolbert's Restaurant 🌶️
+              Tolbert's Restaurant
             </h1>
             <h3 className="urbanist text-4xl font-bold text-white sm:text-5xl">
-              50 Years of Chili
+              50 Years of Chili 🌶️
             </h3>
 
             <a href="/calendar">
