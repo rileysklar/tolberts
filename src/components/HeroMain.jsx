@@ -8,6 +8,7 @@ export default function HeroMain() {
         autoPlay
         muted
         loop
+        playsInline
         className="absolute z-0 h-full w-full object-cover"
       >
         <source
