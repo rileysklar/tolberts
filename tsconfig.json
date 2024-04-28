@@ -1,7 +1,7 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "baseUrl": "/Users/rileysklar/Code/tolberts",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
