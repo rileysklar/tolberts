@@ -41,7 +41,7 @@ const Leaderboard = () => {
           <div
             className="flex items-end justify-end rounded-lg bg-cover bg-center shadow-2xl"
             style={{
-              backgroundImage: `url(src/assets/images/tolberts.webp)`,
+              backgroundImage: `url(/tolberts.webp)`,
               height: "300px",
             }}
           ></div>
