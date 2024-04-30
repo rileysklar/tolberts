@@ -27,7 +27,7 @@ const { metaTags } = Astro.props;
     <meta name="description" content={metaTags.description} />
     <meta property="og:title" content={metaTags.title} />
     <meta property="og:description" content={metaTags.description} />
-    <meta property="og:image" content={metaTags.image || ogImage.src} />
+    <meta property="og:image" content="https://tolbertsrestaurant.netlify.app/tolberts.webp" />
     <meta property="og:url" content={metaTags.url} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -37,7 +37,7 @@ const { metaTags } = Astro.props;
     />
     <meta name="twitter:title" content={metaTags.title} />
     <meta name="twitter:description" content={metaTags.description} />
-    <meta name="twitter:image" content={metaTags.image || ogImage.src} />
+    <meta name="twitter:image" content="https://tolbertsrestaurant.netlify.app/tolberts.webp" />
     <link rel="canonical" href={metaTags.url} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <ViewTransitions />
