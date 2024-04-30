@@ -29,9 +29,9 @@ const Leaderboard = () => {
               2006. The tradition continues as Tolbert’s Restaurant & Chili
               Parlor features classic southwestern cuisine with our signature
               Bowl of Red, using the same recipe developed by Frank X. Tolbert
-              and his son. Enjoy your visit and tell your friends! Kathleen,
-              Paul and Steven Ryan
+              and his son. Enjoy your visit and tell your friends!
             </p>
+            <p>— Kathleen, Paul and Steven Ryan</p>
             <a href="/about">
               <Button variant="default" className="mt-2">
                 Learn More <ChevronRight className="h-4 w-4" />
