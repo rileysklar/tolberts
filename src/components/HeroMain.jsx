@@ -9,13 +9,18 @@ export default function HeroMain() {
         muted
         loop
         playsInline
-        className="absolute z-0 h-full w-full object-cover"
+        className="absolute z-0 hidden h-full w-full object-cover sm:block"
       >
         <source
           src="http://tolbertscms.com/wp-content/uploads/2024/04/tolbs-compressed.mp4"
           type="video/mp4"
         />
       </video>
+      <img
+        src="/tolbs-outside-mobile.jpg"
+        className="absolute z-0 block h-full w-full object-cover sm:hidden"
+        alt="Tolbert's Restaurant"
+      />
       <div className="grid h-full grid-cols-1  gap-4 sm:w-full sm:grid-cols-2">
         <div className=" urbanist relative z-10 flex flex-col justify-center bg-gradient-to-r  from-stone-700 to-transparent p-4 sm:col-span-1 sm:p-[64px]">
           <div className="">
