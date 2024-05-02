@@ -40,7 +40,7 @@ export default function HeroMain() {
                 </Button>
               </a>
               <select
-                className="w-auto rounded-full bg-lime-500 py-[10px]  text-center text-xl text-black hover:bg-lime-600"
+                className="w-auto rounded-full bg-lime-500 py-[10px] pl-[50] text-center text-xl text-black hover:bg-lime-600"
                 onChange={(e) => (window.location.href = e.target.value)}
               >
                 {" "}
