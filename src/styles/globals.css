@@ -50,10 +50,6 @@
   background-size: 400px;
 }
 
-.order-btn::placeholder {
-  padding-left: 100px;
-}
-
 input,
 textarea {
   border-radius: 8px;
