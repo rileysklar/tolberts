@@ -30,15 +30,31 @@ export default function HeroMain() {
             <h3 className="urbanist text-4xl font-bold text-white sm:text-5xl">
               50 Years of Chili 🌶️
             </h3>
-
-            <a href="/calendar">
-              <Button
-                variant=""
-                className="hover:black mt-2 rounded-full bg-white py-6 text-xl text-black transition-all  duration-300 hover:translate-y-[-1px] hover:bg-stone-100 active:translate-y-[1px] active:scale-90"
+            <div className="cta inline-flex flex-col gap-3 sm:hidden">
+              <a href="/calendar">
+                <Button
+                  variant=""
+                  className="hover:black mt-2 rounded-full bg-white py-6 text-xl text-black transition-all  duration-300 hover:translate-y-[-1px] hover:bg-stone-100 active:translate-y-[1px] active:scale-90"
+                >
+                  🗓️ Concert Calendar
+                </Button>
+              </a>
+              <select
+                className="w-auto rounded-full bg-lime-500 py-[10px]  text-center text-xl text-black hover:bg-lime-600"
+                onChange={(e) => (window.location.href = e.target.value)}
               >
-                🗓️ Concert Calendar
-              </Button>
-            </a>
+                {" "}
+                <option value="" selected disabled>
+                  🚙 Order Food
+                </option>
+                <option value="https://www.ubereats.com/dallas/food-delivery/tolberts-restaurant/E0auRfDRQ_e9RRP32vWMQw?fbclid=IwAR0qXPc6YEgE8uzjHTcMQ_kVj-eVv1NcGkO8PCDLkA-8tgO9NC6Z1XBT6yM">
+                  Uber Eats
+                </option>
+                <option value="https://www.doordash.com/store/tolbert's-restaurant-grapevine-27945/?fbclid=IwAR34uGVgDg3xEm0VoUWg4rKZafHMrEgQLDWPmzhNHhM2gvIx36rCwemQcEo">
+                  Door Dash
+                </option>
+              </select>
+            </div>
           </div>
         </div>
         {/* <div className="align-center align-center hidden w-full flex-col items-center justify-center p-4 md:flex">
