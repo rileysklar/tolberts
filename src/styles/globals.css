@@ -50,6 +50,14 @@
   background-size: 400px;
 }
 
+.order-input::placeholder {
+  color: black;
+}
+
+.order-input {
+  cursor: pointer;
+}
+
 input,
 textarea {
   border-radius: 8px;
