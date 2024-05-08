@@ -3,8 +3,8 @@ import React from "react";
 import { Button } from "./ui/button";
 
 const Calendar = ({ events }) => {
-  console.log(events);
-  const [showDescription, setShowDescription] = useState(false); // add this line
+  
+  const [showDescription, setShowDescription] = useState(false); 
 
   return (
     <div className=" grid grid-cols-1 gap-4 p-4 md:grid-cols-3">
