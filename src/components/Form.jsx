@@ -1,5 +1,4 @@
 import { Button } from "../components/ui/button";
-import styles from "../styles/globals.css";
 
 function Form() {
   return (

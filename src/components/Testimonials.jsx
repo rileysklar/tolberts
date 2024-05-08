@@ -31,7 +31,7 @@ const testimonials = [
 
 function Testimonials() {
   return (
-    <section className="flex flex-col gap-4 bg-[url('./public/tolbs-outside.jpg')] bg-cover bg-center bg-no-repeat px-8 py-[148px] text-white">
+    <section className="flex flex-col gap-4 bg-[url('/tolbs-outside.jpg')] bg-cover bg-center bg-no-repeat px-8 py-[148px] text-white">
       <div className="morphism-x container flex w-[300px] flex-col gap-4 p-4 pt-6 shadow-lg sm:w-[600px]">
         <h2 className="noto text-center text-3xl font-bold ">
           ⭐️⭐️⭐️⭐️⭐️

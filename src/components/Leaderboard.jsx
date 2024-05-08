@@ -1,5 +1,3 @@
-// create a leaderboard with text left and image right and a button below the text
-
 import { Button } from "./ui/button";
 import { ChevronRight } from "lucide-react";
 
@@ -29,9 +27,9 @@ const Leaderboard = () => {
               2006. The tradition continues as Tolbert’s Restaurant & Chili
               Parlor features classic southwestern cuisine with our signature
               Bowl of Red, using the same recipe developed by Frank X. Tolbert
-              and his son. Enjoy your visit and tell your friends! Kathleen,
-              Paul and Steven Ryan
+              and his son. Enjoy your visit and tell your friends!
             </p>
+            <p>— Kathleen, Paul and Steven Ryan</p>
             <a href="/about">
               <Button variant="default" className="mt-2">
                 Learn More <ChevronRight className="h-4 w-4" />
@@ -41,7 +39,7 @@ const Leaderboard = () => {
           <div
             className="flex items-end justify-end rounded-lg bg-cover bg-center shadow-2xl"
             style={{
-              backgroundImage: `url(src/assets/images/tolberts.webp)`,
+              backgroundImage: `url(/tolberts.webp)`,
               height: "300px",
             }}
           ></div>
