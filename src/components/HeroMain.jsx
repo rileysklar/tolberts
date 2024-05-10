@@ -40,7 +40,15 @@ export default function HeroMain() {
                   🗓️ Concert Calendar
                 </Button>
               </a>
-              <OrderDropdown client:load />
+              <a href="https://order.spoton.com/rbbt-tolberts-restaurant-and-chili-parlor-15291/grapevine-tx/64e7d0d48137b6003f171eba">
+                <Button
+                  variant=""
+                  className="hover:black mt-2 w-full rounded-full bg-[#1769ff] py-6 text-xl text-white transition-all  duration-300 hover:translate-y-[-1px] hover:bg-[#1768ffd2] active:translate-y-[1px] active:scale-90"
+                >
+                  🚙 Order Food
+                </Button>
+              </a>
+              {/* <OrderDropdown client:load /> */}
             </div>
           </div>
         </div>
