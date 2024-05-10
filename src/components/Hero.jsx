@@ -1,11 +1,11 @@
 import { useState } from "react";
-import React from "react";
+
 import { Button } from "./ui/button";
 import { ChevronRight } from "lucide-react";
 
 const Hero = ({ events }) => {
-  console.log(events);
-  const [showDescription, setShowDescription] = useState(false); // add this line
+  // console.log(events);
+  const [showDescription, setShowDescription] = useState(false);
 
   const {
     node: {
