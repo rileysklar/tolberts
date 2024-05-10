@@ -49,13 +49,13 @@ const Calendar = ({ events }) => {
                     </p>
                   )}
                 </div>
-                <Button
+                {/* <Button
                   variant="secondary"
                   className="mt-2"
                   onClick={() => setShowDescription(!showDescription)}
                 >
                   {showDescription ? "Hide details" : "Show details"}
-                </Button>
+                </Button> */}
               </div>
             </div>
           );

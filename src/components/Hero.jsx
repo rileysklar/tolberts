@@ -42,14 +42,14 @@ const Hero = ({ events }) => {
           {showDescription && (
             <p className="mt-1 text-sm text-white"> {description}</p>
           )}
-          <Button
+          {/* <Button
             variant="outline"
             className="color-white mt-2 bg-transparent"
             onClick={() => setShowDescription(!showDescription)}
           >
             {showDescription ? "Hide Details" : "Show Details"}
             <ChevronRight className="h-4 w-4" />
-          </Button>
+          </Button> */}
         </div>
       </div>
       <div className="flex flex-col md:col-span-1">
@@ -91,14 +91,14 @@ const Hero = ({ events }) => {
                   {showDescription && (
                     <p className="mt-1 text-sm text-white">{description}</p>
                   )}
-                  <Button
+                  {/* <Button
                     variant="outline"
                     className="color-white mt-2 bg-transparent"
                     onClick={() => setShowDescription(!showDescription)}
                   >
                     {showDescription ? "Hide Details" : "Show Details"}{" "}
                     <ChevronRight className="h-4 w-4" />
-                  </Button>
+                  </Button> */}
                 </div>
               </div>
             );

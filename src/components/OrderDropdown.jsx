@@ -11,7 +11,7 @@ function OrderDropdown() {
     <div className="dropdown">
       <button
         onClick={handleButtonClick}
-        className="order-btn inline-block rounded-full bg-lime-500 px-5 py-2 text-xl text-black hover:bg-lime-600"
+        className="order-btn inline-block rounded-full bg-lime-500 px-5 py-2 text-xl text-black hover:bg-lime-400"
       >
         🚙 Order Food
       </button>
