@@ -1,5 +1,6 @@
 import { Button } from "./ui/button";
 import styles from "../styles/globals.css";
+import RestaurantSchema from "./RestaurantSchema";
 
 export default function Footer() {
   return (
@@ -23,13 +24,7 @@ export default function Footer() {
             </div>
             <div className=" flex flex-col items-center gap-0 rounded-lg border-white bg-transparent shadow-lg">
               <h3 className="noto text-3xl">Restaurant Hours</h3>
-              <p>
-                Open daily at 11:00am
-                <p>
-                  Closing times may vary so please call first to verify. Enjoy
-                  Happy Hour Monday thru Friday!
-                </p>
-              </p>
+              <RestaurantSchema client:load />
             </div>
           </div>
 

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import style from "../styles/topnav.module.css";
+import { Button } from "../components/ui/button";
 
 export default function TopNav() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,9 +43,7 @@ export default function TopNav() {
             />
           </a>
         </div>
-
         {/* Mobile menu button */}
-
         <button
           className="flex items-center pb-2 text-4xl opacity-100 transition-all duration-200 sm:hidden"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -52,9 +51,7 @@ export default function TopNav() {
         >
           {isMenuOpen ? "✕" : "☰"}
         </button>
-
         {/* Desktop navigation links */}
-
         <div className="menu flex hidden w-full items-center justify-end space-x-4 underline-offset-4 sm:flex">
           <a
             href="/"
@@ -62,14 +59,12 @@ export default function TopNav() {
           >
             Home
           </a>
-
           <a
             href="https://tolbertscms.com/wp-content/uploads/2024/04/TolbertsNewMenu010324.pdf"
             className={`text-xl hover:underline ${isScrolled ? "text-black" : "text-white"}`}
           >
             Menu
           </a>
-
           <a
             href="http://tolbertscms.com/wp-content/uploads/2024/04/Brunch-Menu-Current-April-2023.pdf"
             className={`p-2 text-xl hover:underline`}
@@ -88,7 +83,14 @@ export default function TopNav() {
           >
             Calendar
           </a>
-          <select
+          <a href="https://order.spoton.com/rbbt-tolberts-restaurant-and-chili-parlor-15291/grapevine-tx/64e7d0d48137b6003f171eba">
+            <button
+              className={` rounded-full bg-[#1769ff] px-5 py-2 text-xl hover:bg-[#1768ffd2]  ${isScrolled ? "text-white" : "text-white"}`}
+            >
+              Order Food 🚙
+            </button>
+          </a>
+          {/* <select
             className={` rounded-full bg-lime-500 px-5 py-2 text-xl hover:bg-lime-600  ${isScrolled ? "text-white" : "text-black"}`}
             onChange={(e) => (window.location.href = e.target.value)}
           >
@@ -103,7 +105,9 @@ export default function TopNav() {
               Door Dash
             </option>
           </select>
-        </div>
+       
+       */}{" "}
+        </div>{" "}
       </div>
 
       {/* Mobile navigation links */}
@@ -142,7 +146,15 @@ export default function TopNav() {
         >
           About
         </a>
-        <select
+        <a href="https://order.spoton.com/rbbt-tolberts-restaurant-and-chili-parlor-15291/grapevine-tx/64e7d0d48137b6003f171eba">
+          <Button
+            variant=""
+            className="hover:black mb-4 mt-2 w-full rounded-full bg-[#1769ff] py-6 text-xl text-white transition-all  duration-300 hover:translate-y-[-1px] hover:bg-[#1768ffd2] active:translate-y-[1px] active:scale-90"
+          >
+            🚙 Order Food
+          </Button>
+        </a>
+        {/* <select
           className={`mb-4 rounded-full bg-lime-500 p-2 px-5 text-center text-3xl hover:bg-lime-600  ${isScrolled ? "text-white" : "text-black"}`}
           onChange={(e) => (window.location.href = e.target.value)}
         >
@@ -155,7 +167,7 @@ export default function TopNav() {
           <option value="https://www.doordash.com/store/tolbert's-restaurant-grapevine-27945/?fbclid=IwAR34uGVgDg3xEm0VoUWg4rKZafHMrEgQLDWPmzhNHhM2gvIx36rCwemQcEo">
             Door Dash
           </option>
-        </select>
+        </select> */}
       </div>
     </nav>
   );
