@@ -3,6 +3,8 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
 
+import netlify from "@astrojs/netlify";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://tolbertrestaurant.com",
@@ -13,4 +15,6 @@ export default defineConfig({
     sitemap(),
     react(),
   ],
+  output: "hybrid",
+  adapter: netlify(),
 });

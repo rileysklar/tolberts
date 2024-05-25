@@ -1,6 +1,7 @@
 import { Button } from "./ui/button";
 import styles from "../styles/globals.css";
 import RestaurantSchema from "./RestaurantSchema";
+import Form from "./Form";
 
 export default function Footer() {
   return (
@@ -37,7 +38,7 @@ export default function Footer() {
               />
             </a>
             <h3 className="noto text-3xl">Contact Us</h3>
-            <form className="flex w-full flex-col gap-2 rounded-lg p-4">
+            {/* <form className="flex w-full flex-col gap-2 rounded-lg p-4">
               <input type="text" placeholder="Your Name" />
               <input type="email" placeholder="Your Email" />
               <textarea placeholder="Your Message"></textarea>
@@ -47,7 +48,8 @@ export default function Footer() {
               >
                 Submit
               </Button>
-            </form>
+            </form> */}
+            <Form client:load />
             <div className="morphism flex w-full flex-col items-center gap-0 rounded-lg border-white bg-transparent p-8 shadow-lg">
               <a href="tel:(817)421-4888<"> 📲 (817) 421-4888</a>
               <a href="mailto:info@tolbertsrestaurant.com">

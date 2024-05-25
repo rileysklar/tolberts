@@ -28,6 +28,7 @@ export default function HeroMain() {
             <h1 className="text-6xl	font-bold text-white sm:text-7xl">
               Tolbert's Restaurant
             </h1>
+            {/* <Form client:load /> */}
             <h3 className="urbanist text-4xl font-bold text-white sm:text-5xl">
               50 Years of Chili 🌶️
             </h3>
