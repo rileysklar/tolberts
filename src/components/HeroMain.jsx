@@ -30,7 +30,7 @@ export default function HeroMain() {
             </h1>
             {/* <Form client:load /> */}
             <h3 className="urbanist text-4xl font-bold text-white sm:text-5xl">
-              50 Years of Chili 🌶️
+              & Chili Parlor 🌶️
             </h3>
             <div className="cta inline-flex flex-col gap-3 sm:hidden">
               <a href="/calendar">
