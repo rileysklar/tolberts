@@ -49,7 +49,7 @@ export default function Footer() {
                 Submit
               </Button>
             </form> */}
-            <Form client:load />
+            {/* <Form client:load /> */}
             <div className="morphism flex w-full flex-col items-center gap-0 rounded-lg border-white bg-transparent p-8 shadow-lg">
               <a href="tel:(817)421-4888<"> 📲 (817) 421-4888</a>
               <a href="mailto:info@tolbertsrestaurant.com">

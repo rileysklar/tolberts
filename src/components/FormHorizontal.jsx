@@ -18,7 +18,11 @@ function FormHorizontal() {
       body: JSON.stringify({
         title: name,
         content: message,
-        fields: { email },
+        acf: {
+          name: name,
+          email: email,
+          message: message,
+        },
       }),
     });
     console.log(response);

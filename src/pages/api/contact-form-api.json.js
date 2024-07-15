@@ -2,8 +2,8 @@ export const prerender = false;
 
 export const POST = async ({ request }) => {
   const body = await request.json();
-  console.log(body);
-  const url = "http://localhost:8889/wp-json/wp/v2/contact_form";
+  // console.log(body);
+  const url = `${import.meta.env.WORDPRESS_URL}/wp-json/wp/v2/contact_form`;
   const wpResponse = await fetch(url, {
     method: "POST",
     headers: {
@@ -17,7 +17,9 @@ export const POST = async ({ request }) => {
     body: JSON.stringify({
       title: body.title,
       content: body.content,
-      fields: body.fields,
+      name: body.acf.name,
+      email: body.acf.email,
+      message: body.acf.message,
     }),
   });
 
