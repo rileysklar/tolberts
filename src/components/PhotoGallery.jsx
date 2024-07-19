@@ -8,17 +8,17 @@ function PhotoGallery() {
           className="h-auto w-full object-cover object-center"
         />
         <img
+          src="/tlb-3.jpg"
+          alt="Description of the image"
+          className="h-full w-full object-cover object-center"
+        />
+        <img
+          src="/tlb-4.jpg"
+          alt="Description of the image"
+          className="h-full w-full object-cover object-center"
+        />
+        <img
           src="/tlb-2.jpg"
-          alt="Description of the image"
-          className="h-full w-full object-cover object-center"
-        />
-        <img
-          src="/tlb-4.jpg"
-          alt="Description of the image"
-          className="h-full w-full object-cover object-center"
-        />
-        <img
-          src="/tlb-4.jpg"
           alt="Description of the image"
           className="h-full w-full object-cover object-center"
         />
