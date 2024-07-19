@@ -5,6 +5,7 @@ import ogImage from "../assets/ar-ogimage-optimized.png";
 import "../styles/globals.css";
 import TopNav from "@/components/TopNav"
 import Footer from "@/components/Footer"
+import FormHorizontal from "@/components/FormHorizontal";
 interface Props {
   metaTags: {
     title: string;
@@ -56,7 +57,7 @@ const { metaTags } = Astro.props;
     <div>
       <slot />
     </div>
-    <Footer />
+    <Footer client:load/>
     <style is:global>
       :root {
         --accent: 136, 58, 7;

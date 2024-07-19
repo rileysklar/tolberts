@@ -1,5 +1,4 @@
 import { Button } from "./ui/button";
-import styles from "../styles/globals.css";
 import RestaurantSchema from "./RestaurantSchema";
 import Form from "./Form";
 
@@ -30,34 +29,24 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col items-center justify-between gap-2">
-            <a href="/">
-              <img
-                className="h-auto w-[150px]"
-                src="/logo-white.png"
-                alt="Logo"
-              />
-            </a>
-            <h3 className="noto text-3xl">Contact Us</h3>
-            {/* <form className="flex w-full flex-col gap-2 rounded-lg p-4">
-              <input type="text" placeholder="Your Name" />
-              <input type="email" placeholder="Your Email" />
-              <textarea placeholder="Your Message"></textarea>
-              <Button
-                className="rounded-full bg-white px-5 py-2 text-xl text-black transition-all duration-300 hover:translate-y-[-1px] hover:bg-white active:translate-y-[1px] active:scale-90"
-                type="submit"
-              >
-                Submit
-              </Button>
-            </form> */}
-            {/* <Form client:load /> */}
+            <div className="flex w-full flex-col items-center justify-center gap-4">
+              <Form client:load />
+            </div>
             <div className="morphism flex w-full flex-col items-center gap-0 rounded-lg border-white bg-transparent p-8 shadow-lg">
+              <a href="/">
+                <img
+                  className="h-auto w-[150px] pb-4"
+                  src="/logo-white.png"
+                  alt="Logo"
+                />
+              </a>
               <a href="tel:(817)421-4888<"> 📲 (817) 421-4888</a>
               <a href="mailto:info@tolbertsrestaurant.com">
                 ✉️ info@tolbertsrestaurant.com
               </a>
             </div>
           </div>
-          <div className="morphism flex flex-col items-center gap-2 p-4">
+          <div className="morphism flex flex-col items-center justify-between gap-2 p-4">
             <div className=" flex flex-col items-center gap-2">
               <h3 className="noto text-3xl">Site Map</h3>
               <div className="flex flex-col items-center gap-0 pt-2">
