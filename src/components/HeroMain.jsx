@@ -22,17 +22,17 @@ export default function HeroMain() {
         className="absolute z-0 block h-full w-full object-cover sm:hidden"
         alt="Tolbert's Restaurant"
       />
-      <div className="grid h-full grid-cols-1  gap-4 sm:w-full sm:grid-cols-2">
-        <div className=" urbanist relative z-10 flex flex-col justify-center bg-gradient-to-r  from-stone-700 to-transparent p-4 sm:col-span-1 sm:p-[64px]">
-          <div className="">
-            <h1 className="text-6xl	font-bold text-white sm:text-7xl">
+      <div className="grid h-full grid-cols-1  gap-4 sm:w-full">
+        <div className=" urbanist relative z-10 flex flex-col justify-center w-full bg-gradient-to-r  from-stone-700 to-transparent p-4 sm:col-span-1 sm:p-[64px]">
+          <div className="max-w-7xl mx-auto w-full">
+            <h1 className="text-7xl	font-bold text-white sm:text-8xl max-w-xl">
               Tolbert's Restaurant
             </h1>
             {/* <Form client:load /> */}
-            <h3 className="urbanist text-4xl font-bold text-white sm:text-5xl">
+            <h3 className="urbanist text-4xl font-bold text-white sm:text-6xl mt-1">
               & Chili Parlor 🌶️
             </h3>
-            <div className="cta inline-flex flex-col gap-3 sm:hidden">
+            <div className="cta inline-flex flex-col gap-1 mt-2 sm:hidden">
               <a href="/calendar">
                 <Button
                   variant=""

@@ -1,42 +1,122 @@
 ---
-import Layout from "../layouts/Layout.astro"
+import Layout from "../layouts/Layout.astro";
 import Analytics from "../components/Analytics.astro";
 import { AccordionDemo } from "@/components/Accordion";
-import { YouTube } from 'astro-embed';
+import { YouTube } from "astro-embed";
 import PhotoGallery from "@/components/PhotoGallery";
+
+const faqData = [
+  {
+    question: "What is the history behind Tolbert's Chili Parlor?",
+    answer:
+      "Tolbert's Chili Parlor was founded by Frank X. Tolbert in 1976 in Dallas, originally. Frank X. Tolbert is known as 'The Grandfather of Chili' and co-founded the Terlingua Chili Cookoff in 1967. The restaurant is now located in a historic building from 1911 in downtown Grapevine, Texas.",
+  },
+  {
+    question: "What is unique about the Terlingua burger at Tolbert's?",
+    answer:
+      "The Terlingua burger at Tolbert's features the famous Terlingua chili. It is served on a grilled brioche bun with cheese, diced onions, and seasoned with Terlingua chili salt. The beef patty receives an abundance of flame, making the burger notably juicy and flavorful.",
+  },
+  {
+    question: "Is Tolbert's Chili Parlor suitable for children?",
+    answer:
+      "Yes, Tolbert's Chili Parlor is family-friendly and suitable for children. The menu offers a variety of options that cater to all age groups, ensuring a pleasant dining experience for families.",
+  },
+  {
+    question: "Does Tolbert's Chili Parlor have vegetarian options?",
+    answer:
+      "While Tolbert's Chili Parlor is famous for its chili and burgers, they do offer a selection of vegetarian options. Please check their current menu or ask the staff for vegetarian dishes available during your visit.",
+  },
+  {
+    question: "Can you dine at Tolbert's Chili Parlor without a reservation?",
+    answer:
+      "Yes, Tolbert's Chili Parlor generally welcomes walk-ins. However, during busy times or for large groups, it's advisable to make a reservation to ensure seating is available.",
+  },
+  {
+    question: "What are the operating hours of Tolbert's Chili Parlor?",
+    answer:
+      "Open daily at 11:00am. Closing times may vary so please call first to verify. Enjoy Happy Hour Monday thru Friday!",
+  },
+  {
+    question: "Is there parking available at Tolbert's Chili Parlor?",
+    answer:
+      "Yes, there is parking available near Tolbert's Chili Parlor. There are street parking options and public parking lots in downtown Grapevine, which are convenient for visitors.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqData.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "About Tolbert's Restaurant",
+  description:
+    "Frank X. Tolbert’s life-long passion for chili inspired him to write his world-famous book “A Bowl of Red” 50 years ago. He founded the Terlingua Championship Chili Cook-Off in 1967 and joined forces with son Frank 2 in 1976 to open the first Tolbert’s Restaurant in Dallas, with daughter Kathleen helping manage starting in 1977.",
+  mainEntity: {
+    "@type": "Organization",
+    name: "Tolbert's Restaurant & Chili Parlor",
+    logo: "https://tolbertsrestaurant.netlify.app/tolberts.webp",
+    sameAs: [
+      "https://www.facebook.com/tolbertsrestaurant",
+      "https://www.instagram.com/tolbertsrestaurant",
+    ],
+    url: "https://tolbertsrestaurant.com",
+  },
+};
 
 const metaTags = {
   title: "About Tolbert's Restaurant",
   description:
-    "Frank X. Tolbert’s life-long passion for chili inspired him to write his world-famous book “A Bowl of Red” 50 years ago.  He founded the Terlingua Championship Chili Cook-Off in 1967 and joined forces with son Frank 2 in 1976 to open the first Tolbert’s Restaurant in Dallas, with daughter Kathleen helping manage starting in 1977.",
+    "Frank X. Tolbert’s life-long passion for chili inspired him to write his world-famous book “A Bowl of Red” 50 years ago. He founded the Terlingua Championship Chili Cook-Off in 1967 and joined forces with son Frank 2 in 1976 to open the first Tolbert’s Restaurant in Dallas, with daughter Kathleen helping manage starting in 1977.",
   url: "https://tolbertsrestaurant.com/about",
   twitterHandle: "@riefer02",
+  schemaData: [aboutSchema, faqSchema],
 };
 ---
 
 <Layout metaTags={metaTags}>
   <Analytics />
 
-  <div class="mt-[56px] grid grid-cols-1 justify-center gap-4 p-12 md:grid-cols-2 chili-white">
-    <div class="flex flex-col justify-center gap-4">
-      <h1 class="text-4xl noto">About Tolbert's Restaurant</h1>
+  <div
+    class="mx-auto grid max-w-6xl grid-cols-1 justify-center gap-4 p-4 py-8 md:py-14 lg:grid-cols-2 lg:py-24"
+  >
+    <div class="flex flex-col justify-center gap-4 lg:pr-6">
+      <h1 class="noto text-4xl">About Tolbert's Restaurant</h1>
       <p>
-        Frank X. Tolbert’s life-long passion for chili inspired him to write his world-famous book “A Bowl of Red” 50 years ago. He founded the Terlingua Championship Chili Cook-Off in 1967 and joined forces with son Frank 2 in 1976 to open the first Tolbert’s Restaurant in Dallas, with daughter Kathleen helping manage starting in 1977. Kathleen, with her husband Paul Ryan, selected Grapevine’s historic Main Street as the new home of Tolbert’s in 2006. The tradition continues as Tolbert’s Restaurant & Chili Parlor features classic southwestern cuisine with our signature Bowl of Red, using the same recipe developed by Frank X. Tolbert and his son.
-        Enjoy your visit and tell your friends!
-      </p> 
+        Frank X. Tolbert’s life-long passion for chili inspired him to write his
+        world-famous book “A Bowl of Red” 50 years ago. He founded the Terlingua
+        Championship Chili Cook-Off in 1967 and joined forces with son Frank 2
+        in 1976 to open the first Tolbert’s Restaurant in Dallas, with daughter
+        Kathleen helping manage starting in 1977. Kathleen, with her husband
+        Paul Ryan, selected Grapevine’s historic Main Street as the new home of
+        Tolbert’s in 2006. The tradition continues as Tolbert’s Restaurant &
+        Chili Parlor features classic southwestern cuisine with our signature
+        Bowl of Red, using the same recipe developed by Frank X. Tolbert and his
+        son. Enjoy your visit and tell your friends!
+      </p>
       <p>— Kathleen, Paul and Steven Ryan</p>
     </div>
 
     <div>
       <YouTube class="rounded-lg" id="https://youtu.be/XgkegPojcCE" />
     </div>
-
   </div>
-  
- <PhotoGallery client:load />
-    <div class="w-full p-8 bg-black text-white text-2xl">
-      <div class="max-w-5xl mx-auto">
-      <h2 class="text-4xl noto mt-12">FAQ</h2>
-      <AccordionDemo client:load />
+
+  <PhotoGallery client:load />
+  <div class="w-full bg-black p-8 text-2xl text-white">
+    <div class="mx-auto max-w-5xl">
+      <h2 class="noto mt-12 text-4xl">FAQ</h2>
+      <AccordionDemo faqData={faqData} client:load />
     </div>
+  </div>
 </Layout>

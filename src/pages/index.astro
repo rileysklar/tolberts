@@ -1,27 +1,27 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
-import profileImage from "../assets/Andrew-Riefenstahl.jpg";
 import Analytics from "../components/Analytics.astro";
 import { getEvents } from "../lib/wordpress/fetchEvents";
-import Hero from "../components/Hero"
-import Leaderboard from "../components/Leaderboard"
+import Hero from "../components/Hero";
+import Leaderboard from "../components/Leaderboard";
 import PhotoGallery from "@/components/PhotoGallery";
 import Testimonials from "@/components/Testimonials";
 import HeroMain from "@/components/HeroMain";
 import FormHorizontal from "@/components/FormHorizontal";
-import Form from "@/components/Form";
+import { generateEventSchema } from "@/lib/seo/schemas";
+
+const events = await getEvents();
+
+const eventSchemas = events.map((event) => generateEventSchema(event.node));
 
 const metaTags = {
   title: "Tolbert's Restaurant",
   description:
-    "Tolbert's Restaurant is a family owned and operated restaurant located in Grapevine, Texas. We serve the best chili in Texas and have a full menu of delicious food and drinks.",
+    "Tolbert's Restaurant is a family-owned and operated restaurant located in Grapevine, Texas. We serve the best chili in Texas and have a full menu of delicious food and drinks.",
   url: "https://tolbertsrestaurant.com",
   twitterHandle: "@riefer02",
+  schemaData: eventSchemas,
 };
-
-const events = await getEvents();
-// console.log(events);
 ---
 
 <Layout metaTags={metaTags}>
@@ -29,11 +29,9 @@ const events = await getEvents();
   <main class="content">
     <HeroMain client:load />
     <FormHorizontal client:load />
-    <Hero events={events} client:load/>
-    <Leaderboard client:load/>
-     <Testimonials client:load/>
-    <PhotoGallery client:load/>
+    <Hero events={events} client:load />
+    <Leaderboard client:load />
+    <Testimonials client:load />
+    <PhotoGallery client:load />
   </main>
 </Layout>
-
-

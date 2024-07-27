@@ -40,9 +40,9 @@ function FormHorizontal() {
   };
 
   return (
-    <div className="chili bg-black  p-8">
-      <div className="morphism w-full">
-        <h3 className="noto mx-4 text-pretty pt-4 text-center text-xl text-white sm:text-3xl">
+    <div className="chili bg-black  p-8 py-16">
+      <div className="max-w-7xl mx-auto w-full">
+        <h3 className="noto mx-4 text-pretty pt-4 text-center text-2xl text-white md:text-3xl lg:text-4xl">
           Rent our space, book your band, or get in touch about our chili! 🌶️
         </h3>
         {!isSubmitted ? (

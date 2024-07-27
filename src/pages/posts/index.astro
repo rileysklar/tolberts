@@ -18,15 +18,7 @@ const metaTags = {
 ---
 
 <Layout metaTags={metaTags}>
-  <main class="mx-auto max-w-4xl py-6">
-    <div class="text-center">
-      <h1 class="mb-4 text-2xl font-semibold md:text-3xl lg:text-4xl">
-        Blog Posts
-      </h1>
-      <h2 class="mx-auto mb-4 max-w-xs text-lg sm:max-w-xl sm:text-xl">
-        Dive into a comprehensive collection of all my blog posts.
-      </h2>
-    </div>
+  <main class="mx-auto max-w-7xl p-4 py-8 md:py-14 lg:py-24">
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
       {sortedPosts.map((post) => <PostCard post={post} />)}
     </div>

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import style from "../styles/topnav.module.css";
 import { Button } from "../components/ui/button";
 
 export default function TopNav() {
@@ -8,7 +7,6 @@ export default function TopNav() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      // Set initial state based on scroll position on the client
       const initialScrollTop =
         document.documentElement.scrollTop || document.body.scrollTop;
       setIsScrolled(initialScrollTop > 100);
@@ -28,7 +26,7 @@ export default function TopNav() {
 
   return (
     <nav
-      className={`duration-800 urbanist fixed top-0 z-50 w-full justify-between rounded-b-lg p-4 text-xl font-semibold shadow-lg	transition-all ${isScrolled ? "bg-white text-black" : "bg-black text-white"}`}
+      className={`duration-800 urbanist fixed top-0 z-50 w-full justify-between p-4 text-xl font-semibold shadow-lg	transition-all ${isScrolled ? "bg-white text-black" : "bg-black text-white"}`}
     >
       <div className="mx-auto flex w-full max-w-7xl items-center justify-between">
         <div
@@ -90,23 +88,6 @@ export default function TopNav() {
               Order Food 🚙
             </button>
           </a>
-          {/* <select
-            className={` rounded-full bg-lime-500 px-5 py-2 text-xl hover:bg-lime-600  ${isScrolled ? "text-white" : "text-black"}`}
-            onChange={(e) => (window.location.href = e.target.value)}
-          >
-            {" "}
-            <option value="" selected disabled>
-              Order Food 🚙
-            </option>
-            <option value="https://www.ubereats.com/dallas/food-delivery/tolberts-restaurant/E0auRfDRQ_e9RRP32vWMQw?fbclid=IwAR0qXPc6YEgE8uzjHTcMQ_kVj-eVv1NcGkO8PCDLkA-8tgO9NC6Z1XBT6yM">
-              Uber Eats
-            </option>
-            <option value="https://www.doordash.com/store/tolbert's-restaurant-grapevine-27945/?fbclid=IwAR34uGVgDg3xEm0VoUWg4rKZafHMrEgQLDWPmzhNHhM2gvIx36rCwemQcEo">
-              Door Dash
-            </option>
-          </select>
-       
-       */}{" "}
         </div>{" "}
       </div>
 

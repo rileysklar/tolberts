@@ -9,11 +9,10 @@ const Leaderboard = () => {
   "
       >
         <div
-          className=" align-center grid  grid-cols-1
-   justify-center gap-4 p-12 md:grid-cols-2"
+          className="align-center grid grid-cols-1 justify-center p-6 gap-8 lg:gap-2 lg:p-12 lg:py-24 lg:grid-cols-2"
         >
-          <div className="flex flex-col items-start justify-center">
-            <h1 className=" noto text-2xl text-black sm:text-4xl">
+          <div className="flex flex-col items-start justify-center gap-4 lg:pr-6">
+            <h1 className=" noto text-2xl text-black md:text-5xl">
               Tolbert's Restaurant
             </h1>
             <p className="sm:text-md mt-1 text-black">

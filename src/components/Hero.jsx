@@ -1,10 +1,7 @@
 import { useState } from "react";
 
-import { Button } from "./ui/button";
-import { ChevronRight } from "lucide-react";
-
 const Hero = ({ events }) => {
-  // console.log(events);
+  
   const [showDescription, setShowDescription] = useState(false);
 
   const {
@@ -20,15 +17,15 @@ const Hero = ({ events }) => {
   } = events[events.length - 1];
 
   return (
-    <div className="grid h-[90dvh] grid-cols-1 md:grid-cols-3">
+    <div className="grid h-[90dvh] grid-cols-1 lg:grid-cols-3">
       <div
-        className="flex items-end justify-end bg-cover bg-center bg-top md:col-span-2"
+        className="flex items-end justify-end bg-cover bg-center md:col-span-2"
         style={{
           backgroundImage: `url(${sourceUrl})`,
         }}
       >
         <div
-          className=" w-3/4 overflow-hidden rounded-tl-lg border-l border-t border-t bg-slate-800/50 p-4 shadow-lg backdrop-blur-md
+          className=" w-3/4 overflow-hidden rounded-tl-lg border-l border-t bg-slate-800/50 p-4 shadow-lg backdrop-blur-md
 
 "
         >
@@ -42,20 +39,13 @@ const Hero = ({ events }) => {
           {showDescription && (
             <p className="mt-1 text-sm text-white"> {description}</p>
           )}
-          {/* <Button
-            variant="outline"
-            className="color-white mt-2 bg-transparent"
-            onClick={() => setShowDescription(!showDescription)}
-          >
-            {showDescription ? "Hide Details" : "Show Details"}
-            <ChevronRight className="h-4 w-4" />
-          </Button> */}
+          
         </div>
       </div>
-      <div className="flex flex-col md:col-span-1">
+      <div className="flex flex-col lg:col-span-1">
         {[events[events.length - 2], events[events.length - 3]]
           .filter(Boolean)
-          .map((event, index) => {
+          .map((event, _) => {
             const {
               node: {
                 id,
@@ -68,12 +58,12 @@ const Hero = ({ events }) => {
                 } = {},
               } = {},
             } = event;
-            const [showDescription, setShowDescription] = useState(false); // add this line
+            const [showDescription, setShowDescription] = useState(false); 
 
             return (
               <div
                 key={id}
-                className=" bg-r flex flex-1 items-end justify-end overflow-hidden bg-center shadow-lg
+                className="min-h-[300px] bg-r flex flex-1 items-end justify-end overflow-hidden bg-center shadow-lg
 
               "
                 style={{ backgroundImage: `url(${sourceUrl})` }}

@@ -1,11 +1,10 @@
 ---
-import Header from "../components/Header.astro";
 import { ViewTransitions } from "astro:transitions";
-import ogImage from "../assets/ar-ogimage-optimized.png";
 import "../styles/globals.css";
-import TopNav from "@/components/TopNav"
-import Footer from "@/components/Footer"
-import FormHorizontal from "@/components/FormHorizontal";
+import TopNav from "@/components/TopNav";
+import Footer from "@/components/Footer";
+import { baseSchema } from "@/lib/seo/schemas";
+
 interface Props {
   metaTags: {
     title: string;
@@ -13,10 +12,15 @@ interface Props {
     image?: string;
     url: string;
     twitterHandle?: string;
+    schemaData?: object[];
   };
 }
 
 const { metaTags } = Astro.props;
+
+const dynamicSchema = metaTags.schemaData ?? [];
+
+const fullSchema = [baseSchema, ...dynamicSchema];
 ---
 
 <!doctype html>
@@ -28,7 +32,10 @@ const { metaTags } = Astro.props;
     <meta name="description" content={metaTags.description} />
     <meta property="og:title" content={metaTags.title} />
     <meta property="og:description" content={metaTags.description} />
-    <meta property="og:image" content="https://tolbertsrestaurant.netlify.app/tolberts.webp" />
+    <meta
+      property="og:image"
+      content="https://tolbertsrestaurant.netlify.app/tolberts.webp"
+    />
     <meta property="og:url" content={metaTags.url} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -38,26 +45,32 @@ const { metaTags } = Astro.props;
     />
     <meta name="twitter:title" content={metaTags.title} />
     <meta name="twitter:description" content={metaTags.description} />
-    <meta name="twitter:image" content="https://tolbertsrestaurant.netlify.app/tolberts.webp" />
+    <meta
+      name="twitter:image"
+      content="https://tolbertsrestaurant.netlify.app/tolberts.webp"
+    />
     <link rel="canonical" href={metaTags.url} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <ViewTransitions />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(fullSchema)} />
   </head>
-  <divs class="bg-stone-200 text-stone-800">
-    <Header title={metaTags.title} />
-    <TopNav client:load/>
-    <div>
+  <body class="bg-stone-200 text-stone-800">
+    <TopNav client:load />
+    <div class="chili-white pt-20">
       <slot />
     </div>
-    <Footer client:load/>
+    <Footer client:load />
     <style is:global>
       :root {
         --accent: 136, 58, 7;
@@ -70,8 +83,6 @@ const { metaTags } = Astro.props;
           white 60%
         );
       }
-
-      
     </style>
   </body>
 </html>
