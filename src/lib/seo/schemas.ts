@@ -22,7 +22,15 @@ export const baseSchema = {
   servesCuisine: "American",
   menu: "https://tolbertsrestaurant.com/menu",
   acceptsReservations: "True",
-  openingHours: ["Mo-Su 11:00-22:00"],
+  openingHours: [
+    "Mo 11:00-21:00",
+    "Tu 11:00-22:00",
+    "We 11:00-23:00",
+    "Th 11:00-23:00",
+    "Fr 11:00-23:30",
+    "Sa 11:00-23:30",
+    "Su 11:00-21:00",
+  ],
 };
 
 export function generateEventSchema(event) {
