@@ -27,8 +27,8 @@ export const baseSchema = {
     "Tu 11:00-22:00",
     "We 11:00-23:00",
     "Th 11:00-23:00",
-    "Fr 11:00-23:30",
-    "Sa 11:00-23:30",
+    "Fr 11:00-24:00",
+    "Sa 11:00-24:00",
     "Su 11:00-21:00",
   ],
 };
@@ -41,10 +41,10 @@ export function generateEventSchema(event) {
     description: event.postTypeEvent.description,
     image: event.postTypeEvent.image.sourceUrl,
     startDate: new Date(
-      `${event.postTypeEvent.date} ${event.postTypeEvent.startTime}`,
+      `${event.postTypeEvent.date}T${event.postTypeEvent.startTime}`,
     ).toISOString(),
     endDate: new Date(
-      `${event.postTypeEvent.date} ${event.postTypeEvent.endTime}`,
+      `${event.postTypeEvent.date}T${event.postTypeEvent.endTime}`,
     ).toISOString(),
     location: {
       "@type": "Place",
