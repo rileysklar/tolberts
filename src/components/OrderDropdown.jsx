@@ -11,12 +11,12 @@ function OrderDropdown() {
     <div className="dropdown">
       <button
         onClick={handleButtonClick}
-        className="order-btn inline-block rounded-full bg-lime-500 px-5 py-2 text-xl text-black hover:bg-lime-400"
+        className="order-btn inline-block rounded-full bg-lime-500 px-5 py-2 text-xl text-stone-900 hover:bg-lime-400"
       >
         🚙 Order Food
       </button>
       {isOpen && (
-        <div className="is-open align-center z-100 absolute left-[34px] mt-1 flex flex-col gap-2 rounded-lg bg-black p-4 text-xl text-white">
+        <div className="is-open align-center z-100 absolute left-[34px] mt-1 flex flex-col gap-2 rounded-lg bg-stone-900 p-4 text-xl text-white">
           <a
             className="hover:text-lime-400 active:text-lime-400"
             href="https://www.ubereats.com/dallas/food-delivery/tolberts-restaurant/E0auRfDRQ_e9RRP32vWMQw?fbclid=IwAR0qXPc6YEgE8uzjHTcMQ_kVj-eVv1NcGkO8PCDLkA-8tgO9NC6Z1XBT6yM"

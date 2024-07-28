@@ -4,8 +4,8 @@ import Form from "./Form";
 
 export default function Footer() {
   return (
-    <footer className=" urbanist chili bg-black pb-10 pt-8 ">
-      <div className="morphism  mx-auto max-w-7xl rounded-lg border-white bg-transparent p-2 shadow-lg shadow-lg sm:p-8">
+    <footer className=" urbanist chili bg-stone-900 pb-10 pt-8 ">
+      <div className="morphism  mx-auto max-w-7xl rounded-lg border-white bg-transparent p-2 shadow-lg sm:p-6">
         <div className="grid grid-cols-1 gap-4 p-4  text-center text-white lg:grid-cols-3">
           <div className="morphism flex flex-col items-center justify-between gap-2	p-4">
             <h3 className="noto text-3xl">Our Location</h3>
@@ -79,7 +79,7 @@ export default function Footer() {
               <a href="https://visitor.r20.constantcontact.com/manage/optin?v=0014Ogu2wnBvl8_ZbMlMzQ9KVX9rpr_smoVitHZKZig-keypGiny6WIeEEgXcEOx1-AiOhKLXw2Q2L0sW0VsGJ6VT7G5BoeQ4qErEvgGW2CZEo%3D">
                 <Button
                   variant="default"
-                  className="mt-2 rounded-full bg-white px-5 py-2 text-xl text-black transition-all duration-300 hover:translate-y-[-1px] hover:bg-white active:translate-y-[1px] active:scale-90"
+                  className="mt-2 rounded-full bg-white px-5 py-2 text-xl text-stone-900 transition-all duration-300 hover:translate-y-[-1px] hover:bg-white active:translate-y-[1px] active:scale-90"
                 >
                   🌶️ Join Now
                 </Button>

@@ -40,7 +40,7 @@ function Form() {
   };
 
   return (
-    <div className="chili w-full bg-black">
+    <div className=" w-full bg-stone-900">
       <div className="morphism w-full p-4">
         <h3 className="noto pb-4 text-3xl">Contact Us</h3>
         {!isSubmitted ? (
@@ -72,7 +72,7 @@ function Form() {
               required
             ></input>
             <Button
-              className="rounded-full bg-white px-5 py-2 text-xl text-black transition-all duration-300 hover:translate-y-[-1px] hover:bg-white active:translate-y-[1px] active:scale-90"
+              className="rounded-full bg-white px-5 py-2 text-xl text-stone-900 transition-all duration-300 hover:translate-y-[-1px] hover:bg-white active:translate-y-[1px] active:scale-90"
               type="submit"
               required
             >
@@ -80,7 +80,7 @@ function Form() {
             </Button>
           </form>
         ) : (
-          <p className="m-2 flex content-center justify-center rounded-lg bg-green-400 p-4 py-6 text-center text-2xl text-black ">
+          <p className="m-2 flex content-center justify-center rounded-lg bg-green-400 p-4 py-6 text-center text-2xl text-stone-900 ">
             Thank you for your submission!
           </p> // Step 3: Conditionally render the thank you message
         )}

@@ -1,7 +1,6 @@
 import { useState } from "react";
 
 const Hero = ({ events }) => {
-  
   const [showDescription, setShowDescription] = useState(false);
 
   const {
@@ -17,7 +16,7 @@ const Hero = ({ events }) => {
   } = events[events.length - 1];
 
   return (
-    <div className="grid h-[90dvh] grid-cols-1 lg:grid-cols-3">
+    <div className="grid h-[1200px] grid-cols-1 sm:h-[90dvh] lg:grid-cols-3">
       <div
         className="flex items-end justify-end bg-cover bg-center md:col-span-2"
         style={{
@@ -29,7 +28,7 @@ const Hero = ({ events }) => {
 
 "
         >
-          <h2 className="noto text-xl text-white sm:text-3xl">
+          <h2 className="noto line-clamp-1 text-xl text-white sm:text-3xl">
             {primaryHeader}
           </h2>
           <h3 className="sm:text-md mt-1text-sm text-white">
@@ -39,7 +38,6 @@ const Hero = ({ events }) => {
           {showDescription && (
             <p className="mt-1 text-sm text-white"> {description}</p>
           )}
-          
         </div>
       </div>
       <div className="flex flex-col lg:col-span-1">
@@ -58,12 +56,12 @@ const Hero = ({ events }) => {
                 } = {},
               } = {},
             } = event;
-            const [showDescription, setShowDescription] = useState(false); 
+            const [showDescription, setShowDescription] = useState(false);
 
             return (
               <div
                 key={id}
-                className="min-h-[300px] bg-r flex flex-1 items-end justify-end overflow-hidden bg-center shadow-lg
+                className="bg-r flex min-h-[300px] flex-1 items-end justify-end overflow-hidden bg-center shadow-lg
 
               "
                 style={{ backgroundImage: `url(${sourceUrl})` }}

@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Analytics from "../components/Analytics.astro";
 import CalendarApp from "@/components/Calendar";
 import { getEvents } from "../lib/wordpress/fetchEvents";
-import Hero from "@/components/Hero";
+import Hero from "@/components/CalendarHero";
 import { generateEventSchema } from "@/lib/seo/schemas";
 
 const events = await getEvents();
