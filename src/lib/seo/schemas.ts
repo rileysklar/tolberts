@@ -41,10 +41,10 @@ export function generateEventSchema(event) {
     description: event.postTypeEvent.description,
     image: event.postTypeEvent.image.sourceUrl,
     startDate: new Date(
-      `${event.postTypeEvent.date}T${event.postTypeEvent.startTime}`,
+      `${event.postTypeEvent.date} ${event.postTypeEvent.startTime}`,
     ).toISOString(),
     endDate: new Date(
-      `${event.postTypeEvent.date}T${event.postTypeEvent.endTime}`,
+      `${event.postTypeEvent.date} ${event.postTypeEvent.endTime}`,
     ).toISOString(),
     location: {
       "@type": "Place",
