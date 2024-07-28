@@ -40,9 +40,9 @@ function FormHorizontal() {
   };
 
   return (
-    <div className="chili bg-black  p-8">
-      <div className="morphism w-full">
-        <h3 className="noto mx-4 text-pretty pt-4 text-center text-xl text-white sm:text-3xl">
+    <div className=" p-8  py-16 ">
+      <div className="morphism-x mx-auto w-full max-w-7xl py-4">
+        <h3 className="noto mx-4 text-pretty pt-4 text-center text-2xl text-white md:text-3xl lg:text-4xl">
           Rent our space, book your band, or get in touch about our chili! 🌶️
         </h3>
         {!isSubmitted ? (
@@ -73,14 +73,14 @@ function FormHorizontal() {
               className="sm:h-[43px] sm:w-[50%]"
             ></input>
             <Button
-              className="rounded-full bg-white px-5 py-2 text-xl text-black transition-all duration-300 hover:translate-y-[-1px] hover:bg-white active:translate-y-[1px] active:scale-90"
+              className="rounded-full bg-white px-5 py-2 text-xl text-stone-900 transition-all duration-300 hover:translate-y-[-1px] hover:bg-white active:translate-y-[1px] active:scale-90"
               type="submit"
             >
               Submit
             </Button>
           </form>
         ) : (
-          <p className="m-2 flex content-center justify-center rounded-lg bg-green-400 p-4 py-6 text-center text-2xl text-black ">
+          <p className="m-2 flex content-center justify-center rounded-lg bg-green-400 p-4 py-6 text-center text-2xl text-stone-900 ">
             Thank you for your getting in touch with us! We will get back to you
             as soon as possible.
           </p> // Step 3: Conditionally render the thank you message

@@ -1,27 +1,33 @@
 ---
-import Layout from "../layouts/Layout.astro"
+import Layout from "../layouts/Layout.astro";
 import Analytics from "../components/Analytics.astro";
-import Calendar from "@/components/Calendar"
+import CalendarApp from "@/components/Calendar";
 import { getEvents } from "../lib/wordpress/fetchEvents";
-import Hero from "@/components/Hero"
-
-const metaTags = {
-  title: "About Tolbert's Restaurant",
-  description:
-    "Frank X. Tolbert’s life-long passion for chili inspired him to write his world-famous book “A Bowl of Red” 50 years ago.  He founded the Terlingua Championship Chili Cook-Off in 1967 and joined forces with son Frank 2 in 1976 to open the first Tolbert’s Restaurant in Dallas, with daughter Kathleen helping manage starting in 1977.",
-  url: "https://tolbertsrestaurant.com/about",
-  twitterHandle: "@riefer02",
-};
+import Hero from "@/components/CalendarHero";
+import { generateEventSchema } from "@/lib/seo/schemas";
 
 const events = await getEvents();
-// console.log(events);
+
+const eventSchemas = events.map((event) => generateEventSchema(event.node));
+
+const metaTags = {
+  title: "Tolbert's Restaurant Events Calendar",
+  description:
+    "Frank X. Tolbert’s life-long passion for chili inspired him to write his world-famous book “A Bowl of Red” 50 years ago. He founded the Terlingua Championship Chili Cook-Off in 1967 and joined forces with son Frank 2 in 1976 to open the first Tolbert’s Restaurant in Dallas, with daughter Kathleen helping manage starting in 1977.",
+  url: "https://tolbertsrestaurant.com/events",
+  twitterHandle: "@riefer02",
+  schemaData: eventSchemas,
+};
 ---
+
 <Layout metaTags={metaTags}>
   <Analytics />
-  <main class="mt-[90px] md:mt-0 chili-white bg-repeat">
-    <div class="hidden md:block">
-      <Hero events={events} client:load/>
-      </div>
-   <Calendar events={events} client:load/>
+  <main class="bg-repeat md:mt-0">
+    <div class="hidden lg:block">
+      <Hero events={events} client:load />
+    </div>
+    <div class="mx-auto max-w-7xl">
+      <CalendarApp events={events} client:load />
+    </div>
   </main>
 </Layout>

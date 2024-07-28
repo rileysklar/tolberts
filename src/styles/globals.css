@@ -31,7 +31,7 @@
 }
 
 .morphism-x {
-  background: rgba(14, 14, 14, 0.15);
+  background: rgba(14, 14, 14, 0.75);
   box-shadow: 0 8px 32px 0 rgba(175, 175, 175, 0.27);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);

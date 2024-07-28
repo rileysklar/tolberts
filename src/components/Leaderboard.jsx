@@ -3,20 +3,17 @@ import { ChevronRight } from "lucide-react";
 
 const Leaderboard = () => {
   return (
-    <div className="chili-white w-full">
+    <div className=" w-full">
       <div
         className="mx-auto max-w-7xl
   "
       >
-        <div
-          className=" align-center grid  grid-cols-1
-   justify-center gap-4 p-12 md:grid-cols-2"
-        >
-          <div className="flex flex-col items-start justify-center">
-            <h1 className=" noto text-2xl text-black sm:text-4xl">
+        <div className="align-center grid grid-cols-1 justify-center gap-8 p-6 lg:grid-cols-2 lg:gap-2 lg:p-12 lg:py-24">
+          <div className="flex flex-col items-start justify-center gap-4 lg:pr-6">
+            <h1 className=" noto text-2xl text-stone-900 md:text-5xl">
               Tolbert's Restaurant
             </h1>
-            <p className="sm:text-md mt-1 text-black">
+            <p className="sm:text-md mt-1 text-stone-900">
               Frank X. Tolbert’s life-long passion for chili inspired him to
               write his world-famous book “A Bowl of Red” 50 years ago. He
               founded the Terlingua Championship Chili Cook-Off in 1967 and

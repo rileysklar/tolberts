@@ -2,16 +2,44 @@
 import Layout from "./Layout.astro";
 const { frontmatter } = Astro.props;
 
+const blogPostSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: frontmatter.title,
+  description: frontmatter.description,
+  image: frontmatter.image.url.src,
+  author: {
+    "@type": "Person",
+    name: frontmatter.author,
+  },
+  datePublished: frontmatter.pubDate,
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": `https://tolbertsrestaurant.com/posts/${frontmatter.slug}`,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Tolbert's Restaurant & Chili Parlor",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://tolbertsrestaurant.netlify.app/tolberts.webp",
+    },
+  },
+  articleBody: frontmatter.description, // Placeholder, you can adjust based on your needs
+  keywords: frontmatter.tags ? frontmatter.tags.join(", ") : "",
+};
+
 const metaTags = {
   title: frontmatter.title,
   description: frontmatter.description,
   image: frontmatter.image.url.src,
   url: `https://tolbertsrestaurant.com/posts/${frontmatter.slug}`,
+  schemaData: [blogPostSchema],
 };
 ---
 
 <Layout metaTags={metaTags}>
-  <div class="mx-auto max-w-2xl py-6">
+  <div class="mx-auto max-w-2xl px-4 py-6">
     <p class="text-xs text-gray-600 sm:text-sm">
       {frontmatter.pubDate.toString().slice(0, 10)}
     </p>
@@ -41,7 +69,7 @@ const metaTags = {
       )
     }
     <article
-      class="prose prose-sm sm:prose prose-stone lg:prose-lg xl:prose-xl"
+      class="prose prose-sm prose-stone sm:prose lg:prose-lg xl:prose-xl"
     >
       <slot />
     </article>
