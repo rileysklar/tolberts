@@ -13,7 +13,7 @@ export default function HeroMain() {
         className="absolute z-0 hidden h-full w-full object-cover sm:block"
       >
         <source
-          src="https://tolbertscms.com/wp-content/uploads/2024/07/tolberts-hero.mp4"
+          src="http://tolbertscms.com/wp-content/uploads/2024/07/Copy-of-minute-cut.mp4"
           type="video/mp4"
         />
       </video>
