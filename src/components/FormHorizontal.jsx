@@ -1,14 +1,13 @@
-import { Button } from "../components/ui/button";
+import { Button } from "./ui/button"; 
 import { useState } from "react";
 
 function FormHorizontal() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false); // Step 1: New state variable for submission status
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async (event) => {
-    console.log("handleSubmit called");
     event.preventDefault();
 
     const response = await fetch("/api/contact-form-api.json", {
@@ -26,29 +25,28 @@ function FormHorizontal() {
         },
       }),
     });
-    console.log(response);
+    
     if (response.ok) {
-      setIsSubmitted(true); // Step 2: Update the submission status
+      setIsSubmitted(true);
       setName("");
       setEmail("");
       setMessage("");
-      setTimeout(() => setIsSubmitted(false), 5000); // Reset after 5 seconds
+      setTimeout(() => setIsSubmitted(false), 5000); 
     } else {
-      // Handle submission error
       console.error("Submission failed");
     }
   };
 
   return (
-    <div className=" p-8  py-16 ">
-      <div className="morphism-x mx-auto w-full max-w-7xl py-4">
+    <div className="p-8 py-16 lg:py-24">
+      <div className="morphism-x mx-auto w-full max-w-2xl lg:px-8 lg:py-6 py-4 lg:flex flex-col gap-4">
         <h3 className="noto mx-4 text-pretty pt-4 text-center text-2xl text-white md:text-3xl lg:text-4xl">
           Rent our space, book your band, or get in touch about our chili! 🌶️
         </h3>
         {!isSubmitted ? (
           <form
             onSubmit={handleSubmit}
-            className="sm:align-center flex w-full flex-col justify-center gap-2 rounded-lg p-4 sm:flex-row sm:items-center"
+            className="grid w-full gap-2 rounded-lg p-4 sm:grid-cols-1 lg:grid-cols-2"
           >
             <input
               type="text"
@@ -56,6 +54,7 @@ function FormHorizontal() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
+              className="lg:col-span-1 lg:row-span-1"
             />
             <input
               type="email"
@@ -63,27 +62,28 @@ function FormHorizontal() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-            />{" "}
+              className="lg:col-span-1 lg:row-span-1"
+            />
             <input
               type="text"
               placeholder="Your Message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               required
-              className="sm:h-[43px] sm:w-[50%]"
-            ></input>
+              className="sm:h-[43px] lg:col-span-2"
+            />
             <Button
-              className="rounded-full bg-white px-5 py-2 text-xl text-stone-900 transition-all duration-300 hover:translate-y-[-1px] hover:bg-white active:translate-y-[1px] active:scale-90"
+              size="lg"
               type="submit"
+              className="lg:col-span-2"
             >
               Submit
             </Button>
           </form>
         ) : (
-          <p className="m-2 flex content-center justify-center rounded-lg bg-green-400 p-4 py-6 text-center text-2xl text-stone-900 ">
-            Thank you for your getting in touch with us! We will get back to you
-            as soon as possible.
-          </p> // Step 3: Conditionally render the thank you message
+          <p className="m-2 flex content-center justify-center rounded-lg bg-teal-500 p-4 py-6 text-center text-2xl text-stone-900">
+            Thank you for getting in touch with us! We will get back to you as soon as possible.
+          </p>
         )}
       </div>
     </div>
