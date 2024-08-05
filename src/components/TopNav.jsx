@@ -85,7 +85,7 @@ export default function TopNav() {
             <button
               className={`hide rounded-full bg-teal-600 px-5 py-2 text-xl font-semibold hover:bg-teal-700  ${isScrolled ? "text-white" : "text-white"}`}
             >
-              Order Food 🚙
+              Order Food
             </button>
           </a>
         </div>{" "}
@@ -132,7 +132,7 @@ export default function TopNav() {
             variant=""
             className="hide hover:stone-900 mb-4 mt-2 w-full rounded-full bg-teal-600 py-6 text-xl font-semibold text-white  hover:translate-y-[-1px] hover:bg-teal-700 active:translate-y-[1px] active:scale-90"
           >
-            🚙 Order Food
+            Order Food
           </Button>
         </a>
         {/* <select
@@ -140,7 +140,7 @@ export default function TopNav() {
           onChange={(e) => (window.location.href = e.target.value)}
         >
           <option value="" selected disabled>
-            Order Food 🚙
+            Order Food 
           </option>
           <option value="https://www.ubereats.com/dallas/food-delivery/tolberts-restaurant/E0auRfDRQ_e9RRP32vWMQw?fbclid=IwAR0qXPc6YEgE8uzjHTcMQ_kVj-eVv1NcGkO8PCDLkA-8tgO9NC6Z1XBT6yM">
             Uber Eats

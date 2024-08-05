@@ -28,9 +28,11 @@ const Leaderboard = () => {
             </p>
             <p>— Kathleen, Paul and Steven Ryan</p>
             <a href="/about">
-              <Button variant="default" className="mt-2">
+              <button
+                className={`a flex flex-row items-center gap-2 rounded-full bg-teal-600 px-5 py-2 text-lg font-semibold text-white hover:bg-teal-700`}
+              >
                 Learn More <ChevronRight className="h-4 w-4" />
-              </Button>
+              </button>{" "}
             </a>
           </div>
           <div

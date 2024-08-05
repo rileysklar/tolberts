@@ -4,7 +4,7 @@ import OrderDropdown from "./OrderDropdown";
 
 export default function HeroMain() {
   return (
-    <div className="relative h-[80dvh] w-[full] bg-stone-900">
+    <div className="relative h-[80vh] w-[full] bg-stone-900">
       <video
         autoPlay
         muted
