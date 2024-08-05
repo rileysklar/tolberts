@@ -83,7 +83,7 @@ export default function TopNav() {
           </a>
           <a href="https://order.spoton.com/rbbt-tolberts-restaurant-and-chili-parlor-15291/grapevine-tx/64e7d0d48137b6003f171eba">
             <button
-              className={`rounded-full bg-teal-600 px-5 py-2 text-xl font-semibold hover:bg-teal-700  ${isScrolled ? "text-white" : "text-white"}`}
+              className={`hide rounded-full bg-teal-600 px-5 py-2 text-xl font-semibold hover:bg-teal-700  ${isScrolled ? "text-white" : "text-white"}`}
             >
               Order Food 🚙
             </button>
@@ -130,7 +130,7 @@ export default function TopNav() {
         <a href="https://order.spoton.com/rbbt-tolberts-restaurant-and-chili-parlor-15291/grapevine-tx/64e7d0d48137b6003f171eba">
           <Button
             variant=""
-            className="hover:stone-900 mb-4 mt-2 w-full rounded-full bg-teal-600 py-6 text-xl font-semibold text-white  hover:translate-y-[-1px] hover:bg-teal-700 active:translate-y-[1px] active:scale-90"
+            className="hide hover:stone-900 mb-4 mt-2 w-full rounded-full bg-teal-600 py-6 text-xl font-semibold text-white  hover:translate-y-[-1px] hover:bg-teal-700 active:translate-y-[1px] active:scale-90"
           >
             🚙 Order Food
           </Button>

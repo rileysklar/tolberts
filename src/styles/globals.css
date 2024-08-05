@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+.hide {
+  display: none;
+}
+
 .urbanist,
 .noto {
   font-family: "Urbanist", sans-serif;
