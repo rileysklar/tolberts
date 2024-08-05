@@ -1,7 +1,7 @@
 # Redirects from what the browser requests to what we serve
 
 /home /
-/live-music/\* /calendar 301!
+/live-music/* /calendar 301!
 /contact-2-2-2/ /
 /gallery-2/ /about
 /documents/TolbertsMenu.pdf https://tolbertscms.com/wp-content/uploads/2024/04/TolbertsNewMenu010324.pdf
