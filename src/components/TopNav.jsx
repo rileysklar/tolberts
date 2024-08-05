@@ -85,7 +85,7 @@ export default function TopNav() {
             <button
               className={`rounded-full bg-teal-600 px-5 py-2 text-xl font-semibold hover:bg-teal-700  ${isScrolled ? "text-white" : "text-white"}`}
             >
-              Order Food 🚙
+              Order Food 
             </button>
           </a>
         </div>{" "}
