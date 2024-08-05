@@ -4,6 +4,8 @@ import Analytics from "../components/Analytics.astro";
 import { AccordionDemo } from "@/components/Accordion";
 import { YouTube } from "astro-embed";
 import PhotoGallery from "@/components/PhotoGallery";
+import { Button } from "../components/ui/button";
+import { ChevronRight } from "lucide-react";
 
 const faqData = [
   {
@@ -93,18 +95,16 @@ const metaTags = {
     <div class="flex flex-col justify-center gap-4 lg:pr-6">
       <h1 class="noto text-4xl">About Tolbert's Restaurant</h1>
       <p>
-        Frank X. Tolbert’s life-long passion for chili inspired him to write his
-        world-famous book “A Bowl of Red” 50 years ago. He founded the Terlingua
-        Championship Chili Cook-Off in 1967 and joined forces with son Frank 2
-        in 1976 to open the first Tolbert’s Restaurant in Dallas, with daughter
-        Kathleen helping manage starting in 1977. Kathleen, with her husband
-        Paul Ryan, selected Grapevine’s historic Main Street as the new home of
-        Tolbert’s in 2006. The tradition continues as Tolbert’s Restaurant &
-        Chili Parlor features classic southwestern cuisine with our signature
-        Bowl of Red, using the same recipe developed by Frank X. Tolbert and his
-        son. Enjoy your visit and tell your friends!
+        Tolbert’s Restaurant and Chili Parlor in Grapevine, Texas, stands as a testament to Frank X. Tolbert's legacy in Texas folklore and cuisine. Frank, a larger-than-life journalist and historian born in 1912, co-founded the renowned Terlingua Chili Cookoff in 1967, celebrating Texan heritage. The Tolbert family's commitment to preserving Frank's passion for chili continues through their involvement in the restaurant, ensuring authenticity and excellence in every dish. The first Tolbert’s Restaurant opened in Dallas in 1976, and after Frank’s passing in 1984, his family expanded the restaurant to Grapevine in 2006. Combining traditional and modern elements, Tolbert’s offers a rich Texan culinary experience, complete with live music, and remains a beloved cultural landmark.
+
       </p>
-      <p>— Kathleen, Paul and Steven Ryan</p>
+      <a href="/posts/tolberts-restaurant-chili-parlor-history/">
+        <Button variant="default" className="flex flex-row gap-2 rounded-full bg-teal-600 px-5 py-6 align-middle text-lg font-semibold text-white hover:bg-teal-700">
+          Read More <ChevronRight className="h-4 w-4" />
+        </Button>
+      </a>
+      
+      </a>
     </div>
 
     <div>
