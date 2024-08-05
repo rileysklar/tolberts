@@ -85,7 +85,7 @@ export default function TopNav() {
             <button
               className={`rounded-full bg-teal-600 px-5 py-2 text-xl font-semibold hover:bg-teal-700  ${isScrolled ? "text-white" : "text-white"}`}
             >
-              Order Food 
+              Order Food
             </button>
           </a>
         </div>{" "}
@@ -130,9 +130,9 @@ export default function TopNav() {
         <a href="https://order.spoton.com/rbbt-tolberts-restaurant-and-chili-parlor-15291/grapevine-tx/64e7d0d48137b6003f171eba">
           <Button
             variant=""
-            className="hover:stone-900 mb-4 mt-2 w-full rounded-full bg-teal-600 py-6 text-xl font-semibold text-white  hover:translate-y-[-1px] hover:bg-teal-700 active:translate-y-[1px] active:scale-90"
+            className="flex flex-row items-center gap-2 rounded-full bg-teal-600 px-5 py-2 text-lg font-semibold text-white hover:bg-teal-700"
           >
-            🚙 Order Food
+            Order Food
           </Button>
         </a>
         {/* <select
@@ -140,7 +140,7 @@ export default function TopNav() {
           onChange={(e) => (window.location.href = e.target.value)}
         >
           <option value="" selected disabled>
-            Order Food 🚙
+            Order Food 
           </option>
           <option value="https://www.ubereats.com/dallas/food-delivery/tolberts-restaurant/E0auRfDRQ_e9RRP32vWMQw?fbclid=IwAR0qXPc6YEgE8uzjHTcMQ_kVj-eVv1NcGkO8PCDLkA-8tgO9NC6Z1XBT6yM">
             Uber Eats
