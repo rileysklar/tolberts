@@ -13,6 +13,7 @@ import { generateEventSchema } from "@/lib/seo/schemas";
 
 const events = await getEvents();
 
+
 const eventSchemas = events.map((event) => generateEventSchema(event.node));
 
 const metaTags = {

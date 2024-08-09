@@ -11,6 +11,8 @@ const Hero = ({ events }) => {
         secondaryHeader,
         description,
         date,
+        startTime,
+        endTime,
       } = {},
     } = {},
   } = events[events.length - 1];
@@ -35,6 +37,9 @@ const Hero = ({ events }) => {
             {secondaryHeader}
           </h3>
           <p className="sm:text-md mt-1text-sm text-white">🗓️ {date}</p>
+          <p className="sm:text-md mt-1 text-sm text-white">
+          ⏰ {startTime} - {endTime}
+        </p>
           {showDescription && (
             <p className="mt-1 text-sm text-white"> {description}</p>
           )}
@@ -75,7 +80,9 @@ const Hero = ({ events }) => {
                   </h3>
                   <p className="sm:text-md mt-1 text-sm text-white">
                     🗓️ {date}
-                  </p>
+                  </p>  <p className="sm:text-md mt-1 text-sm text-white">
+          ⏰ {startTime} - {endTime}
+        </p>
                   {showDescription && (
                     <p className="mt-1 text-sm text-white">{description}</p>
                   )}

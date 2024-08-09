@@ -18,6 +18,8 @@ const Calendar = ({ events }) => {
                 secondaryHeader,
                 description,
                 date,
+                startTime,
+                endTime,
               } = {},
             } = {},
           } = event;
@@ -42,6 +44,9 @@ const Calendar = ({ events }) => {
                   <p className="sm:text-md mt-1 text-sm text-white">
                     🗓️ {date}
                   </p>
+                  <p className="sm:text-md mt-1 text-sm text-white">
+          ⏰ {startTime} - {endTime}
+        </p>
                   {showDescription && (
                     <p className="mt-1 pr-5 text-sm text-white">
                       {description}

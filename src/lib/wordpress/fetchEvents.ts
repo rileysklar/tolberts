@@ -47,6 +47,8 @@ export async function getSingleEvent(id) {
                   sourceUrl
               }
               description
+              endTime
+              startTime
             }
           }
         }
