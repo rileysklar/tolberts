@@ -38,8 +38,8 @@ const Hero = ({ events }) => {
           </h3>
           <p className="sm:text-md mt-1text-sm text-white">🗓️ {date}</p>
           <p className="sm:text-md mt-1 text-sm text-white">
-          ⏰ {startTime} - {endTime}
-        </p>
+            ⏰ {startTime} - {endTime}
+          </p>
           {showDescription && (
             <p className="mt-1 text-sm text-white"> {description}</p>
           )}
@@ -66,7 +66,7 @@ const Hero = ({ events }) => {
             return (
               <div
                 key={id}
-                className="bg-r flex min-h-[300px] flex-1 items-end justify-end overflow-hidden bg-center shadow-lg
+                className="flex min-h-[300px] flex-1 items-end justify-end overflow-hidden bg-cover bg-center bg-no-repeat shadow-lg
 
               "
                 style={{ backgroundImage: `url(${sourceUrl})` }}
@@ -80,9 +80,10 @@ const Hero = ({ events }) => {
                   </h3>
                   <p className="sm:text-md mt-1 text-sm text-white">
                     🗓️ {date}
-                  </p>  <p className="sm:text-md mt-1 text-sm text-white">
-          ⏰ {startTime} - {endTime}
-        </p>
+                  </p>{" "}
+                  <p className="sm:text-md mt-1 text-sm text-white">
+                    ⏰ {startTime} - {endTime}
+                  </p>
                   {showDescription && (
                     <p className="mt-1 text-sm text-white">{description}</p>
                   )}
