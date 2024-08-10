@@ -5,7 +5,7 @@ import Analytics from "../components/Analytics.astro";
 import { getEvents } from "../lib/wordpress/fetchEvents";
 import Hero from "../components/CalendarHero";
 import Leaderboard from "../components/Leaderboard";
-import PhotoGallery from "@/components/PhotoGallery";
+import FooterPhotoPanel from "@/components/FooterPhotoPanel";
 import Testimonials from "@/components/Testimonials";
 import HeroMain from "@/components/HeroMain";
 import FormHorizontal from "@/components/FormHorizontal";
@@ -34,6 +34,6 @@ const metaTags = {
     <Hero events={events} client:load />
     <Leaderboard client:load />
     <Testimonials client:load />
-    <PhotoGallery client:load />
+    <FooterPhotoPanel client:load />
   </main>
 </Layout>

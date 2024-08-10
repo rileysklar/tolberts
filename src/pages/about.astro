@@ -3,9 +3,10 @@ import Layout from "../layouts/Layout.astro";
 import Analytics from "../components/Analytics.astro";
 import { AccordionDemo } from "@/components/Accordion";
 import { YouTube } from "astro-embed";
-import PhotoGallery from "@/components/PhotoGallery";
+import FooterPhotoPanel from "@/components/FooterPhotoPanel";
 import { Button } from "../components/ui/button";
 import { ChevronRight } from "lucide-react";
+import ImageGallery from "@/components/ImageGallery";
 
 const faqData = [
   {
@@ -111,8 +112,9 @@ const metaTags = {
       <YouTube class="rounded-lg" id="https://youtu.be/XgkegPojcCE" />
     </div>
   </div>
+  <ImageGallery client:load />
 
-  <PhotoGallery client:load />
+  <FooterPhotoPanel client:load />
   <div class="w-full bg-stone-900 p-8 text-2xl text-white">
     <div class="mx-auto max-w-5xl">
       <h2 class="noto mt-12 text-4xl">FAQ</h2>
