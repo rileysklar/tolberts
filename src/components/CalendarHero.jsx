@@ -58,6 +58,8 @@ const Hero = ({ events }) => {
                   secondaryHeader,
                   description,
                   date,
+                  startTime,
+                  endTime,
                 } = {},
               } = {},
             } = event;
