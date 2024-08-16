@@ -2,8 +2,9 @@ export const prerender = false;
 
 export const POST = async ({ request }) => {
   const body = await request.json();
-  // console.log(body);
-  const url = `${import.meta.env.WORDPRESS_URL}/wp-json/wp/v2/contact_form`;
+
+  const url = `${import.meta.env.WORDPRESS_URL}/wp-json/custom/v1/submit_contact_form`;
+
   const wpResponse = await fetch(url, {
     method: "POST",
     headers: {
