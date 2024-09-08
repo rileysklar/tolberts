@@ -10,9 +10,9 @@ import Testimonials from "@/components/Testimonials";
 import HeroMain from "@/components/HeroMain";
 import FormHorizontal from "@/components/FormHorizontal";
 import { generateEventSchema } from "@/lib/seo/schemas";
+import Announcment from "@/components/Announcement";
 
 const events = await getEvents();
-
 
 const eventSchemas = events.map((event) => generateEventSchema(event.node));
 
@@ -30,6 +30,7 @@ const metaTags = {
   <Analytics />
   <main class="content">
     <HeroMain client:load />
+    <Announcment client:load />
     <FormHorizontal client:load />
     <Hero events={events} client:load />
     <Leaderboard client:load />
