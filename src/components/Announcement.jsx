@@ -38,8 +38,11 @@ export default function Announcement() {
         </button>
         <p className="text-lg font-bold lg:text-xl">Notice</p>
         <p>
-          Tolbert’s will be closed Sunday, September 8th at 3:30 for a private
-          event. Also Monday, September 9th at 4:00 for a private event.
+          Grapefest Festival in Progress now through Sunday, September 15. Very
+          limited parking starts immediately and pay to enter the Festival to
+          get to Tolbert’s starts Friday at 5:00 PM. Shuttle service is
+          available. Go to the Grapefest website for details. We will be back to
+          regular business on Monday, September 16.
         </p>
       </div>
     </div>
