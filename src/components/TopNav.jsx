@@ -58,13 +58,13 @@ export default function TopNav() {
             Home
           </a>
           <a
-            href="https://tolbertscms.com/wp-content/uploads/2024/04/TolbertsNewMenu010324.pdf"
+            href="https://tolbertscms.com/wp-content/uploads/2024/11/TolbertsNewMenu090424.pdf"
             className={`text-xl hover:underline ${isScrolled ? "text-stone-900" : "text-white"}`}
           >
             Menu
           </a>
           <a
-            href="http://tolbertscms.com/wp-content/uploads/2024/04/Brunch-Menu-Current-April-2023.pdf"
+            href="https://tolbertscms.com/wp-content/uploads/2024/04/Brunch-Menu-Current-April-2023.pdf"
             className={`p-2 text-xl hover:underline`}
           >
             Brunch
