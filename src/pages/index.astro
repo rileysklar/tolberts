@@ -2,7 +2,7 @@
 export const prerender = false;
 import Layout from "../layouts/Layout.astro";
 import Analytics from "../components/Analytics.astro";
-import { getEvents } from "../lib/wordpress/fetchEvents";
+// import { getEvents } from "../lib/wordpress/fetchEvents";
 import Hero from "../components/CalendarHero";
 import Leaderboard from "../components/Leaderboard";
 import FooterPhotoPanel from "@/components/FooterPhotoPanel";
@@ -12,9 +12,9 @@ import FormHorizontal from "@/components/FormHorizontal";
 import { generateEventSchema } from "@/lib/seo/schemas";
 import Announcment from "@/components/Announcement";
 
-const events = await getEvents();
+// const events = await getEvents();
 
-const eventSchemas = events.map((event) => generateEventSchema(event.node));
+// const eventSchemas = events.map((event) => generateEventSchema(event.node));
 
 const metaTags = {
   title: "Tolbert's Restaurant",
@@ -22,19 +22,30 @@ const metaTags = {
     "Tolbert's Restaurant is a family-owned and operated restaurant located in Grapevine, Texas. We serve the best chili in Texas and have a full menu of delicious food and drinks.",
   url: "https://tolbertsrestaurant.com",
   twitterHandle: "@riefer02",
-  schemaData: eventSchemas,
+  // schemaData: eventSchemas,
 };
+const isUnderMaintenance = true; // Toggle this to true for maintenance
 ---
 
 <Layout metaTags={metaTags}>
-  <Analytics />
-  <main class="content">
-    <HeroMain client:load />
-    <!-- <Announcment client:load /> -->
-    <FormHorizontal client:load />
-    <Hero events={events} client:load />
-    <Leaderboard client:load />
-    <Testimonials client:load />
-    <FooterPhotoPanel client:load />
-  </main>
+  {isUnderMaintenance ? (
+    <div class="flex items-center justify-center h-screen text-center text-xl text-gray-800">
+      <div>
+        <h1 class="text-3xl font-bold">🚧 Site Under Maintenance 🚧</h1>
+        <p class="mt-4">We're currently updating the site to improve your experience. Please check back soon.</p>
+      </div>
+    </div>
+  ) : (
+    // Original homepage content goes here. Comment it out if not needed.
+    <main class="content">
+      <Analytics />
+      <HeroMain client:load />
+      <!-- <Announcment client:load /> -->
+      <FormHorizontal client:load />
+      <Hero events={events} client:load />
+      <Leaderboard client:load />
+      <Testimonials client:load />
+      <FooterPhotoPanel client:load />
+    </main>
+  )}
 </Layout>
