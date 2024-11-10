@@ -2,7 +2,7 @@
 export const prerender = false;
 import Layout from "../layouts/Layout.astro";
 import Analytics from "../components/Analytics.astro";
-// import { getEvents } from "../lib/wordpress/fetchEvents";
+import { getEvents } from "../lib/wordpress/fetchEvents";
 import Hero from "../components/CalendarHero";
 import Leaderboard from "../components/Leaderboard";
 import FooterPhotoPanel from "@/components/FooterPhotoPanel";
@@ -12,9 +12,9 @@ import FormHorizontal from "@/components/FormHorizontal";
 import { generateEventSchema } from "@/lib/seo/schemas";
 import Announcment from "@/components/Announcement";
 
-// const events = await getEvents();
+const events = await getEvents();
 
-// const eventSchemas = events.map((event) => generateEventSchema(event.node));
+const eventSchemas = events.map((event) => generateEventSchema(event.node));
 
 const metaTags = {
   title: "Tolbert's Restaurant",
@@ -22,9 +22,9 @@ const metaTags = {
     "Tolbert's Restaurant is a family-owned and operated restaurant located in Grapevine, Texas. We serve the best chili in Texas and have a full menu of delicious food and drinks.",
   url: "https://tolbertsrestaurant.com",
   twitterHandle: "@riefer02",
-  // schemaData: eventSchemas,
+  schemaData: eventSchemas,
 };
-const isUnderMaintenance = true; // Toggle this to true for maintenance
+const isUnderMaintenance = false; // Toggle this to true for maintenance
 ---
 
 <Layout metaTags={metaTags}>
