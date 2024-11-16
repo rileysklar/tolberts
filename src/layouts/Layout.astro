@@ -1,7 +1,7 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import "../styles/globals.css";
-import TopNav from "@/components/TopNav";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { baseSchema } from "@/lib/seo/schemas";
 
@@ -10,7 +10,7 @@ interface Props {
     title: string;
     description: string;
     image?: string;
-    url: string;
+    url?: string;
     twitterHandle?: string;
     schemaData?: object[];
   };
@@ -72,7 +72,9 @@ const fullSchema = [baseSchema, ...dynamicSchema];
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
           dl = l != "dataLayer" ? "&l=" + l : "";
+        // @ts-ignore
         j.async = true;
+        // @ts-ignore
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-M7XS77GM");
@@ -89,7 +91,7 @@ const fullSchema = [baseSchema, ...dynamicSchema];
         style="display:none;visibility:hidden"></iframe></noscript
     >
     <!-- End Google Tag Manager (noscript) -->
-    <TopNav client:load />
+    <Header client:load />
     <div class="chili-white pt-20">
       <slot />
     </div>

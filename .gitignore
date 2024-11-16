@@ -25,3 +25,5 @@ pnpm-debug.log*
 .netlify/
 
 repomix-output.txt
+
+.prompts/
