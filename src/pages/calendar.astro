@@ -1,15 +1,21 @@
 ---
 export const prerender = false;
 import Layout from "../layouts/Layout.astro";
-import Analytics from "../components/Analytics.astro";
 import CalendarApp from "@/components/Calendar";
 import { getEvents } from "../lib/wordpress/fetchEvents";
 import Hero from "@/components/CalendarHero";
 import { generateEventSchema } from "@/lib/seo/schemas";
 
-const events = await getEvents();
+let events = [];
 
-const eventSchemas = events.map((event) => generateEventSchema(event.node));
+try {
+  events = await getEvents();
+} catch (error) {
+  console.error("Failed to fetch events:", error);
+  events = [];
+}
+
+const eventSchemas = events.map((event) => generateEventSchema(event?.node));
 
 const metaTags = {
   title: "Tolbert's Restaurant Events Calendar",
@@ -22,13 +28,29 @@ const metaTags = {
 ---
 
 <Layout metaTags={metaTags}>
-  <Analytics />
   <main class="bg-repeat md:mt-0">
     <div class="hidden lg:block">
       <Hero events={events} client:load />
     </div>
     <div class="mx-auto max-w-7xl">
-      <CalendarApp events={events} client:load />
+      {
+        events.length > 0 ? (
+          <CalendarApp events={events} client:load />
+        ) : (
+          <div class="h-screen-minus-55 flex items-center justify-center px-4">
+            <div class="max-w-2xl text-center">
+              <h2 class="text-2xl font-bold md:text-3xl">
+                Hold onto your hats!
+              </h2>
+              <p class="mt-4 text-lg leading-relaxed md:text-xl">
+                I bet you're excited to hear some live music! We're reorganizing
+                our calendar to give you the best experience. Please check back
+                soon.
+              </p>
+            </div>
+          </div>
+        )
+      }
     </div>
   </main>
 </Layout>

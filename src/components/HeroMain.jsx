@@ -1,10 +1,10 @@
 import { Button } from "../components/ui/button";
-import Form from "../components/Form";
-import OrderDropdown from "./OrderDropdown";
+import videoFallbackImage from "../assets/tolberts-gallery-1.jpg"; // Import the fallback image
 
 export default function HeroMain() {
   return (
-    <div className="relative h-[80vh] w-[full] bg-stone-900">
+    <div className="relative h-[80vh] w-full bg-stone-900">
+      {/* Video element with fallback image */}
       <video
         autoPlay
         muted
@@ -16,19 +16,25 @@ export default function HeroMain() {
           src="https://tolbertscms.com/wp-content/uploads/2024/07/Copy-of-minute-cut.mp4"
           type="video/mp4"
         />
+        {/* Fallback image displayed if video fails to load */}
+        <img
+          src={videoFallbackImage.src}
+          className="h-full w-full object-cover"
+          alt="Tolbert's Restaurant"
+        />
       </video>
+      {/* Mobile-specific fallback image */}
       <img
         src="/tolbs-outside-mobile.jpg"
         className="absolute z-0 block h-full w-full object-cover sm:hidden"
         alt="Tolbert's Restaurant"
       />
-      <div className="grid h-full grid-cols-1  gap-4 sm:w-full">
-        <div className=" urbanist relative z-10 flex w-full flex-col justify-center bg-gradient-to-r  from-stone-700 to-transparent p-4 sm:col-span-1 sm:p-[64px]">
+      <div className="grid h-full grid-cols-1 gap-4 sm:w-full">
+        <div className="urbanist relative z-10 flex w-full flex-col justify-center bg-gradient-to-r from-stone-700 to-transparent p-4 sm:col-span-1 sm:p-[64px]">
           <div className="mx-auto w-full max-w-7xl">
-            <h1 className="max-w-xl	text-6xl font-bold text-white sm:text-8xl">
+            <h1 className="max-w-xl text-6xl font-bold text-white sm:text-8xl">
               Tolbert's Restaurant
             </h1>
-            {/* <Form client:load /> */}
             <h3 className="urbanist mt-1 text-4xl font-bold text-white sm:text-6xl">
               & Chili Parlor 🌶️
             </h3>
@@ -36,7 +42,7 @@ export default function HeroMain() {
               <a href="/calendar">
                 <Button
                   variant=""
-                  className="hover:stone-900 mt-2 w-full rounded-full bg-white py-6 text-xl text-stone-900 transition-all  duration-300 hover:translate-y-[-1px] hover:bg-stone-100 active:translate-y-[1px] active:scale-90"
+                  className="hover:stone-900 mt-2 w-full rounded-full bg-white py-6 text-xl text-stone-900 transition-all duration-300 hover:translate-y-[-1px] hover:bg-stone-100 active:translate-y-[1px] active:scale-90"
                 >
                   🗓️ Concert Calendar
                 </Button>
@@ -44,18 +50,14 @@ export default function HeroMain() {
               <a href="https://order.spoton.com/rbbt-tolberts-restaurant-and-chili-parlor-15291/grapevine-tx/64e7d0d48137b6003f171eba">
                 <Button
                   variant=""
-                  className="hover:stone-900 mt-2 w-full rounded-full bg-teal-600 py-6 text-xl font-semibold text-white transition-all  duration-300 hover:translate-y-[-1px] hover:bg-teal-700 active:translate-y-[1px] active:scale-90"
+                  className="hover:stone-900 mt-2 w-full rounded-full bg-teal-600 py-6 text-xl font-semibold text-white transition-all duration-300 hover:translate-y-[-1px] hover:bg-teal-700 active:translate-y-[1px] active:scale-90"
                 >
                   🚙 Order Food
                 </Button>
               </a>
-              {/* <OrderDropdown client:load /> */}
             </div>
           </div>
         </div>
-        {/* <div className="align-center align-center hidden w-full flex-col items-center justify-center p-4 md:flex">
-          <Form client:load />
-        </div> */}
       </div>
     </div>
   );

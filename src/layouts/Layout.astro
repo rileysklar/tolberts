@@ -1,16 +1,17 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import "../styles/globals.css";
-import TopNav from "@/components/TopNav";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { baseSchema } from "@/lib/seo/schemas";
+import Analytics from "@/components/Analytics.astro";
 
 interface Props {
   metaTags: {
     title: string;
     description: string;
     image?: string;
-    url: string;
+    url?: string;
     twitterHandle?: string;
     schemaData?: object[];
   };
@@ -72,7 +73,9 @@ const fullSchema = [baseSchema, ...dynamicSchema];
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
           dl = l != "dataLayer" ? "&l=" + l : "";
+        // @ts-ignore
         j.async = true;
+        // @ts-ignore
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-M7XS77GM");
@@ -80,6 +83,7 @@ const fullSchema = [baseSchema, ...dynamicSchema];
     <!-- End Google Tag Manager -->
   </head>
   <body class="bg-stone-200 text-stone-800">
+    <Analytics />
     <!-- Google Tag Manager (noscript) -->
     <noscript
       ><iframe
@@ -89,7 +93,7 @@ const fullSchema = [baseSchema, ...dynamicSchema];
         style="display:none;visibility:hidden"></iframe></noscript
     >
     <!-- End Google Tag Manager (noscript) -->
-    <TopNav client:load />
+    <Header client:load />
     <div class="chili-white pt-20">
       <slot />
     </div>

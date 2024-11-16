@@ -1,20 +1,28 @@
 ---
 export const prerender = false;
 import Layout from "../layouts/Layout.astro";
-import Analytics from "../components/Analytics.astro";
+
 import { getEvents } from "../lib/wordpress/fetchEvents";
-import Hero from "../components/CalendarHero";
+import CalendarHero from "../components/CalendarHero";
 import Leaderboard from "../components/Leaderboard";
 import FooterPhotoPanel from "@/components/FooterPhotoPanel";
 import Testimonials from "@/components/Testimonials";
 import HeroMain from "@/components/HeroMain";
 import FormHorizontal from "@/components/FormHorizontal";
 import { generateEventSchema } from "@/lib/seo/schemas";
-import Announcment from "@/components/Announcement";
+import MaintenanceAnnouncement from "@/components/MaintenanceAnnouncement.astro";
+// import Announcment from "@/components/Announcement";
 
-const events = await getEvents();
+let events = [];
 
-const eventSchemas = events.map((event) => generateEventSchema(event.node));
+try {
+  events = await getEvents();
+} catch (error) {
+  console.error("Failed to fetch events:", error);
+  events = [];
+}
+
+const eventSchemas = events.map((event) => generateEventSchema(event?.node));
 
 const metaTags = {
   title: "Tolbert's Restaurant",
@@ -28,24 +36,19 @@ const isUnderMaintenance = false; // Toggle this to true for maintenance
 ---
 
 <Layout metaTags={metaTags}>
-  {isUnderMaintenance ? (
-    <div class="flex items-center justify-center h-screen text-center text-xl text-gray-800">
-      <div>
-        <h1 class="text-3xl font-bold">🚧 Site Under Maintenance 🚧</h1>
-        <p class="mt-4">We're currently updating the site to improve your experience. Please check back soon.</p>
-      </div>
-    </div>
-  ) : (
-    // Original homepage content goes here. Comment it out if not needed.
-    <main class="content">
-      <Analytics />
-      <HeroMain client:load />
-      <!-- <Announcment client:load /> -->
-      <FormHorizontal client:load />
-      <Hero events={events} client:load />
-      <Leaderboard client:load />
-      <Testimonials client:load />
-      <FooterPhotoPanel client:load />
-    </main>
-  )}
+  {
+    isUnderMaintenance ? (
+      <MaintenanceAnnouncement />
+    ) : (
+      <main class="content">
+        <HeroMain client:load />
+        {/* <!-- <Announcment client:load /> --> */}
+        <FormHorizontal client:load />
+        <CalendarHero events={events} client:load />
+        <Leaderboard client:load />
+        <Testimonials client:load />
+        <FooterPhotoPanel client:load />
+      </main>
+    )
+  }
 </Layout>
