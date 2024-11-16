@@ -1,5 +1,6 @@
 ---
 export const prerender = false;
+
 import { Button } from "@/components/ui/button";
 import Layout from "@/layouts/Layout.astro";
 
@@ -7,22 +8,20 @@ import Layout from "@/layouts/Layout.astro";
 const brunchMenuUrl =
   "https://tolbertscms.com/wp-content/uploads/2024/04/Brunch-Menu-Current-April-2023.pdf";
 
-// Create the proxy URL using Astro.url.origin for the complete URL
-const proxyUrl = `${Astro.url.origin}/api/resource-check.json?url=${encodeURIComponent(brunchMenuUrl)}`;
-
 async function checkResource(url) {
   try {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data.ok;
+    // Perform a HEAD request directly to the resource URL
+    const headResponse = await fetch(url, { method: "HEAD" });
+    // Check if the response status is OK (200-299)
+    return headResponse.ok;
   } catch (err) {
     console.error("Error checking resource:", err);
     return false;
   }
 }
 
-// Perform the resource check
-const isAvailable = await checkResource(proxyUrl);
+// Perform the resource check directly on the brunch menu URL
+const isAvailable = await checkResource(brunchMenuUrl);
 
 // Redirect to the brunch menu if available
 if (isAvailable) {

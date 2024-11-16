@@ -6,26 +6,25 @@ import Layout from "@/layouts/Layout.astro";
 
 const menuUrl =
   "https://tolbertscms.com/wp-content/uploads/2024/11/TolbertsNewMenu090424.pdf";
-const proxyUrl = `${Astro.url.origin}/api/resource-check.json?url=${encodeURIComponent(menuUrl)}`;
 
 async function checkResource(url) {
   try {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data.ok;
+    // Perform a HEAD request directly to the resource URL
+    const headResponse = await fetch(url, { method: "HEAD" });
+
+    // Check if the response status is OK (200-299)
+    return headResponse.ok;
   } catch (err) {
     console.error("Error checking resource:", err);
     return false;
   }
 }
 
-const isAvailable = await checkResource(proxyUrl);
+const isAvailable = await checkResource(menuUrl);
 
 if (isAvailable) {
-  // return Astro.redirect(menuUrl);
+  return Astro.redirect(menuUrl);
 }
-const siteUrl = Astro.url.origin;
-const site = Astro.site;
 ---
 
 <Layout
@@ -39,8 +38,7 @@ const site = Astro.site;
   >
     <div class="max-w-md">
       <h1 class="mb-4 text-3xl font-bold">Menu Unavailable</h1>
-      <p>{siteUrl}</p>
-      <p>{site}</p>
+
       <p class="mb-6">
         Oops! It looks like the menu decided to play hide and seek.
         Unfortunately, it's not available right now.
