@@ -1,6 +1,11 @@
 import { useState } from "react";
 
-const Hero = ({ events }) => {
+const CalendarHero = ({ events }) => {
+  // Check if the events array is empty
+  if (!events || events.length === 0) {
+    return null; // Render nothing if the events array is empty
+  }
+
   const [showDescription, setShowDescription] = useState(false);
 
   const {
@@ -25,18 +30,14 @@ const Hero = ({ events }) => {
           backgroundImage: `url(${sourceUrl})`,
         }}
       >
-        <div
-          className=" w-3/4 overflow-hidden rounded-tl-lg border-l border-t bg-slate-800/50 p-4 shadow-lg backdrop-blur-md
-
-"
-        >
+        <div className="w-3/4 overflow-hidden rounded-tl-lg border-l border-t bg-slate-800/50 p-4 shadow-lg backdrop-blur-md">
           <h2 className="noto line-clamp-1 text-xl text-white sm:text-3xl">
             {primaryHeader}
           </h2>
-          <h3 className="sm:text-md mt-1text-sm text-white">
+          <h3 className="sm:text-md mt-1 text-sm text-white">
             {secondaryHeader}
           </h3>
-          <p className="sm:text-md mt-1text-sm text-white">🗓️ {date}</p>
+          <p className="sm:text-md mt-1 text-sm text-white">🗓️ {date}</p>
           <p className="sm:text-md mt-1 text-sm text-white">
             ⏰ {startTime} - {endTime}
           </p>
@@ -68,12 +69,10 @@ const Hero = ({ events }) => {
             return (
               <div
                 key={id}
-                className="flex min-h-[300px] flex-1 items-end justify-end overflow-hidden bg-cover bg-center bg-no-repeat shadow-lg
-
-              "
+                className="flex min-h-[300px] flex-1 items-end justify-end overflow-hidden bg-cover bg-center bg-no-repeat shadow-lg"
                 style={{ backgroundImage: `url(${sourceUrl})` }}
               >
-                <div className=" w-3/4 rounded-tl-lg border-l border-t bg-slate-800/50 p-4 backdrop-blur-md">
+                <div className="w-3/4 rounded-tl-lg border-l border-t bg-slate-800/50 p-4 backdrop-blur-md">
                   <h2 className="noto text-xl text-white sm:text-3xl">
                     {primaryHeader}
                   </h2>
@@ -106,4 +105,4 @@ const Hero = ({ events }) => {
   );
 };
 
-export default Hero;
+export default CalendarHero;

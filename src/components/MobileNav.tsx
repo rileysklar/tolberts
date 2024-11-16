@@ -8,45 +8,25 @@ import {
 } from "@/components/ui/sheet"; // Adjust the path as necessary
 import { Button } from "./ui/button"; // Ensure this import is correct
 
-export default function MobileNav({
-  isScrolled,
-  availableCmsLinks,
-  staticLinks,
-}) {
+export default function MobileNav({ isScrolled, staticLinks }) {
   const renderMobileLinks = () => {
-    const orderFoodLink = staticLinks.find(
-      (link) => link.label === "Order Food",
-    );
-    const otherStaticLinks = staticLinks.filter(
-      (link) => link.label !== "Order Food",
-    );
-
-    const combinedLinks = [...otherStaticLinks, ...availableCmsLinks];
-
-    return [
-      ...combinedLinks.map(({ label, url, isButton }) =>
-        isButton ? (
-          <a key={label} href={url}>
-            <Button className="w-full rounded-lg bg-teal-600 px-4 py-2 text-2xl font-semibold text-white hover:bg-teal-700">
-              {label}
-            </Button>
-          </a>
-        ) : (
-          <a
-            key={label}
-            href={url}
-            className="block w-full p-3 text-2xl font-medium text-white hover:underline"
-          >
+    return staticLinks.map(({ label, url, isButton }) =>
+      isButton ? (
+        <a key={label} href={url}>
+          <Button className="w-full rounded-lg bg-teal-600 px-4 py-2 text-2xl font-semibold text-white hover:bg-teal-700">
             {label}
-          </a>
-        ),
+          </Button>
+        </a>
+      ) : (
+        <a
+          key={label}
+          href={url}
+          className="block w-full p-3 text-2xl font-medium text-white hover:underline"
+        >
+          {label}
+        </a>
       ),
-      <a key={orderFoodLink.label} href={orderFoodLink.url}>
-        <Button className="w-full rounded-full bg-teal-600 px-4 py-2 text-2xl font-semibold text-white hover:bg-teal-700">
-          {orderFoodLink.label}
-        </Button>
-      </a>,
-    ];
+    );
   };
 
   return (
@@ -73,7 +53,6 @@ export default function MobileNav({
                 alt="Logo"
               />
             </a>
-            {/* Close SheetTitle */}
           </SheetTitle>
         </SheetHeader>
         <div className="mt-4 flex flex-col gap-4">{renderMobileLinks()}</div>

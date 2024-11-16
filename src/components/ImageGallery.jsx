@@ -10,7 +10,7 @@ import img9 from "../assets/tolberts-gallery-9.jpg";
 import img10 from "../assets/tolberts-gallery-10.jpg";
 import img11 from "../assets/tolberts-gallery-11.jpg";
 import img12 from "../assets/tolberts-gallery-12.jpg";
-console.log(img11);
+
 export default function ImageGallery() {
   const images = [
     img1,

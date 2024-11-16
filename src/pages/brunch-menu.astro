@@ -1,0 +1,55 @@
+---
+export const prerender = false;
+import { Button } from "@/components/ui/button";
+import Layout from "@/layouts/Layout.astro";
+
+// Define the brunch menu URL
+const brunchMenuUrl =
+  "https://tolbertscms.com/wp-content/uploads/2024/04/Brunch-Menu-Current-April-2023.pdf";
+
+// Create the proxy URL using Astro.url.origin for the complete URL
+const proxyUrl = `${Astro.url.origin}/api/resource-check.json?url=${encodeURIComponent(brunchMenuUrl)}`;
+
+async function checkResource(url) {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.ok;
+  } catch (err) {
+    console.error("Error checking resource:", err);
+    return false;
+  }
+}
+
+// Perform the resource check
+const isAvailable = await checkResource(proxyUrl);
+
+// Redirect to the brunch menu if available
+if (isAvailable) {
+  return Astro.redirect(brunchMenuUrl);
+}
+---
+
+<Layout
+  metaTags={{
+    title: "Brunch Menu Not Available",
+    description: "The brunch menu you're looking for isn't available.",
+  }}
+>
+  <div
+    class="h-screen-minus-55 flex items-center justify-center p-6 text-center shadow-md"
+  >
+    <div class="max-w-md">
+      <h1 class="mb-4 text-3xl font-bold">Brunch Menu Unavailable</h1>
+      <p class="mb-6">
+        Oh no! The brunch menu seems to be enjoying brunch somewhere else right
+        now.
+        <br /> But don't worry, you can still head back home and explore our other
+        options!
+      </p>
+      <a href="/">
+        <Button> Take Me Home </Button>
+      </a>
+    </div>
+  </div>
+</Layout>

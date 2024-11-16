@@ -1,7 +1,7 @@
 ---
 export const prerender = false;
 import Layout from "../layouts/Layout.astro";
-import Analytics from "../components/Analytics.astro";
+
 import { getEvents } from "../lib/wordpress/fetchEvents";
 import CalendarHero from "../components/CalendarHero";
 import Leaderboard from "../components/Leaderboard";
@@ -41,7 +41,6 @@ const isUnderMaintenance = false; // Toggle this to true for maintenance
       <MaintenanceAnnouncement />
     ) : (
       <main class="content">
-        <Analytics />
         <HeroMain client:load />
         {/* <!-- <Announcment client:load /> --> */}
         <FormHorizontal client:load />

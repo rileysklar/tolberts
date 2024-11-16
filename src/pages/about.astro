@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Analytics from "../components/Analytics.astro";
 import { AccordionDemo } from "@/components/Accordion";
 import { YouTube } from "astro-embed";
 import FooterPhotoPanel from "@/components/FooterPhotoPanel";
@@ -88,23 +87,32 @@ const metaTags = {
 ---
 
 <Layout metaTags={metaTags}>
-  <Analytics />
-
   <div
     class="mx-auto grid max-w-6xl grid-cols-1 justify-center gap-4 p-4 py-8 md:py-14 lg:grid-cols-2 lg:py-24"
   >
     <div class="flex flex-col justify-center gap-4 lg:pr-6">
       <h1 class="noto text-4xl">About Tolbert's Restaurant</h1>
       <p>
-        Tolbert’s Restaurant and Chili Parlor in Grapevine, Texas, stands as a testament to Frank X. Tolbert's legacy in Texas folklore and cuisine. Frank, a larger-than-life journalist and historian born in 1912, co-founded the renowned Terlingua Chili Cookoff in 1967, celebrating Texan heritage. The Tolbert family's commitment to preserving Frank's passion for chili continues through their involvement in the restaurant, ensuring authenticity and excellence in every dish. The first Tolbert’s Restaurant opened in Dallas in 1976, and after Frank’s passing in 1984, his family expanded the restaurant to Grapevine in 2006. Combining traditional and modern elements, Tolbert’s offers a rich Texan culinary experience, complete with live music, and remains a beloved cultural landmark.
-
+        Tolbert’s Restaurant and Chili Parlor in Grapevine, Texas, stands as a
+        testament to Frank X. Tolbert's legacy in Texas folklore and cuisine.
+        Frank, a larger-than-life journalist and historian born in 1912,
+        co-founded the renowned Terlingua Chili Cookoff in 1967, celebrating
+        Texan heritage. The Tolbert family's commitment to preserving Frank's
+        passion for chili continues through their involvement in the restaurant,
+        ensuring authenticity and excellence in every dish. The first Tolbert’s
+        Restaurant opened in Dallas in 1976, and after Frank’s passing in 1984,
+        his family expanded the restaurant to Grapevine in 2006. Combining
+        traditional and modern elements, Tolbert’s offers a rich Texan culinary
+        experience, complete with live music, and remains a beloved cultural
+        landmark.
       </p>
       <a href="/posts/tolberts-restaurant-chili-parlor-history/">
-        <Button variant="default" className="flex flex-row gap-2 rounded-full bg-teal-600 px-5 py-6 align-middle text-lg font-semibold text-white hover:bg-teal-700">
+        <Button
+          variant="default"
+          className="flex flex-row gap-2 rounded-full bg-teal-600 px-5 py-6 align-middle text-lg font-semibold text-white hover:bg-teal-700"
+        >
           Read More <ChevronRight className="h-4 w-4" />
         </Button>
-      </a>
-      
       </a>
     </div>
 
@@ -112,9 +120,11 @@ const metaTags = {
       <YouTube class="rounded-lg" id="https://youtu.be/XgkegPojcCE" />
     </div>
   </div>
+
   <ImageGallery client:load />
 
   <FooterPhotoPanel client:load />
+
   <div class="w-full bg-stone-900 p-8 text-2xl text-white">
     <div class="mx-auto max-w-5xl">
       <h2 class="noto mt-12 text-4xl">FAQ</h2>

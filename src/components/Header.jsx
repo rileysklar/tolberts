@@ -2,21 +2,12 @@ import { useState, useEffect } from "react";
 import { Button } from "./ui/button"; // Ensure Button is a valid import
 import MobileNav from "./MobileNav"; // Correct import for MobileNav
 
-const cmsLinks = [
-  {
-    label: "Menu",
-    url: "https://tolbertscms.com/wp-content/uploads/2024/11/TolbertsNewMenu090424.pdf",
-  },
-  {
-    label: "Brunch",
-    url: "https://tolbertscms.com/wp-content/uploads/2024/04/Brunch-Menu-Current-April-2023.pdf",
-  },
-];
-
 const staticLinks = [
   { label: "Home", url: "/" },
   { label: "About", url: "/about" },
   { label: "Calendar", url: "/calendar" },
+  { label: "Menu", url: "/menu" }, // Updated to point to the new menu page
+  { label: "Brunch", url: "/brunch-menu" }, // Updated to point to the new brunch menu page
   {
     label: "Order Food",
     url: "https://order.spoton.com/rbbt-tolberts-restaurant-and-chili-parlor-15291/grapevine-tx/64e7d0d48137b6003f171eba",
@@ -26,7 +17,6 @@ const staticLinks = [
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [availableCmsLinks, setAvailableCmsLinks] = useState([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,76 +33,30 @@ export default function Header() {
     };
   }, []);
 
-  useEffect(() => {
-    const checkLinks = async () => {
-      const validatedLinks = await Promise.all(
-        cmsLinks.map(async (link) => {
-          try {
-            const proxyUrl = `/api/resource-check.json?url=${encodeURIComponent(
-              link.url,
-            )}`;
-
-            const response = await fetch(proxyUrl);
-            const data = await response.json();
-
-            return data.ok ? link : null;
-          } catch (err) {
-            console.error(`Error validating link: ${link.url}`, err);
-            return null;
-          }
-        }),
-      );
-
-      setAvailableCmsLinks(validatedLinks.filter(Boolean));
-    };
-
-    checkLinks();
-  }, []);
-
   const renderDesktopLinks = () => {
-    const orderFoodLink = staticLinks.find(
-      (link) => link.label === "Order Food",
-    );
-    const otherStaticLinks = staticLinks.filter(
-      (link) => link.label !== "Order Food",
-    );
-
-    const combinedLinks = [...otherStaticLinks, ...availableCmsLinks];
-
-    return [
-      ...combinedLinks.map(({ label, url, isButton }) =>
-        isButton ? (
-          <a key={label} href={url}>
-            <Button
-              className={`rounded-full bg-teal-600 px-5 py-2 font-semibold hover:bg-teal-700 ${
-                isScrolled ? "text-white" : "text-white"
-              } text-xl`}
-            >
-              {label}
-            </Button>
-          </a>
-        ) : (
-          <a
-            key={label}
-            href={url}
-            className={`hover:underline ${
-              isScrolled ? "text-stone-900" : "text-white"
+    return staticLinks.map(({ label, url, isButton }) =>
+      isButton ? (
+        <a key={label} href={url}>
+          <Button
+            className={`rounded-full bg-teal-600 px-5 py-2 font-semibold hover:bg-teal-700 ${
+              isScrolled ? "text-white" : "text-white"
             } text-xl`}
           >
             {label}
-          </a>
-        ),
-      ),
-      <a key={orderFoodLink.label} href={orderFoodLink.url}>
-        <Button
-          className={`rounded-full bg-teal-600 px-5 py-2 font-semibold hover:bg-teal-700 ${
-            isScrolled ? "text-white" : "text-white"
+          </Button>
+        </a>
+      ) : (
+        <a
+          key={label}
+          href={url}
+          className={`hover:underline ${
+            isScrolled ? "text-stone-900" : "text-white"
           } text-xl`}
         >
-          {orderFoodLink.label}
-        </Button>
-      </a>,
-    ];
+          {label}
+        </a>
+      ),
+    );
   };
 
   return (
@@ -142,11 +86,7 @@ export default function Header() {
         </div>
 
         {/* Mobile navigation */}
-        <MobileNav
-          isScrolled={isScrolled}
-          availableCmsLinks={availableCmsLinks}
-          staticLinks={staticLinks}
-        />
+        <MobileNav isScrolled={isScrolled} staticLinks={staticLinks} />
       </div>
     </nav>
   );

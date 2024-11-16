@@ -1,0 +1,50 @@
+---
+export const prerender = false;
+
+import { Button } from "@/components/ui/button";
+import Layout from "@/layouts/Layout.astro";
+
+const menuUrl =
+  "https://tolbertscms.com/wp-content/uploads/2024/11/TolbertsNewMenu090424.pdf";
+const proxyUrl = `${Astro.url.origin}/api/resource-check.json?url=${encodeURIComponent(menuUrl)}`;
+
+async function checkResource(url) {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data.ok;
+  } catch (err) {
+    console.error("Error checking resource:", err);
+    return false;
+  }
+}
+
+const isAvailable = await checkResource(proxyUrl);
+
+if (isAvailable) {
+  return Astro.redirect(menuUrl);
+}
+---
+
+<Layout
+  metaTags={{
+    title: "Menu Not Available",
+    description: "The menu you're looking for isn't available.",
+  }}
+>
+  <div
+    class="h-screen-minus-55 flex items-center justify-center p-6 text-center shadow-md"
+  >
+    <div class="max-w-md">
+      <h1 class="mb-4 text-3xl font-bold">Menu Unavailable</h1>
+      <p class="mb-6">
+        Oops! It looks like the menu decided to play hide and seek.
+        Unfortunately, it's not available right now.
+        <br /> Don't worry, we'll help you get back on track!
+      </p>
+      <a href="/">
+        <Button> Take Me Home </Button>
+      </a>
+    </div>
+  </div>
+</Layout>

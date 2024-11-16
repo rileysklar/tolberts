@@ -66,6 +66,9 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      height: {
+        "screen-minus-55": "calc(100vh - 55px)", // Custom height utility
+      },
     },
   },
   variants: {
