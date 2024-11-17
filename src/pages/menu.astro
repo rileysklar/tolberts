@@ -24,6 +24,8 @@ const isAvailable = await checkResource(menuUrl);
 
 if (isAvailable) {
   return Astro.redirect(menuUrl);
+} else {
+  return Astro.redirect("/tolberts-menu-9-4-24.pdf");
 }
 ---
 
