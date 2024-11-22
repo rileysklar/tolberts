@@ -47,7 +47,7 @@ function FormHorizontal() {
         </h3>
         <p className="md:text-md mx-4 mt-4 rounded-lg border-2 border-red-400 p-2 text-center text-sm text-red-400 lg:text-lg">
           Due to high traffic for the Holidays, we will not be accepting
-          reservations through the end of the year, we apologize for any
+          reservations through the end of the year. We apologize for any
           inconvenience.
         </p>
         {!isSubmitted ? (
