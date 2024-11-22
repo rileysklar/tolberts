@@ -41,10 +41,15 @@ function FormHorizontal() {
 
   return (
     <div className=" p-8  py-16 ">
-      <div className="morphism-x mx-auto w-full max-w-7xl py-4">
+      <div className="morphism-x mx-auto flex w-full max-w-7xl flex-col items-center py-4">
         <h3 className="noto mx-4 text-pretty pt-4 text-center text-2xl text-white md:text-3xl lg:text-4xl">
           Rent our space, book your band, or get in touch about our chili! 🌶️
         </h3>
+        <p className="md:text-md mx-4 mt-4 rounded-lg border-2 border-red-400 p-2 text-center text-sm text-red-400 lg:text-lg">
+          Due to high traffic for the Holidays, we will not be accepting
+          reservations through the end of the year, we apologize for any
+          inconvenience.
+        </p>
         {!isSubmitted ? (
           <form
             onSubmit={handleSubmit}
