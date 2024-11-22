@@ -60,12 +60,12 @@ export default function Footer() {
                 >
                   Menu
                 </a>
-                <a
+                {/* <a
                   href="http://tolbertscms.com/wp-content/uploads/2024/04/Brunch-Menu-Current-April-2023.pdf"
                   className={`p-2 text-xl hover:underline`}
                 >
                   Brunch
-                </a>
+                </a> */}
                 <a href="/calendar" className={`p-2 text-xl hover:underline`}>
                   Calendar
                 </a>

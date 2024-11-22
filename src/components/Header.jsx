@@ -7,7 +7,7 @@ const staticLinks = [
   { label: "About", url: "/about" },
   { label: "Calendar", url: "/calendar" },
   { label: "Menu", url: "/menu" }, // Updated to point to the new menu page
-  { label: "Brunch", url: "/brunch-menu" }, // Updated to point to the new brunch menu page
+  // { label: "Brunch", url: "/brunch-menu" }, // Updated to point to the new brunch menu page
   {
     label: "Order Food",
     url: "https://order.spoton.com/rbbt-tolberts-restaurant-and-chili-parlor-15291/grapevine-tx/64e7d0d48137b6003f171eba",
