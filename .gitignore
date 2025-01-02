@@ -27,3 +27,4 @@ pnpm-debug.log*
 repomix-output.txt
 
 .prompts/
+.codegpt
