@@ -41,8 +41,8 @@ export default function Footer() {
                 />
               </a>
               <a href="tel:(817)421-4888<"> 📲 (817) 421-4888</a>
-              <a href="mailto:info@tolbertsrestaurant.com">
-                ✉️ info@tolbertsrestaurant.com
+              <a href="mailto:tolbertsrestaurant@gmail.com">
+                ✉️ tolbertsrestaurant@gmail.com
               </a>
             </div>
           </div>
