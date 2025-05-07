@@ -5,13 +5,15 @@ import CalendarApp from "@/components/Calendar";
 import { getEvents } from "../lib/wordpress/fetchEvents";
 import Hero from "@/components/CalendarHero";
 import { generateEventSchema } from "@/lib/seo/schemas";
+import { processAndSortEvents, type ProcessedEvent } from "../lib/events";
 
-let events = [];
+let events: ProcessedEvent[] = [];
 
 try {
-  events = await getEvents();
+  const fetchedEvents = await getEvents();
+  events = processAndSortEvents(fetchedEvents);
 } catch (error) {
-  console.error("Failed to fetch events:", error);
+  console.error("Failed to fetch or process events:", error);
   events = [];
 }
 
@@ -20,7 +22,7 @@ const eventSchemas = events.map((event) => generateEventSchema(event?.node));
 const metaTags = {
   title: "Tolbert's Restaurant Events Calendar",
   description:
-    "Frank X. Tolbert’s life-long passion for chili inspired him to write his world-famous book “A Bowl of Red” 50 years ago. He founded the Terlingua Championship Chili Cook-Off in 1967 and joined forces with son Frank 2 in 1976 to open the first Tolbert’s Restaurant in Dallas, with daughter Kathleen helping manage starting in 1977.",
+    "Frank X. Tolbert's life-long passion for chili inspired him to write his world-famous book \"A Bowl of Red\" 50 years ago. He founded the Terlingua Championship Chili Cook-Off in 1967 and joined forces with son Frank 2 in 1976 to open the first Tolbert's Restaurant in Dallas, with daughter Kathleen helping manage starting in 1977.",
   url: "https://tolbertsrestaurant.com/events",
   twitterHandle: "@riefer02",
   schemaData: eventSchemas,
@@ -37,7 +39,7 @@ const metaTags = {
         events.length > 0 ? (
           <CalendarApp events={events} client:load />
         ) : (
-          <div class="h-screen-minus-55 flex items-center justify-center px-4">
+          <div class="flex h-screen-minus-55 items-center justify-center px-4">
             <div class="max-w-2xl text-center">
               <h2 class="text-2xl font-bold md:text-3xl">
                 Hold onto your hats!

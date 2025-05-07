@@ -1,17 +1,13 @@
 import { useState } from "react";
 
-import { Button } from "./ui/button";
-
 const Calendar = ({ events }) => {
   if (!events || events.length === 0) {
     return null;
   }
 
-  const [showDescription, setShowDescription] = useState(false);
-
   return (
     <div className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3">
-      {[...events].reverse().map((event, index) => {
+      {events.map((event, index) => {
         const {
           node: {
             id,
