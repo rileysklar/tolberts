@@ -11,14 +11,17 @@ import HeroMain from "@/components/HeroMain";
 import FormHorizontal from "@/components/FormHorizontal";
 import { generateEventSchema } from "@/lib/seo/schemas";
 import MaintenanceAnnouncement from "@/components/MaintenanceAnnouncement.astro";
-// import Announcment from "@/components/Announcement";
 
-let events = [];
+import { processAndSortEvents, type ProcessedEvent } from "../lib/events";
+
+let events: ProcessedEvent[] = [];
 
 try {
-  events = await getEvents();
+  const fetchedEvents = await getEvents();
+
+  events = processAndSortEvents(fetchedEvents);
 } catch (error) {
-  console.error("Failed to fetch events:", error);
+  console.error("Failed to fetch or process events:", error);
   events = [];
 }
 
