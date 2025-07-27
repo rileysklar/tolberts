@@ -27,7 +27,7 @@ export interface ProcessedEvent extends FetchedEvent {
 /**
  * Parses a date string from the event data into a JavaScript Date object.
  * Expected format: "Day, Month Date, Year" (e.g., "Wed, May 7, 2025").
- * Normalizes the date to the start of the day in local timezone (CST).
+ * Normalizes the date to the start of the day, timezone-agnostic.
  * @param dateStr The date string to parse.
  * @returns A Date object if parsing is successful, otherwise null.
  */
@@ -37,19 +37,26 @@ export function parseEventDate(
   if (!dateStr) {
     return null;
   }
+
   // Extract the parsable part, e.g., "May 7, 2025" from "Wed, May 7, 2025"
   const parsablePart = dateStr.substring(dateStr.indexOf(", ") + 2);
 
-  // Parse the date and ensure it's interpreted in local timezone
-  const eventDate = new Date(parsablePart + " 00:00:00");
+  // Parse date components manually to avoid timezone interpretation issues
+  const dateObj = new Date(parsablePart);
 
-  if (isNaN(eventDate.getTime())) {
+  if (isNaN(dateObj.getTime())) {
     console.warn("Invalid date string encountered: " + dateStr);
-    return null; // Invalid date
+    return null;
   }
 
-  // Ensure we're working with start of day in local timezone
-  eventDate.setHours(0, 0, 0, 0);
+  // Create a new date using the parsed components to ensure consistency
+  const year = dateObj.getFullYear();
+  const month = dateObj.getMonth();
+  const day = dateObj.getDate();
+
+  // Create date in local timezone with start of day
+  const eventDate = new Date(year, month, day, 0, 0, 0, 0);
+
   return eventDate;
 }
 
@@ -111,12 +118,9 @@ export function processAndSortEvents(
     return [];
   }
 
-  // Create today's date in local timezone (CST) and normalize to start of day
+  // Create today's date and normalize to start of day
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-
-  // Get today's date string for comparison (YYYY-MM-DD format)
-  const todayDateString = today.toISOString().split("T")[0];
 
   const upcomingEvents: ProcessedEvent[] = [];
 
@@ -131,18 +135,13 @@ export function processAndSortEvents(
       ? parseEventTime(startTimeValue, parsedDate)
       : null;
 
-    // Include events from today onwards (>= comparison includes today)
-    if (parsedDate) {
-      const eventDateString = parsedDate.toISOString().split("T")[0];
-
-      // Compare date strings to avoid timezone issues
-      if (eventDateString >= todayDateString) {
-        upcomingEvents.push({
-          ...event,
-          parsedEventDate: parsedDate,
-          parsedStartTime: parsedStartTime,
-        });
-      }
+    // Include events from today onwards using direct date comparison
+    if (parsedDate && parsedDate >= today) {
+      upcomingEvents.push({
+        ...event,
+        parsedEventDate: parsedDate,
+        parsedStartTime: parsedStartTime,
+      });
     }
   }
 
