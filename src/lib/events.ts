@@ -27,7 +27,7 @@ export interface ProcessedEvent extends FetchedEvent {
 /**
  * Parses a date string from the event data into a JavaScript Date object.
  * Expected format: "Day, Month Date, Year" (e.g., "Wed, May 7, 2025").
- * Normalizes the date to the start of the day (00:00:00).
+ * Normalizes the date to the start of the day in local timezone (CST).
  * @param dateStr The date string to parse.
  * @returns A Date object if parsing is successful, otherwise null.
  */
@@ -39,13 +39,17 @@ export function parseEventDate(
   }
   // Extract the parsable part, e.g., "May 7, 2025" from "Wed, May 7, 2025"
   const parsablePart = dateStr.substring(dateStr.indexOf(", ") + 2);
-  const eventDate = new Date(parsablePart);
+
+  // Parse the date and ensure it's interpreted in local timezone
+  const eventDate = new Date(parsablePart + " 00:00:00");
 
   if (isNaN(eventDate.getTime())) {
     console.warn("Invalid date string encountered: " + dateStr);
     return null; // Invalid date
   }
-  eventDate.setHours(0, 0, 0, 0); // Normalize to start of day for consistent comparison
+
+  // Ensure we're working with start of day in local timezone
+  eventDate.setHours(0, 0, 0, 0);
   return eventDate;
 }
 
@@ -94,7 +98,7 @@ export function parseEventTime(
 /**
  * Processes an array of fetched events:
  * 1. Parses their date strings.
- * 2. Filters out events that are in the past.
+ * 2. Filters out events that are in the past (includes today's events).
  * 3. Sorts the remaining (upcoming) events chronologically (soonest first).
  * 4. For events on the same day, sorts by start time.
  * @param fetchedEvents An array of events as fetched from the source.
@@ -107,8 +111,12 @@ export function processAndSortEvents(
     return [];
   }
 
+  // Create today's date in local timezone (CST) and normalize to start of day
   const today = new Date();
-  today.setHours(0, 0, 0, 0); // Normalize today to the start of the day
+  today.setHours(0, 0, 0, 0);
+
+  // Get today's date string for comparison (YYYY-MM-DD format)
+  const todayDateString = today.toISOString().split("T")[0];
 
   const upcomingEvents: ProcessedEvent[] = [];
 
@@ -123,12 +131,18 @@ export function processAndSortEvents(
       ? parseEventTime(startTimeValue, parsedDate)
       : null;
 
-    if (parsedDate && parsedDate >= today) {
-      upcomingEvents.push({
-        ...event,
-        parsedEventDate: parsedDate,
-        parsedStartTime: parsedStartTime,
-      });
+    // Include events from today onwards (>= comparison includes today)
+    if (parsedDate) {
+      const eventDateString = parsedDate.toISOString().split("T")[0];
+
+      // Compare date strings to avoid timezone issues
+      if (eventDateString >= todayDateString) {
+        upcomingEvents.push({
+          ...event,
+          parsedEventDate: parsedDate,
+          parsedStartTime: parsedStartTime,
+        });
+      }
     }
   }
 
