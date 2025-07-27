@@ -105,11 +105,11 @@ export function parseEventTime(
 /**
  * Processes an array of fetched events:
  * 1. Parses their date strings.
- * 2. Filters out events that are in the past (includes today's events).
- * 3. Sorts the remaining (upcoming) events chronologically (soonest first).
+ * 2. Shows all events (no date filtering to avoid timezone issues).
+ * 3. Sorts events chronologically (soonest first).
  * 4. For events on the same day, sorts by start time.
  * @param fetchedEvents An array of events as fetched from the source.
- * @returns An array of processed and sorted upcoming events.
+ * @returns An array of processed and sorted events.
  */
 export function processAndSortEvents(
   fetchedEvents: FetchedEvent[] | null | undefined,
@@ -118,11 +118,7 @@ export function processAndSortEvents(
     return [];
   }
 
-  // Create today's date and normalize to start of day
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const upcomingEvents: ProcessedEvent[] = [];
+  const allEvents: ProcessedEvent[] = [];
 
   for (const event of fetchedEvents) {
     // Ensure node and postTypeEvent exist before trying to access date
@@ -135,9 +131,9 @@ export function processAndSortEvents(
       ? parseEventTime(startTimeValue, parsedDate)
       : null;
 
-    // Include events from today onwards using direct date comparison
-    if (parsedDate && parsedDate >= today) {
-      upcomingEvents.push({
+    // Include all events with valid dates
+    if (parsedDate) {
+      allEvents.push({
         ...event,
         parsedEventDate: parsedDate,
         parsedStartTime: parsedStartTime,
@@ -145,8 +141,8 @@ export function processAndSortEvents(
     }
   }
 
-  // Sort upcoming events by their parsed date, then by time for same-day events
-  upcomingEvents.sort((a, b) => {
+  // Sort all events by their parsed date, then by time for same-day events
+  allEvents.sort((a, b) => {
     // First compare dates
     const dateComparison =
       a.parsedEventDate.getTime() - b.parsedEventDate.getTime();
@@ -167,5 +163,5 @@ export function processAndSortEvents(
     return dateComparison;
   });
 
-  return upcomingEvents;
+  return allEvents;
 }
