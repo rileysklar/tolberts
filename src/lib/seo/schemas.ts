@@ -33,19 +33,78 @@ export const baseSchema = {
   ],
 };
 
-export function generateEventSchema(event) {
+export function generateEventSchemas(events) {
+  if (!events || !Array.isArray(events)) {
+    return [];
+  }
+
+  return events
+    .map((event) => generateSingleEventSchema(event?.node))
+    .filter((schema) => schema !== null);
+}
+
+function generateSingleEventSchema(event) {
+  // Validate required event data
+  if (!event?.postTypeEvent) {
+    console.warn("Event missing postTypeEvent data:", event);
+    return null;
+  }
+
+  const eventData = event.postTypeEvent;
+
+  // Validate required fields
+  if (!eventData.date || !eventData.startTime || !eventData.primaryHeader) {
+    console.warn("Event missing required fields:", eventData);
+    return null;
+  }
+
+  // Create start date with validation
+  let startDate;
+  try {
+    startDate = new Date(`${eventData.date} ${eventData.startTime}`);
+    if (isNaN(startDate.getTime())) {
+      throw new Error("Invalid start date");
+    }
+  } catch (error) {
+    console.warn("Failed to parse event start date:", error, eventData);
+    return null;
+  }
+
+  // Create end date with fallback
+  let endDate;
+  if (eventData.endTime) {
+    try {
+      endDate = new Date(`${eventData.date} ${eventData.endTime}`);
+      if (isNaN(endDate.getTime())) {
+        throw new Error("Invalid end date");
+      }
+    } catch (error) {
+      console.warn(
+        "Failed to parse event end date, using fallback:",
+        error,
+        eventData,
+      );
+      // Fallback: add 2 hours to start time
+      endDate = new Date(startDate.getTime() + 2 * 60 * 60 * 1000);
+    }
+  } else {
+    // Fallback: add 2 hours to start time if no end time provided
+    console.warn("Event missing end time, using 2-hour fallback:", eventData);
+    endDate = new Date(startDate.getTime() + 2 * 60 * 60 * 1000);
+  }
+
   return {
     "@context": "https://schema.org",
     "@type": "Event",
-    name: event.postTypeEvent.primaryHeader,
-    description: event.postTypeEvent.description,
-    image: event.postTypeEvent.image.sourceUrl,
-    startDate: new Date(
-      `${event.postTypeEvent.date} ${event.postTypeEvent.startTime}`,
-    ).toISOString(),
-    endDate: new Date(
-      `${event.postTypeEvent.date} ${event.postTypeEvent.endTime}`,
-    ).toISOString(),
+    name: eventData.primaryHeader || "Event at Tolbert's",
+    description:
+      eventData.description ||
+      "Live music event at Tolbert's Restaurant & Chili Parlor",
+    image:
+      eventData.image?.sourceUrl ||
+      "https://tolbertsrestaurant.com/tolberts.webp",
+    startDate: startDate.toISOString(),
+    endDate: endDate.toISOString(),
     location: {
       "@type": "Place",
       name: "Tolbert's Restaurant & Chili Parlor",
@@ -60,8 +119,8 @@ export function generateEventSchema(event) {
     },
     performer: {
       "@type": "MusicGroup",
-      name: event.postTypeEvent.primaryHeader,
-      description: event.postTypeEvent.secondaryHeader,
+      name: eventData.primaryHeader || "Live Music",
+      description: eventData.secondaryHeader || "Live music performance",
     },
   };
 }
