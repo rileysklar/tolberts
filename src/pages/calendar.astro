@@ -4,7 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import CalendarApp from "@/components/Calendar";
 import { getEvents } from "../lib/wordpress/fetchEvents";
 import Hero from "@/components/CalendarHero";
-import { generateEventSchema } from "@/lib/seo/schemas";
+import { generateEventSchemas } from "@/lib/seo/schemas";
 import { processAndSortEvents, type ProcessedEvent } from "../lib/events";
 
 let events: ProcessedEvent[] = [];
@@ -17,7 +17,7 @@ try {
   events = [];
 }
 
-const eventSchemas = events.map((event) => generateEventSchema(event?.node));
+const eventSchemas = generateEventSchemas(events);
 
 const metaTags = {
   title: "Tolbert's Restaurant Events Calendar",

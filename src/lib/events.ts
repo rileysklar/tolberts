@@ -121,24 +121,45 @@ export function processAndSortEvents(
   const allEvents: ProcessedEvent[] = [];
 
   for (const event of fetchedEvents) {
+    // Validate event structure
+    if (!event?.node?.postTypeEvent) {
+      console.warn('Skipping event with missing data structure:', event);
+      continue;
+    }
+
     // Ensure node and postTypeEvent exist before trying to access date
-    const dateValue = event?.node?.postTypeEvent?.date;
+    const dateValue = event.node.postTypeEvent.date;
     const parsedDate = parseEventDate(dateValue);
-    const startTimeValue = event?.node?.postTypeEvent?.startTime;
+    const startTimeValue = event.node.postTypeEvent.startTime;
+
+    // Skip events without valid dates
+    if (!parsedDate) {
+      console.warn('Skipping event with invalid date:', {
+        id: event.node.id,
+        date: dateValue,
+        title: event.node.postTypeEvent.primaryHeader
+      });
+      continue;
+    }
 
     // Parse the start time if we have a valid date
-    const parsedStartTime = parsedDate
-      ? parseEventTime(startTimeValue, parsedDate)
-      : null;
+    const parsedStartTime = parseEventTime(startTimeValue, parsedDate);
 
-    // Include all events with valid dates
-    if (parsedDate) {
-      allEvents.push({
-        ...event,
-        parsedEventDate: parsedDate,
-        parsedStartTime: parsedStartTime,
+    // Warn if start time is missing but still include the event
+    if (!parsedStartTime && startTimeValue) {
+      console.warn('Event has invalid start time format:', {
+        id: event.node.id,
+        startTime: startTimeValue,
+        title: event.node.postTypeEvent.primaryHeader
       });
     }
+
+    // Include all events with valid dates
+    allEvents.push({
+      ...event,
+      parsedEventDate: parsedDate,
+      parsedStartTime: parsedStartTime,
+    });
   }
 
   // Sort all events by their parsed date, then by time for same-day events

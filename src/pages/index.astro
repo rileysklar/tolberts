@@ -9,7 +9,7 @@ import FooterPhotoPanel from "@/components/FooterPhotoPanel";
 import Testimonials from "@/components/Testimonials";
 import HeroMain from "@/components/HeroMain";
 import FormHorizontal from "@/components/FormHorizontal";
-import { generateEventSchema } from "@/lib/seo/schemas";
+import { generateEventSchemas } from "@/lib/seo/schemas";
 import MaintenanceAnnouncement from "@/components/MaintenanceAnnouncement.astro";
 
 import { processAndSortEvents, type ProcessedEvent } from "../lib/events";
@@ -25,7 +25,7 @@ try {
   events = [];
 }
 
-const eventSchemas = events.map((event) => generateEventSchema(event?.node));
+const eventSchemas = generateEventSchemas(events);
 
 const metaTags = {
   title: "Tolbert's Restaurant",
