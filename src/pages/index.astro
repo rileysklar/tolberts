@@ -9,6 +9,7 @@ import FooterPhotoPanel from "@/components/FooterPhotoPanel";
 import Testimonials from "@/components/Testimonials";
 import HeroMain from "@/components/HeroMain";
 import FormHorizontal from "@/components/FormHorizontal";
+import Announcement from "@/components/Announcement";
 import { generateEventSchemas } from "@/lib/seo/schemas";
 import MaintenanceAnnouncement from "@/components/MaintenanceAnnouncement.astro";
 
@@ -45,7 +46,7 @@ const isUnderMaintenance = false; // Toggle this to true for maintenance
     ) : (
       <main class="content">
         <HeroMain client:load />
-        {/* <!-- <Announcment client:load /> --> */}
+        <Announcement client:load />
         <FormHorizontal client:load />
         <CalendarHero events={events} client:load />
         <Leaderboard client:load />
