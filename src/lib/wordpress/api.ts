@@ -20,8 +20,15 @@ export default async function fetchAPI(query, variables = {}) {
   const json = await res.json();
 
   if (json.errors) {
-    console.error(json.errors);
-    throw new Error("Failed to fetch API");
+    console.error("GraphQL errors:", json.errors);
+    throw new Error(
+      `Failed to fetch API: ${json.errors.map((e) => e.message).join(", ")}`,
+    );
+  }
+
+  if (!json.data) {
+    console.error("No data returned from API:", json);
+    throw new Error("No data returned from API");
   }
 
   return json.data;

@@ -28,3 +28,6 @@ repomix-output.txt
 
 .prompts/
 .codegpt
+
+# code workspace
+tolbertsrestaurant.code-workspace
