@@ -6,14 +6,6 @@ export default function Announcement() {
   return (
     <div className="relative bg-gradient-to-r from-primary to-primary/90 px-4 py-6">
       <div className="relative mx-auto max-w-5xl">
-        <button
-          onClick={handleClose}
-          className="absolute right-2 top-2 z-10 rounded text-xl font-bold text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-          aria-label="Close announcement"
-        >
-          ×
-        </button>
-
         <Card className="border-0 bg-white/95 backdrop-blur-sm">
           <CardContent className="p-6">
             <div className="flex flex-col items-center space-y-4 text-center">
