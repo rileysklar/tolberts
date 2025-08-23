@@ -1,33 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 
 export default function Announcement() {
-  const [isVisible, setIsVisible] = useState(true);
-  const [hasCheckedStorage, setHasCheckedStorage] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && window.sessionStorage) {
-      const storedValue = sessionStorage.getItem("ticketAnnouncementVisible");
-      if (storedValue !== null) {
-        setIsVisible(storedValue === "true");
-      }
-      setHasCheckedStorage(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (hasCheckedStorage) {
-      sessionStorage.setItem("ticketAnnouncementVisible", isVisible.toString());
-    }
-  }, [isVisible, hasCheckedStorage]);
-
-  const handleClose = () => {
-    setIsVisible(false);
-  };
-
-  if (!isVisible) return null;
-
   return (
     <div className="relative bg-gradient-to-r from-primary to-primary/90 px-4 py-6">
       <div className="relative mx-auto max-w-5xl">
