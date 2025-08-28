@@ -29,7 +29,7 @@ export default function Announcement() {
                 className="bg-primary hover:bg-primary/90 focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
                 <a
-                  href="https://outhousetickets.com"
+                  href="https://events.outhousetickets.com/e/gary-p-nunn-viva-terlingua-chili-kick-off/tickets"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2"
