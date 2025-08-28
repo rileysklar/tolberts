@@ -19,7 +19,7 @@ export default function Announcement() {
                 <p className="max-w-2xl text-muted-foreground">
                   Get ready for an unforgettable evening with legendary Texas
                   songwriter Gary P. Nunn! Join us for this exclusive live
-                  performance at Tolbert's. Tickets will be available soon.
+                  performance at Tolbert's. Tickets are available now!
                 </p>
               </div>
 
