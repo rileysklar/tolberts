@@ -25,6 +25,8 @@ export default function Announcement() {
 
               <Button
                 asChild
+                disabled={true}
+                aria-disabled
                 size="lg"
                 className="bg-primary hover:bg-primary/90 focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
@@ -34,7 +36,7 @@ export default function Announcement() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2"
                 >
-                  Buy Tickets
+                  Sold Out
                   <svg
                     className="h-4 w-4"
                     fill="none"
