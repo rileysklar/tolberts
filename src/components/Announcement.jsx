@@ -24,33 +24,11 @@ export default function Announcement() {
               </div>
 
               <Button
-                asChild
                 disabled={true}
-                aria-disabled
                 size="lg"
-                className="bg-primary hover:bg-primary/90 focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                className="cursor-not-allowed bg-gray-400 opacity-50 hover:bg-gray-400"
               >
-                <a
-                  href="https://events.outhousetickets.com/e/gary-p-nunn-viva-terlingua-chili-kick-off/tickets"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2"
-                >
-                  Sold Out
-                  <svg
-                    className="h-4 w-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </a>
+                <span className="inline-flex items-center gap-2">Sold Out</span>
               </Button>
             </div>
           </CardContent>
