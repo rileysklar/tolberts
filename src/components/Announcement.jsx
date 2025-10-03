@@ -14,7 +14,7 @@ export default function Announcement() {
                   🎟️ Gary P. Nunn Live at Tolbert's!
                 </h2>
                 <p className="text-lg font-semibold text-foreground">
-                  October 9, 2025
+                  October 9, 2025 • 7:30-10:00 PM
                 </p>
                 <p className="max-w-2xl text-muted-foreground">
                   Get ready for an unforgettable evening with legendary Texas
