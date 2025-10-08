@@ -31,6 +31,19 @@ const metaTags = {
 
 <Layout metaTags={metaTags}>
   <main class="bg-repeat md:mt-0">
+    <!-- Closure Notice Banner -->
+    <div class="bg-red-600 px-4 py-3 text-white">
+      <div class="mx-auto max-w-7xl text-center">
+        <p class="text-lg font-semibold">
+          🚨 RESTAURANT CLOSED TO PUBLIC - Thursday, October 9th
+        </p>
+        <p class="text-sm">
+          Closing early at 2:30 PM for private sold-out event. Reopening Friday
+          for regular hours.
+        </p>
+      </div>
+    </div>
+
     <div class="hidden lg:block">
       <Hero events={events} client:load />
     </div>
