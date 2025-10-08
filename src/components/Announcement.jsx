@@ -11,24 +11,27 @@ export default function Announcement() {
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold text-foreground lg:text-4xl">
-                  🎟️ Gary P. Nunn Live at Tolbert's!
+                  🚨 CLOSED TO PUBLIC Tomorrow Night
                 </h2>
-                <p className="text-lg font-semibold text-foreground">
-                  October 9, 2025 • 7:30-10:00 PM
+                <p className="text-lg font-semibold text-red-600">
+                  Thursday, October 9th • Closing at 2:30 PM
                 </p>
                 <p className="max-w-2xl text-muted-foreground">
-                  Get ready for an unforgettable evening with legendary Texas
-                  songwriter Gary P. Nunn! Join us for this exclusive live
-                  performance at Tolbert's. Tickets are available now!
+                  We're closed to the public tomorrow evening for a private
+                  sold-out event (Gary P. Nunn concert). We'll close early at
+                  2:30 PM and reopen Friday for regular hours. Thank you for
+                  your understanding!
                 </p>
               </div>
 
               <Button
                 disabled={true}
                 size="lg"
-                className="cursor-not-allowed bg-gray-400 opacity-50 hover:bg-gray-400"
+                className="cursor-not-allowed bg-red-500 opacity-75 hover:bg-red-500"
               >
-                <span className="inline-flex items-center gap-2">Sold Out</span>
+                <span className="inline-flex items-center gap-2">
+                  Closed to Public Oct 9th
+                </span>
               </Button>
             </div>
           </CardContent>
