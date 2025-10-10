@@ -12,6 +12,7 @@ import FormHorizontal from "@/components/FormHorizontal";
 import Announcement from "@/components/Announcement";
 import { generateEventSchemas } from "@/lib/seo/schemas";
 import MaintenanceAnnouncement from "@/components/MaintenanceAnnouncement.astro";
+import { config } from "../lib/config";
 
 import { processAndSortEvents, type ProcessedEvent } from "../lib/events";
 
@@ -36,7 +37,8 @@ const metaTags = {
   twitterHandle: "@riefer02",
   schemaData: eventSchemas,
 };
-const isUnderMaintenance = false; // Toggle this to true for maintenance
+const isUnderMaintenance = config.isUnderMaintenance; // Use config instead of hardcoded value
+const showClosureAnnouncement = config.showClosureAnnouncement;
 ---
 
 <Layout metaTags={metaTags}>
@@ -46,7 +48,7 @@ const isUnderMaintenance = false; // Toggle this to true for maintenance
     ) : (
       <main class="content">
         <HeroMain client:load />
-        <Announcement client:load />
+        {showClosureAnnouncement && <Announcement client:load />}
         <FormHorizontal client:load />
         <CalendarHero events={events} client:load />
         <Leaderboard client:load />
