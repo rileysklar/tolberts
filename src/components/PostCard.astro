@@ -14,10 +14,10 @@ const { title, description, pubDate, image, author } = post.data;
     <div>
       <Image src={image.url} alt={image.alt} class="h-auto w-full rounded-sm" />
       <h2 class="mt-2 line-clamp-2 text-lg font-bold">{title}</h2>
-      <p class="mt-1 text-xs text-gray-600">
+      <p class="mt-1 text-xs text-stone-600">
         {new Date(pubDate).toLocaleDateString()}
       </p>
-      <p class="mt-2 line-clamp-3 text-sm text-gray-800">{description}</p>
+      <p class="mt-2 line-clamp-3 text-sm text-stone-700">{description}</p>
     </div>
   </a>
 </li>

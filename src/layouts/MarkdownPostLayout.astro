@@ -40,17 +40,17 @@ const metaTags = {
 
 <Layout metaTags={metaTags}>
   <div class="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-12 lg:py-16">
-    <p class="text-xs text-gray-500 sm:text-sm">
+    <p class="text-xs text-stone-500 sm:text-sm">
       {frontmatter.pubDate.toString().slice(0, 10)}
     </p>
-    <h1 class="mb-4 mt-2 text-2xl font-bold leading-tight text-gray-900 sm:text-3xl lg:text-4xl">
+    <h1 class="mb-4 mt-2 text-2xl font-bold leading-tight text-stone-900 sm:text-3xl lg:text-4xl">
       {frontmatter.title}
     </h1>
-    <p class="mb-4 text-base italic leading-relaxed text-gray-600 sm:text-lg">
+    <p class="mb-4 text-base italic leading-relaxed text-stone-600 sm:text-lg">
       {frontmatter.description}
     </p>
-    <p class="mb-6 text-sm font-medium text-gray-700">
-      Written by: <span class="text-indigo-600">{frontmatter.author}</span>
+    <p class="mb-6 text-sm font-medium text-stone-700">
+      Written by: <span class="text-teal-600">{frontmatter.author}</span>
     </p>
     <img
       class="mb-8 h-auto w-full rounded-xl shadow-lg"
