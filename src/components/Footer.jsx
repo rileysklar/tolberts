@@ -4,35 +4,34 @@ import Form from "./Form";
 
 export default function Footer() {
   return (
-    <footer className=" urbanist chili bg-stone-900 pb-10 pt-8 ">
-      <div className="morphism  mx-auto max-w-7xl rounded-lg border-white bg-transparent p-2 shadow-lg sm:p-6">
-        <div className="grid grid-cols-1 gap-4 p-4  text-center text-white lg:grid-cols-3">
-          <div className="morphism flex flex-col items-center justify-between gap-2	p-4">
-            <h3 className="noto text-3xl">Our Location</h3>
+    <footer className="urbanist chili bg-stone-900 py-10">
+      <div className="morphism mx-auto max-w-7xl rounded-xl border-white bg-transparent p-4 shadow-lg sm:p-6">
+        <div className="grid grid-cols-1 gap-6 p-2 text-center text-white sm:p-4 lg:grid-cols-3">
+          <div className="morphism flex flex-col items-center justify-between gap-4 p-4 sm:p-6">
+            <h3 className="noto text-2xl sm:text-3xl">Our Location</h3>
 
-            <div className="morphism overflow-hidden rounded-lg pt-2">
-              <p>423 South Main Street</p>
-              <p>Grapevine, TX 76051</p>
+            <div className="morphism w-full max-w-[320px] overflow-hidden rounded-lg p-2">
+              <p className="text-sm sm:text-base">423 South Main Street</p>
+              <p className="text-sm sm:text-base">Grapevine, TX 76051</p>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3350.44830472116!2d-97.07334468481859!3d32.93418988093237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c2bf77a1f8503%3A0x96f6083fb3909e6d!2s423%20S%20Main%20St%2C%20Grapevine%2C%20TX%2076051%2C%20USA!5e0!3m2!1sen!2s!4v1632432943826!5m2!1sen!2s"
-                width="300"
-                height="200"
+                className="mt-2 h-[180px] w-full rounded-lg"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
               ></iframe>
             </div>
-            <div className=" flex flex-col items-center gap-0 rounded-lg border-white bg-transparent shadow-lg">
-              <h3 className="noto text-3xl">Restaurant Hours</h3>
+            <div className="flex flex-col items-center gap-2 rounded-lg border-white bg-transparent">
+              <h3 className="noto text-2xl sm:text-3xl">Restaurant Hours</h3>
               <RestaurantSchema client:load />
             </div>
           </div>
 
-          <div className="flex flex-col items-center justify-between gap-2">
+          <div className="flex flex-col items-center justify-between gap-4">
             <div className="flex w-full flex-col items-center justify-center gap-4">
               <Form client:load />
             </div>
-            <div className="morphism flex w-full flex-col items-center gap-0 rounded-lg border-white bg-transparent p-8 shadow-lg">
+            <div className="morphism flex w-full flex-col items-center gap-2 rounded-lg border-white bg-transparent p-6 shadow-lg">
               <a href="/">
                 <img
                   className="h-auto w-[150px] pb-4"
@@ -46,10 +45,10 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div className="morphism flex flex-col items-center justify-between gap-2 p-4">
-            <div className=" flex flex-col items-center gap-2">
-              <h3 className="noto text-3xl">Site Map</h3>
-              <div className="flex flex-col items-center gap-0 pt-2">
+          <div className="morphism flex flex-col items-center justify-between gap-4 p-4 sm:p-6">
+            <div className="flex flex-col items-center gap-2">
+              <h3 className="noto text-2xl sm:text-3xl">Site Map</h3>
+              <div className="flex flex-col items-center gap-1 pt-2">
                 <a href="/" className={`p-2 text-xl hover:underline`}>
                   Home
                 </a>
@@ -74,8 +73,8 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-            <div className="morphism flex w-full flex-col justify-between rounded-lg border-white bg-transparent p-8 shadow-lg">
-              <h3 className="noto text-lg">Join the Chilihead Club</h3>
+            <div className="morphism flex w-full flex-col items-center justify-between rounded-lg border-white bg-transparent p-6 shadow-lg">
+              <h3 className="noto text-base sm:text-lg">Join the Chilihead Club</h3>
               <a href="https://visitor.r20.constantcontact.com/manage/optin?v=0014Ogu2wnBvl8_ZbMlMzQ9KVX9rpr_smoVitHZKZig-keypGiny6WIeEEgXcEOx1-AiOhKLXw2Q2L0sW0VsGJ6VT7G5BoeQ4qErEvgGW2CZEo%3D">
                 <Button
                   variant="default"
@@ -87,9 +86,9 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="noto flex items-center justify-center gap-1 text-lg text-white">
+        <div className="noto mt-4 flex items-center justify-center gap-1 text-base text-white sm:text-lg">
           &copy; {new Date().getFullYear()}{" "}
-          <Button variant="link" className="p-0 text-base text-white">
+          <Button variant="link" className="p-0 text-sm text-white sm:text-base">
             Tolbert's Restaurant
           </Button>
         </div>

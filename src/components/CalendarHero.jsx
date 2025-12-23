@@ -29,34 +29,34 @@ const CalendarHero = ({ events }) => {
   } = mainEvent || {}; // Provide default empty object if mainEvent is undefined
 
   return (
-    <div className="grid h-[1200px] grid-cols-1 sm:h-[90dvh] lg:grid-cols-3">
+    <div className="grid min-h-[600px] grid-cols-1 sm:min-h-[70dvh] lg:grid-cols-3">
       {mainEvent && (
         <div
-          className="flex items-end justify-end bg-cover bg-center md:col-span-2"
+          className="flex min-h-[400px] items-end justify-end bg-cover bg-center lg:col-span-2 lg:min-h-0"
           style={{
             backgroundImage: `url(${mainSourceUrl})`,
           }}
         >
-          <div className="w-3/4 overflow-hidden rounded-tl-lg border-l border-t bg-slate-800/50 p-4 shadow-lg backdrop-blur-md">
-            <h2 className="noto line-clamp-1 text-xl text-white sm:text-3xl">
+          <div className="w-3/4 max-w-lg overflow-hidden rounded-tl-xl border-l border-t border-white/20 bg-slate-800/60 p-4 shadow-xl backdrop-blur-md sm:p-5">
+            <h2 className="noto line-clamp-1 text-lg text-white sm:text-2xl lg:text-3xl">
               {mainPrimaryHeader}
             </h2>
-            <h3 className="sm:text-md mt-1 text-sm text-white">
+            <h3 className="mt-1 line-clamp-2 text-sm text-white/90 sm:text-base">
               {mainSecondaryHeader}
             </h3>
-            <p className="sm:text-md mt-1 text-sm text-white">🗓️ {mainDate}</p>
-            <p className="sm:text-md mt-1 text-sm text-white">
+            <p className="mt-2 text-sm text-white sm:text-base">🗓️ {mainDate}</p>
+            <p className="mt-1 text-sm text-white sm:text-base">
               ⏰ {mainStartTime} - {mainEndTime}
             </p>
             {showDescription && (
-              <p className="mt-1 text-sm text-white"> {mainDescription}</p>
+              <p className="mt-2 text-sm text-white/80">{mainDescription}</p>
             )}
           </div>
         </div>
       )}
       <div className="flex flex-col lg:col-span-1">
         {secondaryEvents.map((event, _) => {
-          if (!event) return null; // Should be filtered by .filter(Boolean) already, but good for safety
+          if (!event) return null;
           const {
             node: {
               id,
@@ -76,31 +76,23 @@ const CalendarHero = ({ events }) => {
           return (
             <div
               key={id}
-              className="flex min-h-[300px] flex-1 items-end justify-end overflow-hidden bg-cover bg-center bg-no-repeat shadow-lg"
+              className="flex min-h-[250px] flex-1 items-end justify-end overflow-hidden bg-cover bg-center bg-no-repeat shadow-lg sm:min-h-[280px]"
               style={{ backgroundImage: `url(${sourceUrl})` }}
             >
-              <div className="w-3/4 rounded-tl-lg border-l border-t bg-slate-800/50 p-4 backdrop-blur-md">
-                <h2 className="noto text-xl text-white sm:text-3xl">
+              <div className="w-3/4 max-w-sm rounded-tl-xl border-l border-t border-white/20 bg-slate-800/60 p-3 backdrop-blur-md sm:p-4">
+                <h2 className="noto line-clamp-1 text-lg text-white sm:text-xl lg:text-2xl">
                   {primaryHeader}
                 </h2>
-                <h3 className="sm:text-md mt-1 text-sm text-white">
+                <h3 className="mt-1 line-clamp-1 text-xs text-white/90 sm:text-sm">
                   {secondaryHeader}
                 </h3>
-                <p className="sm:text-md mt-1 text-sm text-white">🗓️ {date}</p>{" "}
-                <p className="sm:text-md mt-1 text-sm text-white">
+                <p className="mt-1 text-xs text-white sm:text-sm">🗓️ {date}</p>
+                <p className="mt-0.5 text-xs text-white sm:text-sm">
                   ⏰ {startTime} - {endTime}
                 </p>
                 {showDescription && (
-                  <p className="mt-1 text-sm text-white">{description}</p>
+                  <p className="mt-2 text-xs text-white/80">{description}</p>
                 )}
-                {/* <Button
-                  variant="outline"
-                  className="color-white mt-2 bg-transparent"
-                  onClick={() => setShowDescription(!showDescription)}
-                >
-                  {showDescription ? "Hide Details" : "Show Details"}{" "}
-                  <ChevronRight className="h-4 w-4" />
-                </Button> */}
               </div>
             </div>
           );

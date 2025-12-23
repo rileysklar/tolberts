@@ -28,14 +28,14 @@ export default function ImageGallery() {
   ];
 
   return (
-    <div className="p-8">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 md:grid-cols-3">
+    <div className="px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
         {images.map((image, index) => (
           <img
             key={index}
             src={image.src}
-            alt={`gallery-${index}`}
-            className="rounded-lg"
+            alt={`Tolbert's gallery image ${index + 1}`}
+            className="aspect-square w-full rounded-lg object-cover shadow-md transition-all duration-300 hover:shadow-xl"
           />
         ))}
       </div>

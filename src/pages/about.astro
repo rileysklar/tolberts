@@ -88,11 +88,11 @@ const metaTags = {
 
 <Layout metaTags={metaTags}>
   <div
-    class="mx-auto grid max-w-6xl grid-cols-1 justify-center gap-4 p-4 py-8 md:py-14 lg:grid-cols-2 lg:py-24"
+    class="mx-auto grid max-w-7xl grid-cols-1 items-center justify-center gap-6 px-4 py-8 sm:px-6 sm:py-12 md:gap-8 lg:grid-cols-2 lg:px-8 lg:py-16"
   >
-    <div class="flex flex-col justify-center gap-4 lg:pr-6">
-      <h1 class="noto text-4xl">About Tolbert's Restaurant</h1>
-      <p>
+    <div class="flex flex-col justify-center gap-4">
+      <h1 class="noto text-3xl sm:text-4xl lg:text-5xl">About Tolbert's Restaurant</h1>
+      <p class="text-base leading-relaxed text-stone-700 sm:text-lg">
         Tolbert’s Restaurant and Chili Parlor in Grapevine, Texas, stands as a
         testament to Frank X. Tolbert's legacy in Texas folklore and cuisine.
         Frank, a larger-than-life journalist and historian born in 1912,
@@ -106,18 +106,18 @@ const metaTags = {
         experience, complete with live music, and remains a beloved cultural
         landmark.
       </p>
-      <a href="/posts/tolberts-restaurant-chili-parlor-history/">
+      <a href="/posts/tolberts-restaurant-chili-parlor-history/" class="mt-2">
         <Button
           variant="default"
-          className="flex flex-row gap-2 rounded-full bg-teal-600 px-5 py-6 align-middle text-lg font-semibold text-white hover:bg-teal-700"
+          className="flex flex-row gap-2 rounded-full bg-teal-600 px-6 py-5 align-middle text-base font-semibold text-white transition-all hover:bg-teal-700 sm:text-lg"
         >
           Read More <ChevronRight className="h-4 w-4" />
         </Button>
       </a>
     </div>
 
-    <div>
-      <YouTube class="rounded-lg" id="https://youtu.be/XgkegPojcCE" />
+    <div class="overflow-hidden rounded-xl shadow-xl">
+      <YouTube class="rounded-xl" id="https://youtu.be/XgkegPojcCE" />
     </div>
   </div>
 
@@ -125,9 +125,9 @@ const metaTags = {
 
   <FooterPhotoPanel client:load />
 
-  <div class="w-full bg-stone-900 p-8 text-2xl text-white">
+  <div class="w-full bg-stone-900 px-4 py-12 text-white sm:px-6 sm:py-16 lg:px-8 lg:py-20">
     <div class="mx-auto max-w-5xl">
-      <h2 class="noto mt-12 text-4xl">FAQ</h2>
+      <h2 class="noto text-3xl sm:text-4xl">FAQ</h2>
       <AccordionDemo faqData={faqData} client:load />
     </div>
   </div>
