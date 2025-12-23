@@ -10,7 +10,7 @@ const { title, description, pubDate, image, author } = post.data;
 <li
   class="list-none overflow-hidden rounded-lg border bg-stone-100 p-4 shadow-sm"
 >
-  <a href={"/posts/" + post.slug} class="text-decoration-none">
+  <a href={"/posts/" + post.id} class="text-decoration-none">
     <div>
       <Image src={image.url} alt={image.alt} class="h-auto w-full rounded-sm" />
       <h2 class="mt-2 line-clamp-2 text-lg font-bold">{title}</h2>

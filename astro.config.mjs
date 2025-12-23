@@ -15,8 +15,5 @@ export default defineConfig({
     sitemap(),
     react(),
   ],
-  output: "hybrid",
-  adapter: netlify({
-    edgeMiddleware: true,
-  }),
+  adapter: netlify(),
 });

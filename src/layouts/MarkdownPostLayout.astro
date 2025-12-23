@@ -1,6 +1,6 @@
 ---
 import Layout from "./Layout.astro";
-const { frontmatter } = Astro.props;
+const { frontmatter, id } = Astro.props;
 
 const blogPostSchema = {
   "@context": "https://schema.org",
@@ -15,7 +15,7 @@ const blogPostSchema = {
   datePublished: frontmatter.pubDate,
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": `https://tolbertsrestaurant.com/posts/${frontmatter.slug}`,
+    "@id": `https://tolbertsrestaurant.com/posts/${id}`,
   },
   publisher: {
     "@type": "Organization",
@@ -33,7 +33,7 @@ const metaTags = {
   title: frontmatter.title,
   description: frontmatter.description,
   image: frontmatter.image.url.src,
-  url: `https://tolbertsrestaurant.com/posts/${frontmatter.slug}`,
+  url: `https://tolbertsrestaurant.com/posts/${id}`,
   schemaData: [blogPostSchema],
 };
 ---
