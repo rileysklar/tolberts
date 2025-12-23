@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button } from "./ui/button";
 
 function OrderDropdown() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,12 +10,12 @@ function OrderDropdown() {
 
   return (
     <div className="dropdown">
-      <button
+      <Button
         onClick={handleButtonClick}
-        className="order-btn inline-block rounded-full bg-teal-600 px-5 py-2 text-xl text-white hover:bg-teal-700"
+        className="rounded-full bg-teal-600 px-5 py-2 text-xl text-white hover:bg-teal-700"
       >
         🚙 Order Food
-      </button>
+      </Button>
       {isOpen && (
         <div className="is-open align-center z-100 absolute left-[34px] mt-1 flex flex-col gap-2 rounded-lg bg-stone-900 p-4 text-xl text-white">
           <a
