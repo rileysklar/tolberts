@@ -71,10 +71,12 @@ function generateSingleEventSchema(event) {
   }
 
   // Create end date with fallback
+  // Use endDate if provided (for overnight events), otherwise use start date
   let endDate;
   if (eventData.endTime) {
     try {
-      endDate = new Date(`${eventData.date} ${eventData.endTime}`);
+      const effectiveEndDate = eventData.endDate || eventData.date;
+      endDate = new Date(`${effectiveEndDate} ${eventData.endTime}`);
       if (isNaN(endDate.getTime())) {
         throw new Error("Invalid end date");
       }
@@ -84,11 +86,9 @@ function generateSingleEventSchema(event) {
         error,
         eventData,
       );
-      // Fallback: add 2 hours to start time
       endDate = new Date(startDate.getTime() + 2 * 60 * 60 * 1000);
     }
   } else {
-    // Fallback: add 2 hours to start time if no end time provided
     console.warn("Event missing end time, using 2-hour fallback:", eventData);
     endDate = new Date(startDate.getTime() + 2 * 60 * 60 * 1000);
   }
