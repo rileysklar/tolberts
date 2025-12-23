@@ -75,7 +75,7 @@ export default function Header() {
             <img
               className="h-auto"
               src={isScrolled ? "/logo-black.png" : "/logo-white.png"}
-              alt="Logo"
+              alt="Tolbert's Restaurant Logo"
             />
           </a>
         </div>

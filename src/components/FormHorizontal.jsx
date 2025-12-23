@@ -78,9 +78,9 @@ function FormHorizontal() {
   };
 
   return (
-    <div className="p-8 py-16">
-      <div className="morphism-x mx-auto flex w-full max-w-7xl flex-col items-center py-4">
-        <h3 className="noto mx-4 text-pretty pt-4 text-center text-2xl text-white md:text-3xl lg:text-4xl">
+    <div className="px-4 py-12 sm:px-8 sm:py-16">
+      <div className="morphism-x mx-auto flex w-full max-w-7xl flex-col items-center rounded-xl py-6">
+        <h3 className="noto mx-4 text-pretty pt-2 text-center text-xl text-white sm:text-2xl md:text-3xl lg:text-4xl">
           Rent our space, book your band, or get in touch about our chili! 🌶️
         </h3>
         {/* <p className="md:text-md mx-4 mt-4 rounded-lg border-2 border-red-400 p-2 text-center text-sm text-red-400 lg:text-lg">

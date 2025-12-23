@@ -31,24 +31,23 @@ const testimonials = [
 
 function Testimonials() {
   return (
-    <section className="flex flex-col gap-4 bg-[url('/tolbs-outside.jpg')] bg-cover bg-center bg-no-repeat px-4 py-[148px] text-white">
-      <div className="morphism-x container px-8 flex w-full flex-col gap-4 p-4 pt-6 lg:py-12 lg:px-14 shadow-lg sm:w-1/2">
-        <h2 className="noto text-center text-3xl lg:text-4xl font-bold">
+    <section className="flex flex-col items-center justify-center gap-4 bg-[url('/tolbs-outside.jpg')] bg-cover bg-center bg-no-repeat px-4 py-24 text-white sm:py-32 lg:py-36">
+      <div className="morphism-x mx-auto flex w-full max-w-xl flex-col gap-4 rounded-xl p-6 shadow-xl sm:p-8 lg:p-10">
+        <h2 className="noto text-center text-2xl font-bold sm:text-3xl lg:text-4xl">
           ⭐️⭐️⭐️⭐️⭐️
         </h2>
         <Carousel>
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index}>
-                <p className="lg:text-lg" >{testimonial.text}</p>
-
-                <p className="text-right text-xl lg:text-2xl font-bold">
+                <p className="text-base leading-relaxed sm:text-lg">{testimonial.text}</p>
+                <p className="mt-4 text-right text-lg font-bold sm:text-xl lg:text-2xl">
                   - {testimonial.author}
                 </p>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="mt-4 flex justify-between">
+          <div className="mt-6 flex justify-between">
             <CarouselPrevious />
             <CarouselNext />
           </div>

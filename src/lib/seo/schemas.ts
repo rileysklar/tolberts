@@ -1,36 +1,26 @@
+import { seoConfig, getOgImageUrl, getAbsoluteUrl } from "./config";
+
 export const baseSchema = {
   "@context": "https://schema.org",
   "@type": ["Restaurant", "MusicVenue"],
-  name: "Tolbert's Restaurant & Chili Parlor",
-  description:
-    "Tolbert's Restaurant is a family-owned and operated restaurant located in Grapevine, Texas. We serve the best chili in Texas and have live music events regularly.",
+  name: seoConfig.siteName,
+  description: seoConfig.defaultDescription,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "423 S Main St",
-    addressLocality: "Grapevine",
-    addressRegion: "TX",
-    postalCode: "76051",
-    addressCountry: "US",
+    streetAddress: seoConfig.address.street,
+    addressLocality: seoConfig.address.city,
+    addressRegion: seoConfig.address.state,
+    postalCode: seoConfig.address.zip,
+    addressCountry: seoConfig.address.country,
   },
-  image: "https://tolbertsrestaurant.netlify.app/tolberts.webp",
-  telephone: "+1-817-555-1234",
-  url: "https://tolbertsrestaurant.com",
-  sameAs: [
-    "https://www.facebook.com/tolbertsrestaurant",
-    "https://www.instagram.com/tolbertsrestaurant",
-  ],
+  image: getOgImageUrl(),
+  telephone: seoConfig.phone,
+  url: seoConfig.siteUrl,
+  sameAs: [seoConfig.facebookUrl, seoConfig.instagramUrl],
   servesCuisine: "American",
-  menu: "https://tolbertsrestaurant.com/menu",
+  menu: getAbsoluteUrl("/menu"),
   acceptsReservations: "True",
-  openingHours: [
-    "Mo 11:00-21:00",
-    "Tu 11:00-22:00",
-    "We 11:00-23:00",
-    "Th 11:00-23:00",
-    "Fr 11:00-24:00",
-    "Sa 11:00-24:00",
-    "Su 11:00-21:00",
-  ],
+  openingHours: seoConfig.openingHours,
 };
 
 export function generateEventSchemas(events) {
@@ -100,21 +90,19 @@ function generateSingleEventSchema(event) {
     description:
       eventData.description ||
       "Live music event at Tolbert's Restaurant & Chili Parlor",
-    image:
-      eventData.image?.sourceUrl ||
-      "https://tolbertsrestaurant.com/tolberts.webp",
+    image: eventData.image?.sourceUrl || getOgImageUrl(),
     startDate: startDate.toISOString(),
     endDate: endDate.toISOString(),
     location: {
       "@type": "Place",
-      name: "Tolbert's Restaurant & Chili Parlor",
+      name: seoConfig.siteName,
       address: {
         "@type": "PostalAddress",
-        streetAddress: "423 S Main St",
-        addressLocality: "Grapevine",
-        addressRegion: "TX",
-        postalCode: "76051",
-        addressCountry: "US",
+        streetAddress: seoConfig.address.street,
+        addressLocality: seoConfig.address.city,
+        addressRegion: seoConfig.address.state,
+        postalCode: seoConfig.address.zip,
+        addressCountry: seoConfig.address.country,
       },
     },
     performer: {

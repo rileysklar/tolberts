@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button } from "./ui/button";
 
 function OrderDropdown() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,22 +10,22 @@ function OrderDropdown() {
 
   return (
     <div className="dropdown">
-      <button
+      <Button
         onClick={handleButtonClick}
-        className="order-btn inline-block rounded-full bg-lime-500 px-5 py-2 text-xl text-stone-900 hover:bg-lime-400"
+        className="rounded-full bg-teal-600 px-5 py-4 text-xl text-white hover:bg-teal-700"
       >
         🚙 Order Food
-      </button>
+      </Button>
       {isOpen && (
         <div className="is-open align-center z-100 absolute left-[34px] mt-1 flex flex-col gap-2 rounded-lg bg-stone-900 p-4 text-xl text-white">
           <a
-            className="hover:text-lime-400 active:text-lime-400"
+            className="hover:text-teal-400 active:text-teal-400"
             href="https://www.ubereats.com/dallas/food-delivery/tolberts-restaurant/E0auRfDRQ_e9RRP32vWMQw?fbclid=IwAR0qXPc6YEgE8uzjHTcMQ_kVj-eVv1NcGkO8PCDLkA-8tgO9NC6Z1XBT6yM"
           >
             Uber Eats
           </a>
           <a
-            className="hover:text-lime-400 active:text-lime-400"
+            className="hover:text-teal-400 active:text-teal-400"
             href="https://www.doordash.com/store/tolbert's-restaurant-grapevine-27945/?fbclid=IwAR34uGVgDg3xEm0VoUWg4rKZafHMrEgQLDWPmzhNHhM2gvIx36rCwemQcEo"
           >
             Door Dash

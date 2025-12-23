@@ -4,24 +4,21 @@ import "../styles/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { baseSchema } from "@/lib/seo/schemas";
+import { seoConfig, getOgImageUrl, buildMetaTags, type MetaTags } from "@/lib/seo/config";
 import Analytics from "@/components/Analytics.astro";
 
 interface Props {
-  metaTags: {
-    title: string;
-    description: string;
-    image?: string;
-    url?: string;
-    twitterHandle?: string;
-    schemaData?: object[];
-  };
+  metaTags: MetaTags;
 }
 
-const { metaTags } = Astro.props;
+const { metaTags: rawMetaTags } = Astro.props;
+const metaTags = buildMetaTags(rawMetaTags);
 
 const dynamicSchema = metaTags.schemaData ?? [];
-
 const fullSchema = [baseSchema, ...dynamicSchema];
+
+// Build OG image URL - use provided image or fall back to default
+const ogImageUrl = metaTags.image;
 ---
 
 <!doctype html>
@@ -31,25 +28,28 @@ const fullSchema = [baseSchema, ...dynamicSchema];
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{metaTags.title}</title>
     <meta name="description" content={metaTags.description} />
+    {metaTags.noindex && <meta name="robots" content="noindex, nofollow" />}
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- Open Graph -->
+    <meta property="og:site_name" content={seoConfig.siteName} />
     <meta property="og:title" content={metaTags.title} />
     <meta property="og:description" content={metaTags.description} />
-    <meta
-      property="og:image"
-      content="https://tolbertsrestaurant.netlify.app/tolberts.webp"
-    />
+    <meta property="og:image" content={ogImageUrl} />
     <meta property="og:url" content={metaTags.url} />
     <meta property="og:type" content="website" />
+    
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:creator"
-      content={metaTags.twitterHandle || "@riefer02"}
-    />
+    <meta name="twitter:creator" content={metaTags.twitterHandle} />
     <meta name="twitter:title" content={metaTags.title} />
     <meta name="twitter:description" content={metaTags.description} />
-    <meta
-      name="twitter:image"
-      content="https://tolbertsrestaurant.netlify.app/tolberts.webp"
-    />
+    <meta name="twitter:image" content={ogImageUrl} />
+    
     <link rel="canonical" href={metaTags.url} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <ViewTransitions />

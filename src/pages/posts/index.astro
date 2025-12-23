@@ -10,16 +10,16 @@ const sortedPosts = allPosts.sort((a, b) => {
 });
 
 const metaTags = {
-  title: "Archive of Blog Posts - Andrew Riefenstahl",
+  title: "Blog & Stories | Tolbert's Restaurant & Chili Parlor",
   description:
-    "Dive into a comprehensive collection of all my blog posts. Explore various topics, insightful articles, and more spanning from 2023 to the present.",
+    "Explore the history, stories, and news from Tolbert's Restaurant & Chili Parlor in Grapevine, Texas. Learn about our famous chili and Texas heritage.",
   url: "https://tolbertsrestaurant.com/posts",
 };
 ---
 
 <Layout metaTags={metaTags}>
-  <main class="mx-auto max-w-7xl p-4 py-8 md:py-14 lg:py-24">
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+  <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 xl:grid-cols-3">
       {sortedPosts.map((post) => <PostCard post={post} />)}
     </div>
   </main>
