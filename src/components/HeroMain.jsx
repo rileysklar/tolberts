@@ -49,9 +49,9 @@ export default function HeroMain() {
             <h1 className="max-w-xl text-6xl font-bold leading-tight text-white sm:text-7xl lg:text-8xl">
               Tolbert's Restaurant
             </h1>
-            <h3 className="urbanist mt-2 text-4xl font-bold text-white sm:mt-3 sm:text-5xl lg:text-6xl">
+            <h2 className="urbanist mt-2 text-4xl font-bold text-white sm:mt-3 sm:text-5xl lg:text-6xl">
               & Chili Parlor 🌶️
-            </h3>
+            </h2>
             <div className="cta mt-6 inline-flex flex-col gap-4 sm:hidden">
               <a href="/calendar">
                 <Button

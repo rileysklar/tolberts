@@ -19,6 +19,7 @@ export default function Footer() {
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
+                title="Tolbert's Restaurant location map - 423 S Main St, Grapevine, TX"
               ></iframe>
             </div>
             <div className="flex flex-col items-center gap-2 rounded-lg border-white bg-transparent">
@@ -36,7 +37,7 @@ export default function Footer() {
                 <img
                   className="h-auto w-[150px] pb-4"
                   src="/logo-white.png"
-                  alt="Logo"
+                  alt="Tolbert's Restaurant Logo"
                 />
               </a>
               <a href="tel:(817)421-4888<"> 📲 (817) 421-4888</a>
@@ -53,10 +54,7 @@ export default function Footer() {
                   Home
                 </a>
 
-                <a
-                  href="https://tolbertscms.com/wp-content/uploads/2024/04/TolbertsNewMenu010324.pdf"
-                  className={`p-2 text-xl hover:underline`}
-                >
+                <a href="/menu" className={`p-2 text-xl hover:underline`}>
                   Menu
                 </a>
                 {/* <a
@@ -74,7 +72,9 @@ export default function Footer() {
               </div>
             </div>
             <div className="morphism flex w-full flex-col items-center justify-between rounded-lg border-white bg-transparent p-6 shadow-lg">
-              <h3 className="noto text-base sm:text-lg">Join the Chilihead Club</h3>
+              <h3 className="noto text-base sm:text-lg">
+                Join the Chilihead Club
+              </h3>
               <a href="https://visitor.r20.constantcontact.com/manage/optin?v=0014Ogu2wnBvl8_ZbMlMzQ9KVX9rpr_smoVitHZKZig-keypGiny6WIeEEgXcEOx1-AiOhKLXw2Q2L0sW0VsGJ6VT7G5BoeQ4qErEvgGW2CZEo%3D">
                 <Button
                   variant="default"
@@ -88,7 +88,10 @@ export default function Footer() {
         </div>
         <div className="noto mt-4 flex items-center justify-center gap-1 text-base text-white sm:text-lg">
           &copy; {new Date().getFullYear()}{" "}
-          <Button variant="link" className="p-0 text-sm text-white sm:text-base">
+          <Button
+            variant="link"
+            className="p-0 text-sm text-white sm:text-base"
+          >
             Tolbert's Restaurant
           </Button>
         </div>

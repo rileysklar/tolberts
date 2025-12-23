@@ -7,7 +7,7 @@ import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://tolbertrestaurant.com",
+  site: "https://tolbertsrestaurant.com",
   integrations: [
     tailwind({
       applyBaseStyles: false,

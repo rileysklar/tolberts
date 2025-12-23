@@ -1,39 +1,44 @@
 ---
 import Layout from "./Layout.astro";
+import { seoConfig, getOgImageUrl, getAbsoluteUrl } from "@/lib/seo/config";
+
 const { frontmatter, id } = Astro.props;
+
+const postUrl = getAbsoluteUrl(`/posts/${id}`);
+const postImage = frontmatter.image?.url?.src || getOgImageUrl();
 
 const blogPostSchema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   headline: frontmatter.title,
   description: frontmatter.description,
-  image: frontmatter.image.url.src,
+  image: postImage,
   author: {
     "@type": "Person",
-    name: frontmatter.author,
+    name: frontmatter.author || seoConfig.siteName,
   },
   datePublished: frontmatter.pubDate,
   mainEntityOfPage: {
     "@type": "WebPage",
-    "@id": `https://tolbertsrestaurant.com/posts/${id}`,
+    "@id": postUrl,
   },
   publisher: {
     "@type": "Organization",
-    name: "Tolbert's Restaurant & Chili Parlor",
+    name: seoConfig.siteName,
     logo: {
       "@type": "ImageObject",
-      url: "https://tolbertsrestaurant.netlify.app/tolberts.webp",
+      url: getOgImageUrl(),
     },
   },
-  articleBody: frontmatter.description, // Placeholder, you can adjust based on your needs
+  articleBody: frontmatter.description,
   keywords: frontmatter.tags ? frontmatter.tags.join(", ") : "",
 };
 
 const metaTags = {
-  title: frontmatter.title,
+  title: `${frontmatter.title} | ${seoConfig.siteName}`,
   description: frontmatter.description,
-  image: frontmatter.image.url.src,
-  url: `https://tolbertsrestaurant.com/posts/${id}`,
+  image: postImage,
+  url: postUrl,
   schemaData: [blogPostSchema],
 };
 ---
@@ -52,11 +57,13 @@ const metaTags = {
     <p class="mb-6 text-sm font-medium text-stone-700">
       Written by: <span class="text-teal-600">{frontmatter.author}</span>
     </p>
-    <img
-      class="mb-8 h-auto w-full rounded-xl shadow-lg"
-      src={frontmatter.image.url.src}
-      alt={frontmatter.image.alt}
-    />
+    {frontmatter.image?.url?.src && (
+      <img
+        class="mb-8 h-auto w-full rounded-xl shadow-lg"
+        src={frontmatter.image.url.src}
+        alt={frontmatter.image.alt || frontmatter.title}
+      />
+    )}
     {
       frontmatter.tags && frontmatter.tags.length > 0 && (
         <div class="mb-6 flex flex-wrap gap-2">

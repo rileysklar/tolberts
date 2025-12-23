@@ -6,6 +6,7 @@ import FooterPhotoPanel from "@/components/FooterPhotoPanel";
 import { Button } from "../components/ui/button";
 import { ChevronRight } from "lucide-react";
 import ImageGallery from "@/components/ImageGallery";
+import { seoConfig, getOgImageUrl } from "@/lib/seo/config";
 
 const faqData = [
   {
@@ -63,25 +64,21 @@ const aboutSchema = {
   "@type": "AboutPage",
   name: "About Tolbert's Restaurant",
   description:
-    "Frank X. Tolbert’s life-long passion for chili inspired him to write his world-famous book “A Bowl of Red” 50 years ago. He founded the Terlingua Championship Chili Cook-Off in 1967 and joined forces with son Frank 2 in 1976 to open the first Tolbert’s Restaurant in Dallas, with daughter Kathleen helping manage starting in 1977.",
+    "Learn about Frank X. Tolbert, the Grandfather of Chili, and the history of Tolbert's Restaurant since 1976.",
   mainEntity: {
     "@type": "Organization",
-    name: "Tolbert's Restaurant & Chili Parlor",
-    logo: "https://tolbertsrestaurant.netlify.app/tolberts.webp",
-    sameAs: [
-      "https://www.facebook.com/tolbertsrestaurant",
-      "https://www.instagram.com/tolbertsrestaurant",
-    ],
-    url: "https://tolbertsrestaurant.com",
+    name: seoConfig.siteName,
+    logo: getOgImageUrl(),
+    sameAs: [seoConfig.facebookUrl, seoConfig.instagramUrl],
+    url: seoConfig.siteUrl,
   },
 };
 
 const metaTags = {
-  title: "About Tolbert's Restaurant",
+  title: "About Tolbert's Restaurant | Texas Chili History Since 1976",
   description:
-    "Frank X. Tolbert’s life-long passion for chili inspired him to write his world-famous book “A Bowl of Red” 50 years ago. He founded the Terlingua Championship Chili Cook-Off in 1967 and joined forces with son Frank 2 in 1976 to open the first Tolbert’s Restaurant in Dallas, with daughter Kathleen helping manage starting in 1977.",
+    "Learn about Frank X. Tolbert, the Grandfather of Chili, and the history of Tolbert's Restaurant. From the famous 'Bowl of Red' book to the Terlingua Chili Cook-Off legacy.",
   url: "https://tolbertsrestaurant.com/about",
-  twitterHandle: "@riefer02",
   schemaData: [aboutSchema, faqSchema],
 };
 ---
