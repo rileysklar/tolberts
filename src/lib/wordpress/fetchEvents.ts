@@ -9,6 +9,7 @@ export async function getEvents() {
                 id
                 postTypeEvent {
                   date
+                  endDate
                   primaryHeader
                   secondaryHeader
                   image {

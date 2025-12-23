@@ -1,8 +1,8 @@
 interface EventNode {
   id: string;
   postTypeEvent?: {
-    // Made postTypeEvent optional at the top level
     date?: string | null;
+    endDate?: string | null;
     primaryHeader?: string | null;
     secondaryHeader?: string | null;
     image?: {
@@ -11,7 +11,7 @@ interface EventNode {
     description?: string | null;
     endTime?: string | null;
     startTime?: string | null;
-  } | null; // Added null possibility here
+  } | null;
 }
 
 interface FetchedEvent {
