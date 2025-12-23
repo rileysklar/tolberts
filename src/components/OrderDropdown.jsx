@@ -12,7 +12,7 @@ function OrderDropdown() {
     <div className="dropdown">
       <Button
         onClick={handleButtonClick}
-        className="rounded-full bg-teal-600 px-5 py-2 text-xl text-white hover:bg-teal-700"
+        className="rounded-full bg-teal-600 px-5 py-4 text-xl text-white hover:bg-teal-700"
       >
         🚙 Order Food
       </Button>
