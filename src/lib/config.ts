@@ -2,7 +2,7 @@
 export const config = {
   // Maintenance and announcements
   isUnderMaintenance: false,
-  showClosureAnnouncement: false, // Toggle this to show/hide closure announcements
+  showAnnouncement: true, // Toggle this to show/hide site-wide announcements
 
   // Other feature flags can be added here
   // showSpecialEvents: true,

@@ -7,6 +7,7 @@ import Hero from "@/components/CalendarHero";
 import { generateEventSchemas } from "@/lib/seo/schemas";
 import { processAndSortEvents, type ProcessedEvent } from "../lib/events";
 import { config } from "../lib/config";
+import Announcement from "@/components/Announcement.astro";
 
 let events: ProcessedEvent[] = [];
 
@@ -19,7 +20,7 @@ try {
 }
 
 const eventSchemas = generateEventSchemas(events);
-const showClosureAnnouncement = config.showClosureAnnouncement;
+const showAnnouncement = config.showAnnouncement;
 
 const metaTags = {
   title: "Live Music & Events Calendar | Tolbert's Restaurant Grapevine",
@@ -32,20 +33,7 @@ const metaTags = {
 
 <Layout metaTags={metaTags}>
   <main class="bg-repeat md:mt-0">
-    {showClosureAnnouncement && (
-      <!-- Closure Notice Banner -->
-      <div class="bg-red-600 px-4 py-3 text-white">
-        <div class="mx-auto max-w-7xl text-center">
-          <p class="text-lg font-semibold">
-            🚨 RESTAURANT CLOSED TO PUBLIC - Thursday, October 9th
-          </p>
-          <p class="text-sm">
-            Closing early at 2:30 PM for private sold-out event. Reopening Friday
-            for regular hours.
-          </p>
-        </div>
-      </div>
-    )}
+    {showAnnouncement && <Announcement variant="banner" />}
 
     <div class="hidden lg:block">
       <Hero events={events} client:load />
