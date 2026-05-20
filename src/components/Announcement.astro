@@ -1,0 +1,59 @@
+---
+export interface Props {
+  variant?: 'card' | 'banner';
+}
+
+const { variant = 'card' } = Astro.props;
+
+const title = 'Celebrating 20 Years in Grapevine';
+const date = 'Saturday, May 23 \u2013 Monday, May 25';
+const description =
+  'Join us as we celebrate two decades in historic downtown Grapevine. Special events, live music, and more all weekend long!';
+const cta = 'Anniversary Weekend';
+---
+
+<section aria-label="Announcement">
+  {
+    variant === 'banner' ? (
+      <div class="bg-gradient-to-r from-primary to-primary/90 px-4 py-3">
+        <div class="mx-auto max-w-7xl text-center">
+          <p class="text-lg font-bold text-white">
+            {title} &mdash; {date}
+          </p>
+          <p class="text-sm text-white/90">
+            {description}
+          </p>
+        </div>
+      </div>
+    ) : (
+      <div class="relative bg-gradient-to-r from-primary to-primary/90 px-4 py-6">
+        <div class="relative mx-auto max-w-5xl">
+          <div class="rounded-lg border-0 bg-white/95 backdrop-blur-sm shadow-sm">
+            <div class="p-6">
+              <div class="flex flex-col items-center space-y-4 text-center">
+                <div class="space-y-2">
+                  <h2 class="text-3xl font-bold text-foreground lg:text-4xl">
+                    {title}
+                  </h2>
+                  <p class="text-lg font-semibold text-primary">
+                    {date}
+                  </p>
+                  <p class="max-w-2xl text-muted-foreground">
+                    {description}
+                  </p>
+                </div>
+
+                <span
+                  aria-hidden="true"
+                  class="inline-flex items-center gap-2 rounded-full bg-muted px-4 py-2 text-sm font-medium text-muted-foreground"
+                >
+                  {cta}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+</section>

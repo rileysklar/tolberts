@@ -9,7 +9,7 @@ import FooterPhotoPanel from "@/components/FooterPhotoPanel";
 import Testimonials from "@/components/Testimonials";
 import HeroMain from "@/components/HeroMain";
 import FormHorizontal from "@/components/FormHorizontal";
-import Announcement from "@/components/Announcement";
+import Announcement from "@/components/Announcement.astro";
 import { generateEventSchemas } from "@/lib/seo/schemas";
 import MaintenanceAnnouncement from "@/components/MaintenanceAnnouncement.astro";
 import { config } from "../lib/config";
@@ -37,7 +37,7 @@ const metaTags = {
   schemaData: eventSchemas,
 };
 const isUnderMaintenance = config.isUnderMaintenance; // Use config instead of hardcoded value
-const showClosureAnnouncement = config.showClosureAnnouncement;
+const showAnnouncement = config.showAnnouncement;
 ---
 
 <Layout metaTags={metaTags}>
@@ -47,7 +47,7 @@ const showClosureAnnouncement = config.showClosureAnnouncement;
     ) : (
       <main class="content">
         <HeroMain client:load />
-        {showClosureAnnouncement && <Announcement client:load />}
+        {showAnnouncement && <Announcement variant="card" />}
         <FormHorizontal client:load />
         <CalendarHero events={events} client:load />
         <Leaderboard client:load />
