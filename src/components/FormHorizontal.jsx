@@ -25,8 +25,18 @@ function FormHorizontal() {
       return;
     }
 
-    // Validate message length
-    if (message.length < MIN_MESSAGE_LENGTH) {
+    // Frontend validation
+    if (!name.trim()) {
+      setError("Please enter your name.");
+      return;
+    }
+
+    if (!email.trim()) {
+      setError("Please enter your email address.");
+      return;
+    }
+
+    if (!message.trim() || message.trim().length < MIN_MESSAGE_LENGTH) {
       setError(
         `Please provide a more detailed message (at least ${MIN_MESSAGE_LENGTH} characters).`,
       );
@@ -52,9 +62,10 @@ function FormHorizontal() {
         }),
       });
 
+      const data = await response.json().catch(() => null);
+
       if (response.ok) {
-        const data = await response.json();
-        if (data.error) {
+        if (data?.error) {
           setError(data.error);
         } else {
           setIsSubmitted(true);
@@ -64,9 +75,10 @@ function FormHorizontal() {
           setTimeout(() => setIsSubmitted(false), 5000);
         }
       } else {
-        const errorData = await response.json().catch(() => null);
         setError(
-          errorData?.message || "Submission failed. Please try again later.",
+          data?.error ||
+            data?.message ||
+            "Submission failed. Please try again later.",
         );
       }
     } catch (err) {

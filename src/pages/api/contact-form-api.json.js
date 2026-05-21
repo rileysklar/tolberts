@@ -3,9 +3,38 @@ export const prerender = false;
 export const POST = async ({ request }) => {
   const body = await request.json();
 
-  // Validate message length
   const MIN_MESSAGE_LENGTH = 15;
-  if (!body.content || body.content.length < MIN_MESSAGE_LENGTH) {
+
+  // Validate required fields
+  if (!body.title || !body.title.trim()) {
+    return new Response(
+      JSON.stringify({
+        error: "Please enter your name.",
+      }),
+      {
+        status: 400,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    );
+  }
+
+  if (!body.acf?.email || !body.acf.email.trim()) {
+    return new Response(
+      JSON.stringify({
+        error: "Please enter your email address.",
+      }),
+      {
+        status: 400,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    );
+  }
+
+  if (!body.content || body.content.trim().length < MIN_MESSAGE_LENGTH) {
     return new Response(
       JSON.stringify({
         error: `Please provide a more detailed message (at least ${MIN_MESSAGE_LENGTH} characters).`,
@@ -41,17 +70,26 @@ export const POST = async ({ request }) => {
       }),
     });
 
+    const wpData = await wpResponse.json().catch(() => null);
+
     if (!wpResponse.ok) {
-      return new Response(JSON.stringify({ error: "Failed to create post" }), {
-        status: 400,
-        headers: {
-          "Content-Type": "application/json",
+      return new Response(
+        JSON.stringify({
+          error:
+            wpData?.message ||
+            wpData?.error ||
+            "Failed to submit form. Please try again later.",
+        }),
+        {
+          status: 400,
+          headers: {
+            "Content-Type": "application/json",
+          },
         },
-      });
+      );
     }
 
-    const data = await wpResponse.json();
-    return new Response(JSON.stringify(data), {
+    return new Response(JSON.stringify(wpData), {
       status: 200,
       headers: {
         "Content-Type": "application/json",
