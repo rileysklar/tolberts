@@ -5,11 +5,12 @@ export interface Props {
 
 const { variant = 'card' } = Astro.props;
 
-const title = 'Celebrating 20 Years in Grapevine';
-const date = 'Saturday, May 23 \u2013 Monday, May 25';
+const title = 'The Concert on Lake Grapevine';
+const date = 'Sunday, October 11 \u00b7 12\u20139 PM';
 const description =
-  'Join us as we celebrate two decades in historic downtown Grapevine. Special events, live music, and more all weekend long!';
-const cta = 'Anniversary Weekend';
+  'Four tribute bands, BYOB, food trucks, and great views at Mariner Park Point \u2014 all for charity. Presented by Tolbert\u2019s.';
+const cta = 'Event details & tickets';
+const href = '/posts/concert-on-the-lake-grapevine-2026';
 ---
 
 <section aria-label="Announcement">
@@ -23,6 +24,12 @@ const cta = 'Anniversary Weekend';
           <p class="text-sm text-white/90">
             {description}
           </p>
+          <a
+            href={href}
+            class="mt-3 inline-block rounded-full bg-white px-5 py-2 text-sm font-semibold text-primary shadow-sm transition-colors hover:bg-stone-100"
+          >
+            {cta}
+          </a>
         </div>
       </div>
     ) : (
@@ -43,12 +50,13 @@ const cta = 'Anniversary Weekend';
                   </p>
                 </div>
 
-                <span
-                  aria-hidden="true"
-                  class="inline-flex items-center gap-2 rounded-full bg-muted px-4 py-2 text-sm font-medium text-muted-foreground"
+                <a
+                  href={href}
+                  aria-label={`${cta} - ${title}`}
+                  class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground shadow-md transition-all hover:-translate-y-0.5 hover:bg-primary/90"
                 >
                   {cta}
-                </span>
+                </a>
               </div>
             </div>
           </div>
