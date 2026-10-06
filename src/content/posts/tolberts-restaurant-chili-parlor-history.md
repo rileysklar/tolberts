@@ -3,8 +3,8 @@ title: "Tolbert's Restaurant and Chili Parlor: A Rich History in Grapevine, Texa
 author: "Historical Society Team of Texas"
 description: "Discover the fascinating history of Tolbert's Restaurant and Chili Parlor in Grapevine, Texas, and the legacy of Frank X. Tolbert and his family's role in the creation of the Terlingua Chili Cookoff."
 image:
-  url: "../../assets/ar-ogimage-optimized.png"
-  alt: "Tolbert's Restaurant and Chili Parlor in Grapevine, Texas."
+  url: "../../assets/tolberts-gallery-1.jpg"
+  alt: "The dining room at Tolbert's Restaurant in Grapevine, Texas."
 pubDate: 2024-07-27
 tags:
   [

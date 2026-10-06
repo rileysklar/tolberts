@@ -10,7 +10,7 @@ export const seoConfig = {
     "Tolbert's Restaurant is a family-owned restaurant in Grapevine, Texas serving the best chili in Texas with live music, great food, and drinks since 1976.",
   
   // Images (relative paths, will be combined with siteUrl)
-  defaultOgImage: "/tolberts.webp",
+  defaultOgImage: "/tolbs-outside.jpg",
   logoWhite: "/logo-white.png",
   logoBlack: "/logo-black.png",
   
@@ -82,4 +82,3 @@ export function buildMetaTags(partial: MetaTags): Required<Omit<MetaTags, "schem
 }
 
 export type SeoConfig = typeof seoConfig;
-
