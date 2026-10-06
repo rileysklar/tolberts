@@ -44,11 +44,13 @@ const metaTags = {
 ---
 
 <Layout metaTags={metaTags}>
-  <div class="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-12 lg:py-16">
+  <div class="site-article">
     <p class="text-xs text-stone-500 sm:text-sm">
       {frontmatter.pubDate.toString().slice(0, 10)}
     </p>
-    <h1 class="mb-4 mt-2 text-2xl font-bold leading-tight text-stone-900 sm:text-3xl lg:text-4xl">
+    <h1
+      class="mb-4 mt-2 text-2xl font-bold leading-tight text-stone-900 sm:text-3xl lg:text-4xl"
+    >
       {frontmatter.title}
     </h1>
     <p class="mb-4 text-base italic leading-relaxed text-stone-600 sm:text-lg">
@@ -57,13 +59,15 @@ const metaTags = {
     <p class="mb-6 text-sm font-medium text-stone-700">
       Written by: <span class="text-teal-600">{frontmatter.author}</span>
     </p>
-    {frontmatter.image?.url?.src && (
-      <img
-        class="mb-8 h-auto w-full rounded-xl shadow-lg"
-        src={frontmatter.image.url.src}
-        alt={frontmatter.image.alt || frontmatter.title}
-      />
-    )}
+    {
+      frontmatter.image?.url?.src && (
+        <img
+          class="mb-8 h-auto w-full rounded-xl shadow-lg"
+          src={frontmatter.image.url.src}
+          alt={frontmatter.image.alt || frontmatter.title}
+        />
+      )
+    }
     {
       frontmatter.tags && frontmatter.tags.length > 0 && (
         <div class="mb-6 flex flex-wrap gap-2">

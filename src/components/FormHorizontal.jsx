@@ -90,9 +90,9 @@ function FormHorizontal() {
   };
 
   return (
-    <div className="px-4 py-12 sm:px-8 sm:py-16">
-      <div className="morphism-x mx-auto flex w-full max-w-7xl flex-col items-center rounded-xl py-6">
-        <h3 className="noto mx-4 text-pretty pt-2 text-center text-xl text-white sm:text-2xl md:text-3xl lg:text-4xl">
+    <div className="site-container site-section">
+      <div className="morphism-x flex w-full flex-col items-center rounded-xl p-5 sm:p-6">
+        <h3 className="noto mx-4 max-w-4xl text-pretty text-center text-xl text-white sm:text-2xl lg:text-3xl">
           Rent our space, book your band, or get in touch about our chili! 🌶️
         </h3>
         {/* <p className="md:text-md mx-4 mt-4 rounded-lg border-2 border-red-400 p-2 text-center text-sm text-red-400 lg:text-lg">
@@ -110,7 +110,7 @@ function FormHorizontal() {
         {!isSubmitted ? (
           <form
             onSubmit={handleSubmit}
-            className="sm:align-center flex w-full flex-col justify-center gap-2 rounded-lg p-4 sm:flex-row sm:items-center"
+            className="flex w-full flex-col justify-center gap-3 rounded-lg p-3 sm:flex-row sm:items-center sm:p-4"
           >
             <input
               type="text"
@@ -119,6 +119,7 @@ function FormHorizontal() {
               onChange={(e) => setName(e.target.value)}
               required
               aria-label="Your Name"
+              className="min-w-0 sm:flex-1"
             />
             <input
               type="email"
@@ -127,6 +128,7 @@ function FormHorizontal() {
               onChange={(e) => setEmail(e.target.value)}
               required
               aria-label="Your Email"
+              className="min-w-0 sm:flex-1"
             />
             <input
               type="text"
@@ -134,7 +136,7 @@ function FormHorizontal() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               required
-              className="sm:h-[43px] sm:w-[50%]"
+              className="min-w-0 sm:flex-[1.5]"
               aria-label="Your Message"
               minLength={MIN_MESSAGE_LENGTH}
             />
@@ -150,7 +152,7 @@ function FormHorizontal() {
               />
             </div>
             <Button
-              className="rounded-full bg-white px-5 py-2 text-xl text-stone-900 transition-all duration-300 hover:translate-y-[-1px] hover:bg-white active:translate-y-[1px] active:scale-90"
+              className="shrink-0 rounded-full bg-white px-5 py-2 text-base text-stone-900 transition-all duration-300 hover:translate-y-[-1px] hover:bg-stone-100 active:translate-y-[1px] active:scale-95 sm:text-lg"
               type="submit"
               disabled={isSubmitting}
             >

@@ -4,13 +4,13 @@ import Form from "./Form";
 
 export default function Footer() {
   return (
-    <footer className="urbanist chili bg-stone-900 py-10">
-      <div className="morphism mx-auto max-w-7xl rounded-xl border-white bg-transparent p-4 shadow-lg sm:p-6">
-        <div className="grid grid-cols-1 gap-6 p-2 text-center text-white sm:p-4 lg:grid-cols-3">
-          <div className="morphism flex flex-col items-center justify-between gap-4 p-4 sm:p-6">
-            <h3 className="noto text-2xl sm:text-3xl">Our Location</h3>
+    <footer className="urbanist chili bg-stone-900 py-8 sm:py-10">
+      <div className="morphism site-container rounded-xl border-white bg-transparent py-4 shadow-lg sm:py-6">
+        <div className="grid grid-cols-1 gap-4 text-center text-white sm:gap-5 lg:grid-cols-3">
+          <div className="morphism flex flex-col items-center justify-between gap-4 rounded-xl p-4 sm:p-5">
+            <h3 className="noto text-xl sm:text-2xl">Our Location</h3>
 
-            <div className="morphism w-full max-w-[320px] overflow-hidden rounded-lg p-2">
+            <div className="morphism w-full max-w-[320px] overflow-hidden rounded-xl p-2">
               <p className="text-sm sm:text-base">423 South Main Street</p>
               <p className="text-sm sm:text-base">Grapevine, TX 76051</p>
               <iframe
@@ -23,7 +23,7 @@ export default function Footer() {
               ></iframe>
             </div>
             <div className="flex flex-col items-center gap-2 rounded-lg border-white bg-transparent">
-              <h3 className="noto text-2xl sm:text-3xl">Restaurant Hours</h3>
+              <h3 className="noto text-xl sm:text-2xl">Restaurant Hours</h3>
               <RestaurantSchema client:load />
             </div>
           </div>
@@ -32,7 +32,7 @@ export default function Footer() {
             <div className="flex w-full flex-col items-center justify-center gap-4">
               <Form client:load />
             </div>
-            <div className="morphism flex w-full flex-col items-center gap-2 rounded-lg border-white bg-transparent p-6 shadow-lg">
+            <div className="morphism flex w-full flex-col items-center gap-2 rounded-xl border-white bg-transparent p-4 shadow-lg sm:p-5">
               <a href="/">
                 <img
                   className="h-auto w-[150px] pb-4"
@@ -46,15 +46,21 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div className="morphism flex flex-col items-center justify-between gap-4 p-4 sm:p-6">
+          <div className="morphism flex flex-col items-center justify-between gap-4 rounded-xl p-4 sm:p-5">
             <div className="flex flex-col items-center gap-2">
-              <h3 className="noto text-2xl sm:text-3xl">Site Map</h3>
+              <h3 className="noto text-xl sm:text-2xl">Site Map</h3>
               <div className="flex flex-col items-center gap-1 pt-2">
-                <a href="/" className={`p-2 text-xl hover:underline`}>
+                <a
+                  href="/"
+                  className="rounded-md px-3 py-1.5 text-base hover:bg-white/10"
+                >
                   Home
                 </a>
 
-                <a href="/menu" className={`p-2 text-xl hover:underline`}>
+                <a
+                  href="/menu"
+                  className="rounded-md px-3 py-1.5 text-base hover:bg-white/10"
+                >
                   Menu
                 </a>
                 {/* <a
@@ -63,22 +69,28 @@ export default function Footer() {
                 >
                   Brunch
                 </a> */}
-                <a href="/calendar" className={`p-2 text-xl hover:underline`}>
+                <a
+                  href="/calendar"
+                  className="rounded-md px-3 py-1.5 text-base hover:bg-white/10"
+                >
                   Calendar
                 </a>
-                <a href="/about" className={`p-2 text-xl hover:underline`}>
+                <a
+                  href="/about"
+                  className="rounded-md px-3 py-1.5 text-base hover:bg-white/10"
+                >
                   About
                 </a>
               </div>
             </div>
-            <div className="morphism flex w-full flex-col items-center justify-between rounded-lg border-white bg-transparent p-6 shadow-lg">
+            <div className="morphism flex w-full flex-col items-center justify-between rounded-xl border-white bg-transparent p-4 shadow-lg sm:p-5">
               <h3 className="noto text-base sm:text-lg">
                 Join the Chilihead Club
               </h3>
               <a href="https://visitor.r20.constantcontact.com/manage/optin?v=0014Ogu2wnBvl8_ZbMlMzQ9KVX9rpr_smoVitHZKZig-keypGiny6WIeEEgXcEOx1-AiOhKLXw2Q2L0sW0VsGJ6VT7G5BoeQ4qErEvgGW2CZEo%3D">
                 <Button
                   variant="default"
-                  className="mt-2 rounded-full bg-white px-5 py-2 text-xl text-stone-900 transition-all duration-300 hover:translate-y-[-1px] hover:bg-white active:translate-y-[1px] active:scale-90"
+                  className="mt-2 rounded-full bg-white px-5 py-2 text-base text-stone-900 transition-all duration-300 hover:translate-y-[-1px] hover:bg-stone-100 active:translate-y-[1px] active:scale-95 sm:text-lg"
                 >
                   🌶️ Join Now
                 </Button>

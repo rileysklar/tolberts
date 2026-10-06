@@ -37,11 +37,7 @@ export default function Header() {
     return staticLinks.map(({ label, url, isButton }) =>
       isButton ? (
         <a key={label} href={url}>
-          <Button
-            className={`rounded-full bg-teal-600 px-5 py-2 font-semibold hover:bg-teal-700 ${
-              isScrolled ? "text-white" : "text-white"
-            } text-xl`}
-          >
+          <Button className="text-base font-semibold text-white lg:text-lg">
             {label}
           </Button>
         </a>
@@ -51,7 +47,7 @@ export default function Header() {
           href={url}
           className={`hover:underline ${
             isScrolled ? "text-stone-900" : "text-white"
-          } text-xl`}
+          } text-base lg:text-lg`}
         >
           {label}
         </a>
@@ -61,11 +57,11 @@ export default function Header() {
 
   return (
     <nav
-      className={`duration-800 urbanist fixed top-0 z-50 w-full p-4 font-semibold shadow-lg transition-all ${
+      className={`urbanist fixed top-0 z-50 flex h-20 w-full items-center font-semibold shadow-lg transition-colors duration-300 ${
         isScrolled ? "bg-white text-stone-900" : "bg-stone-900 text-white"
       }`}
     >
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between">
+      <div className="site-container flex items-center justify-between">
         {/* Logo */}
         <div
           className="logo duration-800 transition-all"
@@ -81,7 +77,7 @@ export default function Header() {
         </div>
 
         {/* Desktop navigation */}
-        <div className="hidden w-full items-center justify-end space-x-4 underline-offset-4 sm:flex">
+        <div className="hidden w-full items-center justify-end gap-4 underline-offset-4 sm:flex">
           {renderDesktopLinks()}
         </div>
 

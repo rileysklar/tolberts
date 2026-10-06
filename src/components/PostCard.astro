@@ -7,12 +7,14 @@ const { post } = Astro.props;
 const { title, description, pubDate, image, author } = post.data;
 ---
 
-<li
-  class="list-none overflow-hidden rounded-lg border bg-stone-100 p-4 shadow-sm"
->
+<li class="site-surface list-none overflow-hidden bg-stone-100 p-4">
   <a href={"/posts/" + post.id} class="text-decoration-none">
     <div>
-      <Image src={image.url} alt={image.alt} class="h-auto w-full rounded-sm" />
+      <Image
+        src={image.url}
+        alt={image.alt}
+        class="aspect-[4/3] w-full rounded-lg object-cover"
+      />
       <h2 class="mt-2 line-clamp-2 text-lg font-bold">{title}</h2>
       <p class="mt-1 text-xs text-stone-600">
         {new Date(pubDate).toLocaleDateString()}

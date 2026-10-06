@@ -40,7 +40,9 @@ function Testimonials() {
           <CarouselContent>
             {testimonials.map((testimonial, index) => (
               <CarouselItem key={index}>
-                <p className="text-base leading-relaxed sm:text-lg">{testimonial.text}</p>
+                <p className="text-base leading-relaxed sm:text-lg">
+                  {testimonial.text}
+                </p>
                 <p className="mt-4 text-right text-lg font-bold sm:text-xl lg:text-2xl">
                   - {testimonial.author}
                 </p>

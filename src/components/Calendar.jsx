@@ -6,7 +6,7 @@ const Calendar = ({ events }) => {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-4 px-4 py-6 sm:gap-5 sm:px-6 sm:py-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+    <div className="site-container grid grid-cols-1 gap-4 py-6 sm:gap-5 sm:py-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
       {events.map((event, index) => {
         const {
           node: {
@@ -30,20 +30,18 @@ const Calendar = ({ events }) => {
             className="flex min-h-[340px] flex-1 items-end overflow-hidden rounded-xl bg-cover bg-center shadow-lg transition-shadow hover:shadow-xl sm:min-h-[380px]"
             style={{ backgroundImage: `url(${sourceUrl})` }}
           >
-            <div className="flex w-full flex-row items-center justify-between rounded-t-xl border-l border-t border-white/20 bg-slate-800/60 p-4 backdrop-blur-md sm:p-5">
+            <div className="event-card-panel w-full">
               <div>
-                <h2 className="noto line-clamp-1 text-lg text-white sm:text-xl lg:text-2xl">
-                  {primaryHeader}
-                </h2>
-                <h3 className="mt-1 line-clamp-2 text-xs text-white/90 sm:text-sm">
-                  {secondaryHeader}
-                </h3>
-                <p className="mt-2 text-xs text-white sm:text-sm">🗓️ {date}</p>
-                <p className="mt-0.5 text-xs text-white sm:text-sm">
+                <h2 className="event-card-title">{primaryHeader}</h2>
+                <h3 className="event-card-description">{secondaryHeader}</h3>
+                <p className="event-card-meta mt-2">🗓️ {date}</p>
+                <p className="event-card-meta mt-1">
                   ⏰ {startTime} - {endTime}
                 </p>
                 {showDescription && (
-                  <p className="mt-2 pr-5 text-xs text-white/80">{description}</p>
+                  <p className="mt-2 pr-5 text-xs text-white/80">
+                    {description}
+                  </p>
                 )}
               </div>
             </div>

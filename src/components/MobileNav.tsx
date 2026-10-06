@@ -13,7 +13,7 @@ export default function MobileNav({ isScrolled, staticLinks }) {
     return staticLinks.map(({ label, url, isButton }) =>
       isButton ? (
         <a key={label} href={url}>
-          <Button className="w-full rounded-full bg-teal-600 px-4 py-2 text-2xl font-semibold text-white hover:bg-teal-700">
+          <Button className="w-full text-lg font-semibold text-white">
             {label}
           </Button>
         </a>
@@ -21,7 +21,7 @@ export default function MobileNav({ isScrolled, staticLinks }) {
         <a
           key={label}
           href={url}
-          className="block w-full p-3 text-2xl font-medium text-white hover:underline"
+          className="block w-full rounded-lg px-3 py-2 text-lg font-medium text-white hover:bg-white/10"
         >
           {label}
         </a>
