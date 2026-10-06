@@ -89,8 +89,8 @@ function Form() {
 
   return (
     <div className="w-full bg-stone-900">
-      <div className="morphism w-full rounded-lg p-4 sm:p-5">
-        <h3 className="noto pb-4 text-2xl sm:text-3xl">Contact Us</h3>
+      <div className="morphism w-full rounded-xl p-4 sm:p-5">
+        <h3 className="noto pb-3 text-xl sm:text-2xl">Contact Us</h3>
 
         {error && (
           <p className="m-2 flex content-center justify-center rounded-lg bg-red-400 p-4 text-center text-stone-900">
@@ -108,7 +108,7 @@ function Form() {
               placeholder="Your Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full text-sm sm:text-base"
+              className="w-full"
               required
               aria-label="Your Name"
             />
@@ -117,7 +117,7 @@ function Form() {
               placeholder="Your Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full text-sm sm:text-base"
+              className="w-full"
               required
               aria-label="Your Email"
             />
@@ -126,7 +126,7 @@ function Form() {
               placeholder="Your Message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="w-full text-sm sm:text-base"
+              className="w-full"
               required
               aria-label="Your Message"
               minLength={MIN_MESSAGE_LENGTH}

@@ -37,15 +37,13 @@ const CalendarHero = ({ events }) => {
             backgroundImage: `url(${mainSourceUrl})`,
           }}
         >
-          <div className="w-3/4 max-w-lg overflow-hidden rounded-tl-xl border-l border-t border-white/20 bg-slate-800/60 p-4 shadow-xl backdrop-blur-md sm:p-5">
-            <h2 className="noto line-clamp-1 text-lg text-white sm:text-2xl lg:text-3xl">
+          <div className="event-card-panel w-3/4 max-w-lg">
+            <h2 className="event-card-title event-card-title-featured">
               {mainPrimaryHeader}
             </h2>
-            <h3 className="mt-1 line-clamp-2 text-sm text-white/90 sm:text-base">
-              {mainSecondaryHeader}
-            </h3>
-            <p className="mt-2 text-sm text-white sm:text-base">🗓️ {mainDate}</p>
-            <p className="mt-1 text-sm text-white sm:text-base">
+            <h3 className="event-card-description">{mainSecondaryHeader}</h3>
+            <p className="event-card-meta mt-2">🗓️ {mainDate}</p>
+            <p className="event-card-meta mt-1">
               ⏰ {mainStartTime} - {mainEndTime}
             </p>
             {showDescription && (
@@ -79,15 +77,11 @@ const CalendarHero = ({ events }) => {
               className="flex min-h-[250px] flex-1 items-end justify-end overflow-hidden bg-cover bg-center bg-no-repeat shadow-lg sm:min-h-[280px]"
               style={{ backgroundImage: `url(${sourceUrl})` }}
             >
-              <div className="w-3/4 max-w-sm rounded-tl-xl border-l border-t border-white/20 bg-slate-800/60 p-3 backdrop-blur-md sm:p-4">
-                <h2 className="noto line-clamp-1 text-lg text-white sm:text-xl lg:text-2xl">
-                  {primaryHeader}
-                </h2>
-                <h3 className="mt-1 line-clamp-1 text-xs text-white/90 sm:text-sm">
-                  {secondaryHeader}
-                </h3>
-                <p className="mt-1 text-xs text-white sm:text-sm">🗓️ {date}</p>
-                <p className="mt-0.5 text-xs text-white sm:text-sm">
+              <div className="event-card-panel w-3/4 max-w-sm">
+                <h2 className="event-card-title">{primaryHeader}</h2>
+                <h3 className="event-card-description">{secondaryHeader}</h3>
+                <p className="event-card-meta mt-2">🗓️ {date}</p>
+                <p className="event-card-meta mt-1">
                   ⏰ {startTime} - {endTime}
                 </p>
                 {showDescription && (

@@ -28,8 +28,8 @@ export default function ImageGallery() {
   ];
 
   return (
-    <div className="px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
+    <div className="site-container site-section">
+      <div className="mx-auto grid w-full grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:grid-cols-4">
         {images.map((image, index) => (
           <img
             key={index}

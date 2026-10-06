@@ -14,13 +14,6 @@
   font-style: normal;
 }
 
-/* .noto {
-  font-family: "Lora", serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-} */
-
 .morphism {
   background: rgba(14, 14, 14, 0.05);
   box-shadow: 0 8px 32px 0 rgba(175, 175, 175, 0.07);
@@ -52,15 +45,80 @@
 
 input,
 textarea {
-  border-radius: 8px;
-  padding: 8px;
+  min-height: 44px;
+  border-radius: var(--radius);
+  padding: 8px 12px;
   color: #fff;
   background-color: transparent;
-  border: solid 1px #fff;
+  border: solid 1px rgba(255, 255, 255, 0.7);
+  font: inherit;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
 }
 input::placeholder,
 textarea::placeholder {
   color: #fff;
+}
+
+@layer components {
+  .site-container {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .site-section {
+    @apply py-8 sm:py-10 lg:py-14;
+  }
+
+  .site-article {
+    @apply mx-auto w-full max-w-3xl px-4 py-8 sm:px-6 sm:py-10 lg:py-14;
+  }
+
+  .site-surface {
+    @apply rounded-xl border border-stone-300/70 shadow-sm;
+  }
+
+  .site-button {
+    @apply inline-flex items-center justify-center gap-2 rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .site-button-size-default {
+    @apply min-h-11 px-5 py-2;
+  }
+
+  .site-button-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  .site-button-light {
+    @apply bg-white text-primary shadow-sm hover:bg-stone-100 focus-visible:ring-white;
+  }
+
+  .event-card-panel {
+    @apply rounded-t-xl border border-white/20 bg-slate-800/70 p-4 text-white shadow-lg backdrop-blur-md sm:p-5;
+  }
+
+  .event-card-title {
+    @apply font-sans line-clamp-1 text-lg leading-tight sm:text-xl lg:text-2xl;
+  }
+
+  .event-card-title-featured {
+    @apply lg:text-3xl;
+  }
+
+  .event-card-description {
+    @apply mt-1 line-clamp-2 text-xs text-white/90 sm:text-sm;
+  }
+
+  .event-card-meta {
+    @apply text-xs text-white sm:text-sm;
+  }
 }
 
 @layer base {
@@ -93,7 +151,7 @@ textarea::placeholder {
     --input: 20 5.9% 90%;
     --ring: 20 14.3% 4.1%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 
   .dark {

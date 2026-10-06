@@ -4,7 +4,12 @@ import "../styles/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { baseSchema } from "@/lib/seo/schemas";
-import { seoConfig, getOgImageUrl, buildMetaTags, type MetaTags } from "@/lib/seo/config";
+import {
+  seoConfig,
+  getOgImageUrl,
+  buildMetaTags,
+  type MetaTags,
+} from "@/lib/seo/config";
 import Analytics from "@/components/Analytics.astro";
 
 interface Props {
@@ -29,12 +34,12 @@ const ogImageUrl = metaTags.image;
     <title>{metaTags.title}</title>
     <meta name="description" content={metaTags.description} />
     {metaTags.noindex && <meta name="robots" content="noindex, nofollow" />}
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    
+
     <!-- Open Graph -->
     <meta property="og:site_name" content={seoConfig.siteName} />
     <meta property="og:title" content={metaTags.title} />
@@ -42,14 +47,14 @@ const ogImageUrl = metaTags.image;
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:url" content={metaTags.url} />
     <meta property="og:type" content="website" />
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content={metaTags.twitterHandle} />
     <meta name="twitter:title" content={metaTags.title} />
     <meta name="twitter:description" content={metaTags.description} />
     <meta name="twitter:image" content={ogImageUrl} />
-    
+
     <link rel="canonical" href={metaTags.url} />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <ViewTransitions />
@@ -57,11 +62,7 @@ const ogImageUrl = metaTags.image;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
     <script type="application/ld+json" set:html={JSON.stringify(fullSchema)} />
