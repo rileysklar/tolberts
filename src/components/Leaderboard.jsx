@@ -25,7 +25,7 @@ const Leaderboard = () => {
           — Kathleen, Paul and Steven Ryan
         </p>
         <Button asChild className="gap-2 text-base sm:text-lg">
-          <a href="/about">
+          <a href="/about/">
             Learn More <ChevronRight className="h-4 w-4" />
           </a>
         </Button>
