@@ -12,7 +12,6 @@ const excludedFromSitemap = ["/menu", "/brunch-menu", "/404"];
 // https://astro.build/config
 export default defineConfig({
   site: "https://tolbertsrestaurant.com",
-  trailingSlash: "always",
   integrations: [
     tailwind({
       applyBaseStyles: false,
