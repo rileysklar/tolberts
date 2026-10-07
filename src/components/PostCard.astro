@@ -8,7 +8,7 @@ const { title, description, pubDate, image, author } = post.data;
 ---
 
 <li class="site-surface list-none overflow-hidden bg-stone-100 p-4">
-  <a href={"/posts/" + post.id} class="text-decoration-none">
+  <a href={`/posts/${post.id}/`} class="text-decoration-none">
     <div>
       <Image
         src={image.url}

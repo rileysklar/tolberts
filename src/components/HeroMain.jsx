@@ -53,7 +53,7 @@ export default function HeroMain() {
               & Chili Parlor 🌶️
             </h2>
             <div className="cta mt-6 inline-flex flex-col gap-4 sm:hidden">
-              <a href="/calendar">
+              <a href="/calendar/">
                 <Button
                   variant=""
                   className="w-full rounded-full bg-white px-8 py-6 text-xl font-semibold text-stone-900 shadow-lg transition-all duration-300 hover:translate-y-[-2px] hover:bg-stone-100 hover:shadow-xl active:translate-y-[1px] active:scale-95"

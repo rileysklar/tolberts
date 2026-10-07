@@ -1,4 +1,4 @@
-import { seoConfig, getOgImageUrl, getAbsoluteUrl } from "./config";
+import { seoConfig, getOgImageUrl, getCanonicalUrl } from "./config";
 
 export const baseSchema = {
   "@context": "https://schema.org",
@@ -18,7 +18,7 @@ export const baseSchema = {
   url: seoConfig.siteUrl,
   sameAs: [seoConfig.facebookUrl, seoConfig.instagramUrl],
   servesCuisine: "American",
-  menu: getAbsoluteUrl("/menu"),
+  menu: getCanonicalUrl("/menu"),
   acceptsReservations: "True",
   openingHours: seoConfig.openingHours,
 };

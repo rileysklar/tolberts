@@ -40,7 +40,7 @@ export default function Footer() {
                   alt="Tolbert's Restaurant Logo"
                 />
               </a>
-              <a href="tel:(817)421-4888<"> 📲 (817) 421-4888</a>
+              <a href="tel:+18174214888"> 📲 (817) 421-4888</a>
               <a href="mailto:tolbertsrestaurant@gmail.com">
                 ✉️ tolbertsrestaurant@gmail.com
               </a>
@@ -58,7 +58,7 @@ export default function Footer() {
                 </a>
 
                 <a
-                  href="/menu"
+                  href="/menu/"
                   className="rounded-md px-3 py-1.5 text-base hover:bg-white/10"
                 >
                   Menu
@@ -70,13 +70,13 @@ export default function Footer() {
                   Brunch
                 </a> */}
                 <a
-                  href="/calendar"
+                  href="/calendar/"
                   className="rounded-md px-3 py-1.5 text-base hover:bg-white/10"
                 >
                   Calendar
                 </a>
                 <a
-                  href="/about"
+                  href="/about/"
                   className="rounded-md px-3 py-1.5 text-base hover:bg-white/10"
                 >
                   About

@@ -1,10 +1,10 @@
 ---
 import Layout from "./Layout.astro";
-import { seoConfig, getOgImageUrl, getAbsoluteUrl } from "@/lib/seo/config";
+import { seoConfig, getOgImageUrl, getCanonicalUrl } from "@/lib/seo/config";
 
 const { frontmatter, id } = Astro.props;
 
-const postUrl = getAbsoluteUrl(`/posts/${id}`);
+const postUrl = getCanonicalUrl(`/posts/${id}`);
 const postImage = frontmatter.image?.url?.src || getOgImageUrl();
 
 const blogPostSchema = {
@@ -38,7 +38,11 @@ const metaTags = {
   title: `${frontmatter.title} | ${seoConfig.siteName}`,
   description: frontmatter.description,
   image: postImage,
+  imageAlt: frontmatter.image?.alt || frontmatter.title,
   url: postUrl,
+  type: "article" as const,
+  publishedTime: new Date(frontmatter.pubDate).toISOString(),
+  tags: frontmatter.tags,
   schemaData: [blogPostSchema],
 };
 ---
