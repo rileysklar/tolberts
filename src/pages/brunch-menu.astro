@@ -3,38 +3,42 @@ export const prerender = false;
 
 import { Button } from "@/components/ui/button";
 import Layout from "@/layouts/Layout.astro";
+import { isResourceAvailable } from "@/lib/remote";
 
 // Define the brunch menu URL
-const brunchMenuUrl =
+const defaultBrunchMenuUrl =
   "https://tolbertscms.com/wp-content/uploads/2024/04/Brunch-Menu-Current-April-2023.pdf";
 
-async function checkResource(url) {
-  try {
-    // Perform a HEAD request directly to the resource URL
-    const headResponse = await fetch(url, { method: "HEAD" });
-    // Check if the response status is OK (200-299)
-    return headResponse.ok;
-  } catch (err) {
-    console.error("Error checking resource:", err);
-    return false;
-  }
-}
+// Override at deploy time when the CMS moves, without touching code.
+const brunchMenuUrl =
+  (typeof process !== "undefined"
+    ? process.env.BRUNCH_MENU_PDF_URL
+    : undefined) ||
+  import.meta.env.BRUNCH_MENU_PDF_URL ||
+  defaultBrunchMenuUrl;
+
+// Bundled copy used whenever the CMS-hosted menu cannot be reached.
+const localBrunchMenuUrl = "/tolberts-brunch-menu.pdf";
 
 // Perform the resource check directly on the brunch menu URL
-const isAvailable = await checkResource(brunchMenuUrl);
+const isAvailable = await isResourceAvailable(brunchMenuUrl);
 
 // Redirect to the brunch menu if available
 if (isAvailable) {
   return Astro.redirect(brunchMenuUrl);
 } else {
-  return Astro.redirect("/tolberts-brunch-menu.pdf");
+  console.warn(
+    `[brunch-menu] ${brunchMenuUrl} is unavailable; redirecting to ${localBrunchMenuUrl}`,
+  );
+  return Astro.redirect(localBrunchMenuUrl);
 }
 ---
 
 <Layout
   metaTags={{
     title: "Brunch Menu | Tolbert's Restaurant",
-    description: "View our brunch menu at Tolbert's Restaurant & Chili Parlor in Grapevine, TX.",
+    description:
+      "View our brunch menu at Tolbert's Restaurant & Chili Parlor in Grapevine, TX.",
     noindex: true,
   }}
 >
