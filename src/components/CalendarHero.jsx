@@ -1,9 +1,6 @@
-import { useState } from "react";
 import { eventBackgroundImage, formatEventTime } from "../lib/eventDisplay";
 
 function FeaturedEvent({ event }) {
-  const [showDescription] = useState(false);
-
   const postTypeEvent = event?.node?.postTypeEvent ?? {};
   const {
     image,
@@ -33,8 +30,10 @@ function FeaturedEvent({ event }) {
         )}
         {date && <p className="event-card-meta mt-2">🗓️ {date}</p>}
         {timeLabel && <p className="event-card-meta mt-1">⏰ {timeLabel}</p>}
-        {showDescription && description && (
-          <p className="mt-2 text-sm text-white/80">{description}</p>
+        {description && (
+          <p className="mt-2 line-clamp-3 text-sm text-white/80">
+            {description}
+          </p>
         )}
       </div>
     </div>
@@ -42,8 +41,6 @@ function FeaturedEvent({ event }) {
 }
 
 function SecondaryEventCard({ event }) {
-  const [showDescription] = useState(false);
-
   const postTypeEvent = event?.node?.postTypeEvent ?? {};
   const {
     image,
@@ -69,8 +66,10 @@ function SecondaryEventCard({ event }) {
         )}
         {date && <p className="event-card-meta mt-2">🗓️ {date}</p>}
         {timeLabel && <p className="event-card-meta mt-1">⏰ {timeLabel}</p>}
-        {showDescription && description && (
-          <p className="mt-2 text-xs text-white/80">{description}</p>
+        {description && (
+          <p className="mt-2 line-clamp-2 text-xs text-white/80">
+            {description}
+          </p>
         )}
       </div>
     </div>

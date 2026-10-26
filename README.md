@@ -39,8 +39,9 @@ Feature flags live in `src/lib/config.ts`:
 ### Environment variables
 
 Set these in Netlify (Site configuration → Environment variables). Server-side
-variables are read at runtime first, then from `.env` during local development.
-`PUBLIC_*` variables are inlined into the client bundle at build time.
+secrets are loaded at runtime through `astro:env` and are never inlined into the
+build output. `PUBLIC_*` variables are inlined into the client bundle at build
+time.
 
 | Variable                       | Required | Purpose                                                                 |
 | :----------------------------- | :------- | :---------------------------------------------------------------------- |
@@ -58,13 +59,15 @@ variables are read at runtime first, then from `.env` during local development.
 The CMS runs separately from this site, so every integration is best-effort:
 
 - **Events** (`src/lib/wordpress/api.ts`): 3.5s timeout, one retry for transient
-  failures, a 60s in-memory cache, a 30s cooldown after failures, and a
-  stale-cache/empty-array fallback. The homepage simply omits the event hero and
-  `/calendar` shows its "check back soon" message instead of erroring.
+  failures, a 60s in-memory cache, a 6h maximum stale age, a 30s cooldown after
+  failures, and a shared in-flight request. Past events are filtered out, so the
+  homepage omits the event hero and `/calendar` shows its "check back soon"
+  message instead of erroring.
 - **Event cards**: malformed or missing CMS images fall back to a bundled local
   image layered behind the remote one.
 - **Menus**: `/menu` and `/brunch-menu` probe the CMS PDF with a 2.5s timeout
-  and redirect to locally bundled PDFs when it is unreachable.
+  and redirect to locally bundled PDFs when it is unreachable. Refresh
+  `public/tolberts-menu.pdf` whenever the menu changes.
 - **Contact form**: server requests time out after 8s and return a friendly
   `503`; the React forms also time out after 15s and always show email/phone
   alternatives.

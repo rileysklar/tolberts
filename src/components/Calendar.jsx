@@ -1,9 +1,6 @@
-import { useState } from "react";
 import { eventBackgroundImage, formatEventTime } from "../lib/eventDisplay";
 
 function CalendarCard({ event }) {
-  const [showDescription] = useState(false);
-
   const node = event?.node ?? {};
   const postTypeEvent = node.postTypeEvent ?? {};
   const {
@@ -33,8 +30,10 @@ function CalendarCard({ event }) {
           )}
           {date && <p className="event-card-meta mt-2">🗓️ {date}</p>}
           {timeLabel && <p className="event-card-meta mt-1">⏰ {timeLabel}</p>}
-          {showDescription && description && (
-            <p className="mt-2 pr-5 text-xs text-white/80">{description}</p>
+          {description && (
+            <p className="mt-2 line-clamp-2 pr-5 text-xs text-white/80">
+              {description}
+            </p>
           )}
         </div>
       </div>

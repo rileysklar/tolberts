@@ -40,11 +40,30 @@ export interface ProcessedEvent extends FetchedEvent {
 
 /**
  * Parses a date string from the event data into a JavaScript Date object.
- * Expected format: "Day, Month Date, Year" (e.g., "Wed, May 7, 2025").
- * Normalizes the date to the start of the day, timezone-agnostic.
+ * Expected format: "Day, Month Date, Year" (e.g., "Wed, May 7, 2025"),
+ * with the weekday prefix optional. Normalizes the date to the start of the
+ * day, timezone-agnostic.
  * @param dateStr The date string to parse.
  * @returns A Date object if parsing is successful, otherwise null.
  */
+const EVENT_DATE_PATTERN =
+  /^(?:[A-Za-z]{3,9},\s*)?([A-Za-z]{3,9})\s+(\d{1,2}),\s*(\d{4})$/i;
+
+const MONTH_INDEXES = [
+  "jan",
+  "feb",
+  "mar",
+  "apr",
+  "may",
+  "jun",
+  "jul",
+  "aug",
+  "sep",
+  "oct",
+  "nov",
+  "dec",
+];
+
 export function parseEventDate(
   dateStr: string | null | undefined,
 ): Date | null {
@@ -52,24 +71,36 @@ export function parseEventDate(
     return null;
   }
 
-  // Extract the parsable part, e.g., "May 7, 2025" from "Wed, May 7, 2025"
-  const parsablePart = dateStr.substring(dateStr.indexOf(", ") + 2);
+  const match = dateStr.trim().match(EVENT_DATE_PATTERN);
 
-  // Parse date components manually to avoid timezone interpretation issues
-  const dateObj = new Date(parsablePart);
-
-  if (isNaN(dateObj.getTime())) {
+  if (!match) {
     console.warn("Invalid date string encountered: " + dateStr);
     return null;
   }
 
-  // Create a new date using the parsed components to ensure consistency
-  const year = dateObj.getFullYear();
-  const month = dateObj.getMonth();
-  const day = dateObj.getDate();
+  const [, monthName, dayPart, yearPart] = match;
+  const day = Number(dayPart);
+  const year = Number(yearPart);
+  const month = MONTH_INDEXES.indexOf(monthName.slice(0, 3).toLowerCase());
+
+  if (month === -1) {
+    console.warn("Invalid date string encountered: " + dateStr);
+    return null;
+  }
 
   // Create date in local timezone with start of day
   const eventDate = new Date(year, month, day, 0, 0, 0, 0);
+
+  // Reject values that rolled over (e.g. "Feb 31") instead of silently
+  // returning the normalized date.
+  if (
+    eventDate.getFullYear() !== year ||
+    eventDate.getMonth() !== month ||
+    eventDate.getDate() !== day
+  ) {
+    console.warn("Invalid date string encountered: " + dateStr);
+    return null;
+  }
 
   return eventDate;
 }
@@ -119,7 +150,7 @@ export function parseEventTime(
 /**
  * Processes an array of fetched events:
  * 1. Parses their date strings.
- * 2. Shows all events (no date filtering to avoid timezone issues).
+ * 2. Drops events that have already happened.
  * 3. Sorts events chronologically (soonest first).
  * 4. For events on the same day, sorts by start time.
  * @param fetchedEvents An array of events as fetched from the source.
@@ -133,6 +164,11 @@ export function processAndSortEvents(
   }
 
   const allEvents: ProcessedEvent[] = [];
+
+  // Past events should never appear as "upcoming", even if they came from a
+  // stale cache during a CMS outage.
+  const startOfToday = new Date();
+  startOfToday.setHours(0, 0, 0, 0);
 
   for (const event of fetchedEvents) {
     // Validate event structure
@@ -154,6 +190,11 @@ export function processAndSortEvents(
         date: dateValue,
         title: postTypeEvent.primaryHeader,
       });
+      continue;
+    }
+
+    // Skip events that have already happened.
+    if (parsedDate < startOfToday) {
       continue;
     }
 

@@ -57,8 +57,9 @@ export async function isResourceAvailable(
     }
 
     // Only retry with GET when the host actively rejects the HEAD method. A
-    // timeout or 4xx means the asset is not usable, so fail fast.
-    if (head.status === 405 || head.status === 501) {
+    // timeout or 404 means the asset is not usable, so fail fast. Some
+    // hardened WordPress/WAF setups return 403 for HEAD but serve GET.
+    if ([403, 405, 501].includes(head.status)) {
       const get = await probe(url, "GET", timeoutMs);
       return get.ok;
     }

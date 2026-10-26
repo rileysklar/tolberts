@@ -1,3 +1,9 @@
+import {
+  WORDPRESS_PASSWORD,
+  WORDPRESS_URL,
+  WORDPRESS_USER,
+} from "astro:env/server";
+
 export const prerender = false;
 
 const MIN_MESSAGE_LENGTH = 15;
@@ -15,23 +21,37 @@ function jsonResponse(body, status = 200) {
   });
 }
 
+function runtimeEnv(name) {
+  try {
+    if (typeof process !== "undefined" && process.env) {
+      return process.env[name];
+    }
+  } catch {
+    // Ignore runtimes without `process`.
+  }
+
+  return undefined;
+}
+
+function firstNonEmpty(...values) {
+  for (const value of values) {
+    if (typeof value === "string" && value.trim()) {
+      return value.trim();
+    }
+  }
+
+  return "";
+}
+
 function getWordPressConfig() {
-  // Runtime env (Netlify) takes priority so credentials can be rotated without
-  // redeploying; the build-time values are the local development fallback.
-  const runtime =
-    typeof process !== "undefined" && process.env ? process.env : {};
-  const url = (
-    runtime.WORDPRESS_URL ||
-    import.meta.env.WORDPRESS_URL ||
-    ""
-  ).trim();
-  const user = (
-    runtime.WORDPRESS_USER ||
-    import.meta.env.WORDPRESS_USER ||
-    ""
-  ).trim();
-  const password =
-    runtime.WORDPRESS_PASSWORD || import.meta.env.WORDPRESS_PASSWORD || "";
+  // Secrets are supplied by `astro:env` at runtime (with a process.env
+  // fallback), so they are not inlined into the build output.
+  const url = firstNonEmpty(WORDPRESS_URL, runtimeEnv("WORDPRESS_URL"));
+  const user = firstNonEmpty(WORDPRESS_USER, runtimeEnv("WORDPRESS_USER"));
+  const password = firstNonEmpty(
+    WORDPRESS_PASSWORD,
+    runtimeEnv("WORDPRESS_PASSWORD"),
+  );
 
   if (!url || !user || !password) {
     return null;

@@ -8,6 +8,13 @@ import fetchAPI from "./api";
 const CACHE_TTL_MS = 60_000;
 
 /**
+ * Never serve events older than this when the CMS is down. Stale event data is
+ * better than a blank calendar, but not if it makes last month's shows look
+ * upcoming.
+ */
+const MAX_STALE_MS = 6 * 60 * 60 * 1000;
+
+/**
  * After a failed request, skip the CMS for a short cooldown. Without this,
  * every visitor during an outage would wait for the full timeout + retry.
  */
@@ -20,9 +27,18 @@ interface EventsCache {
 
 let cache: EventsCache | null = null;
 let lastFailureAt = 0;
+let pendingRequest: Promise<any[]> | null = null;
 
 function inFailureCooldown(): boolean {
   return lastFailureAt > 0 && Date.now() - lastFailureAt < FAILURE_COOLDOWN_MS;
+}
+
+function cachedEvents(maxAgeMs: number): any[] {
+  if (!cache) {
+    return [];
+  }
+
+  return Date.now() - cache.fetchedAt <= maxAgeMs ? cache.edges : [];
 }
 
 export async function getEvents(): Promise<any[]> {
@@ -31,9 +47,21 @@ export async function getEvents(): Promise<any[]> {
   }
 
   if (inFailureCooldown()) {
-    return cache?.edges ?? [];
+    return cachedEvents(MAX_STALE_MS);
   }
 
+  // Share one in-flight request so a burst on a cold instance does not all
+  // wait on the CMS separately.
+  if (!pendingRequest) {
+    pendingRequest = fetchAndCache().finally(() => {
+      pendingRequest = null;
+    });
+  }
+
+  return pendingRequest;
+}
+
+async function fetchAndCache(): Promise<any[]> {
   try {
     const data = await fetchAPI<{
       events?: { edges?: unknown[] | null } | null;
@@ -73,14 +101,17 @@ export async function getEvents(): Promise<any[]> {
   } catch (error) {
     lastFailureAt = Date.now();
 
+    const stale = cachedEvents(MAX_STALE_MS);
+
     console.error(
       "[wordpress] Unable to load events. Falling back to",
-      cache ? "the last cached events." : "an empty calendar.",
+      stale.length
+        ? "the last cached events."
+        : "an empty calendar (no cache newer than 6h).",
       error,
     );
 
-    // Serve stale events rather than blanking the calendar during an outage.
-    return cache?.edges ?? [];
+    return stale;
   }
 }
 

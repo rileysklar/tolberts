@@ -14,8 +14,9 @@ const menuUrl =
   import.meta.env.MENU_PDF_URL ||
   defaultMenuUrl;
 
-// Bundled copy used whenever the CMS-hosted menu cannot be reached.
-const localMenuUrl = "/tolberts-menu-9-4-24.pdf";
+// Bundled copy used whenever the CMS-hosted menu cannot be reached. Refresh it
+// from the current PDF whenever the menu changes.
+const localMenuUrl = "/tolberts-menu.pdf";
 
 const isAvailable = await isResourceAvailable(menuUrl);
 
