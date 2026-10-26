@@ -3,30 +3,30 @@ export const prerender = false;
 
 import { Button } from "@/components/ui/button";
 import Layout from "@/layouts/Layout.astro";
+import { isResourceAvailable } from "@/lib/remote";
 
-const menuUrl =
-  // "https://tolbertscms.com/wp-content/uploads/2026/05/TolbertsNewMenu051326.pdf";
+const defaultMenuUrl =
   "https://tolbertscms.com/wp-content/uploads/2026/09/TolbertsNewMenu081926.pdf";
 
-async function checkResource(url) {
-  try {
-    // Perform a HEAD request directly to the resource URL
-    const headResponse = await fetch(url, { method: "HEAD" });
+// Override at deploy time when the CMS moves, without touching code.
+const menuUrl =
+  (typeof process !== "undefined" ? process.env.MENU_PDF_URL : undefined) ||
+  import.meta.env.MENU_PDF_URL ||
+  defaultMenuUrl;
 
-    // Check if the response status is OK (200-299)
-    return headResponse.ok;
-  } catch (err) {
-    console.error("Error checking resource:", err);
-    return false;
-  }
-}
+// Bundled copy used whenever the CMS-hosted menu cannot be reached. Refresh it
+// from the current PDF whenever the menu changes.
+const localMenuUrl = "/tolberts-menu.pdf";
 
-const isAvailable = await checkResource(menuUrl);
+const isAvailable = await isResourceAvailable(menuUrl);
 
 if (isAvailable) {
   return Astro.redirect(menuUrl);
 } else {
-  return Astro.redirect("/tolberts-menu-9-4-24.pdf");
+  console.warn(
+    `[menu] ${menuUrl} is unavailable; redirecting to ${localMenuUrl}`,
+  );
+  return Astro.redirect(localMenuUrl);
 }
 ---
 

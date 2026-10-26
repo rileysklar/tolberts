@@ -1,6 +1,15 @@
 import { useState, useCallback } from "react";
 import { Button } from "../components/ui/button";
-import videoFallbackImage from "../assets/tolberts-gallery-1.jpg"; // Import the fallback image
+import videoFallbackImage from "../assets/tolberts-gallery-1.jpg";
+
+/**
+ * The hero video lives on the WordPress host. Override it with
+ * PUBLIC_HERO_VIDEO_URL when the CMS moves, and the local poster/fallback image
+ * keeps the hero looking correct whenever the video cannot be reached.
+ */
+const HERO_VIDEO_URL =
+  import.meta.env.PUBLIC_HERO_VIDEO_URL ||
+  "https://tolbertscms.com/wp-content/uploads/2024/07/Copy-of-minute-cut.mp4";
 
 export default function HeroMain() {
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -14,27 +23,33 @@ export default function HeroMain() {
 
   return (
     <div className="relative h-[80vh] min-h-[600px] w-full bg-stone-900">
-      {/* Video element with fallback image */}
+      {/* Local image rendered underneath the video: if the CMS is down, the
+          video never fades in and this image remains visible. */}
+      <img
+        src={videoFallbackImage.src}
+        className="absolute inset-0 z-0 hidden h-full w-full object-cover sm:block"
+        alt=""
+        aria-hidden="true"
+      />
+
+      {/* Video element; poster gives browsers something to paint immediately. */}
       <video
         ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
+        poster={videoFallbackImage.src}
         onCanPlay={() => setVideoLoaded(true)}
-        className={`absolute z-0 hidden h-full w-full object-cover transition-opacity duration-1000 ease-out sm:block ${
+        onError={() => setVideoLoaded(false)}
+        className={`absolute inset-0 z-0 hidden h-full w-full object-cover transition-opacity duration-1000 ease-out sm:block ${
           videoLoaded ? "opacity-100" : "opacity-0"
         }`}
       >
         <source
-          src="https://tolbertscms.com/wp-content/uploads/2024/07/Copy-of-minute-cut.mp4"
+          src={HERO_VIDEO_URL}
           type="video/mp4"
-        />
-        {/* Fallback image displayed if video fails to load */}
-        <img
-          src={videoFallbackImage.src}
-          className="h-full w-full object-cover"
-          alt="Tolbert's Restaurant"
+          onError={() => setVideoLoaded(false)}
         />
       </video>
       {/* Mobile-specific fallback image */}

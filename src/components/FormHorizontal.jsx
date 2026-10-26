@@ -1,5 +1,6 @@
 import { Button } from "../components/ui/button";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { submitContactForm } from "../lib/contactForm";
 
 function FormHorizontal() {
   const [name, setName] = useState("");
@@ -46,39 +47,17 @@ function FormHorizontal() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/contact-form-api.json", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title: name,
-          content: message,
-          acf: {
-            name: name,
-            email: email,
-            message: message,
-          },
-        }),
-      });
+      const result = await submitContactForm({ name, email, message });
 
-      const data = await response.json().catch(() => null);
-
-      if (response.ok) {
-        if (data?.error) {
-          setError(data.error);
-        } else {
-          setIsSubmitted(true);
-          setName("");
-          setEmail("");
-          setMessage("");
-          setTimeout(() => setIsSubmitted(false), 5000);
-        }
+      if (result.ok) {
+        setIsSubmitted(true);
+        setName("");
+        setEmail("");
+        setMessage("");
+        setTimeout(() => setIsSubmitted(false), 5000);
       } else {
         setError(
-          data?.error ||
-            data?.message ||
-            "Submission failed. Please try again later.",
+          result.message || "Submission failed. Please try again later.",
         );
       }
     } catch (err) {
@@ -102,9 +81,23 @@ function FormHorizontal() {
         </p> */}
 
         {error && (
-          <p className="m-2 flex content-center justify-center rounded-lg bg-red-400 p-4 text-center text-stone-900">
-            {error}
-          </p>
+          <div className="m-2 rounded-lg bg-red-400 p-4 text-center text-stone-900">
+            <p>{error}</p>
+            <p className="mt-2 text-sm">
+              You can also reach us at{" "}
+              <a
+                className="underline"
+                href="mailto:tolbertsrestaurant@gmail.com"
+              >
+                tolbertsrestaurant@gmail.com
+              </a>{" "}
+              or{" "}
+              <a className="underline" href="tel:+18174214888">
+                (817) 421-4888
+              </a>
+              .
+            </p>
+          </div>
         )}
 
         {!isSubmitted ? (

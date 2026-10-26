@@ -18,6 +18,20 @@ interface FetchedEvent {
   node: EventNode;
 }
 
+function normalizeImage(image: unknown): { sourceUrl: string } | null {
+  if (!image || typeof image !== "object") {
+    return null;
+  }
+
+  const sourceUrl = (image as { sourceUrl?: unknown }).sourceUrl;
+
+  if (typeof sourceUrl !== "string" || !sourceUrl.trim()) {
+    return null;
+  }
+
+  return { sourceUrl: sourceUrl.trim() };
+}
+
 // This will be the shape of the events after processing
 export interface ProcessedEvent extends FetchedEvent {
   parsedEventDate: Date;
@@ -26,36 +40,67 @@ export interface ProcessedEvent extends FetchedEvent {
 
 /**
  * Parses a date string from the event data into a JavaScript Date object.
- * Expected format: "Day, Month Date, Year" (e.g., "Wed, May 7, 2025").
- * Normalizes the date to the start of the day, timezone-agnostic.
+ * Expected format: "Day, Month Date, Year" (e.g., "Wed, May 7, 2025"),
+ * with the weekday prefix optional. Normalizes the date to the start of the
+ * day, timezone-agnostic.
  * @param dateStr The date string to parse.
  * @returns A Date object if parsing is successful, otherwise null.
  */
+const EVENT_DATE_PATTERN =
+  /^(?:[A-Za-z]{3,9},\s*)?([A-Za-z]{3,9})\s+(\d{1,2}),\s*(\d{4})$/i;
+
+const MONTH_INDEXES = [
+  "jan",
+  "feb",
+  "mar",
+  "apr",
+  "may",
+  "jun",
+  "jul",
+  "aug",
+  "sep",
+  "oct",
+  "nov",
+  "dec",
+];
+
 export function parseEventDate(
   dateStr: string | null | undefined,
 ): Date | null {
-  if (!dateStr) {
+  if (!dateStr || typeof dateStr !== "string") {
     return null;
   }
 
-  // Extract the parsable part, e.g., "May 7, 2025" from "Wed, May 7, 2025"
-  const parsablePart = dateStr.substring(dateStr.indexOf(", ") + 2);
+  const match = dateStr.trim().match(EVENT_DATE_PATTERN);
 
-  // Parse date components manually to avoid timezone interpretation issues
-  const dateObj = new Date(parsablePart);
-
-  if (isNaN(dateObj.getTime())) {
+  if (!match) {
     console.warn("Invalid date string encountered: " + dateStr);
     return null;
   }
 
-  // Create a new date using the parsed components to ensure consistency
-  const year = dateObj.getFullYear();
-  const month = dateObj.getMonth();
-  const day = dateObj.getDate();
+  const [, monthName, dayPart, yearPart] = match;
+  const day = Number(dayPart);
+  const year = Number(yearPart);
+  const month = MONTH_INDEXES.indexOf(monthName.slice(0, 3).toLowerCase());
+
+  if (month === -1) {
+    console.warn("Invalid date string encountered: " + dateStr);
+    return null;
+  }
 
   // Create date in local timezone with start of day
   const eventDate = new Date(year, month, day, 0, 0, 0, 0);
+
+  // Reject values that rolled over (e.g. "Feb 31") instead of silently
+  // returning the normalized date.
+  if (
+    eventDate.getFullYear() !== year ||
+    eventDate.getMonth() !== month ||
+    eventDate.getDate() !== day
+  ) {
+    console.warn("Invalid date string encountered: " + dateStr);
+    return null;
+  }
 
   return eventDate;
 }
@@ -71,7 +116,7 @@ export function parseEventTime(
   timeStr: string | null | undefined,
   baseDate?: Date,
 ): Date | null {
-  if (!timeStr) {
+  if (!timeStr || typeof timeStr !== "string") {
     return null;
   }
 
@@ -105,7 +150,7 @@ export function parseEventTime(
 /**
  * Processes an array of fetched events:
  * 1. Parses their date strings.
- * 2. Shows all events (no date filtering to avoid timezone issues).
+ * 2. Drops events that have already happened.
  * 3. Sorts events chronologically (soonest first).
  * 4. For events on the same day, sorts by start time.
  * @param fetchedEvents An array of events as fetched from the source.
@@ -114,31 +159,42 @@ export function parseEventTime(
 export function processAndSortEvents(
   fetchedEvents: FetchedEvent[] | null | undefined,
 ): ProcessedEvent[] {
-  if (!fetchedEvents || fetchedEvents.length === 0) {
+  if (!Array.isArray(fetchedEvents) || fetchedEvents.length === 0) {
     return [];
   }
 
   const allEvents: ProcessedEvent[] = [];
 
+  // Past events should never appear as "upcoming", even if they came from a
+  // stale cache during a CMS outage.
+  const startOfToday = new Date();
+  startOfToday.setHours(0, 0, 0, 0);
+
   for (const event of fetchedEvents) {
     // Validate event structure
     if (!event?.node?.postTypeEvent) {
-      console.warn('Skipping event with missing data structure:', event);
+      console.warn("Skipping event with missing data structure:", event);
       continue;
     }
 
     // Ensure node and postTypeEvent exist before trying to access date
-    const dateValue = event.node.postTypeEvent.date;
+    const postTypeEvent = event.node.postTypeEvent;
+    const dateValue = postTypeEvent.date;
     const parsedDate = parseEventDate(dateValue);
-    const startTimeValue = event.node.postTypeEvent.startTime;
+    const startTimeValue = postTypeEvent.startTime;
 
     // Skip events without valid dates
     if (!parsedDate) {
-      console.warn('Skipping event with invalid date:', {
+      console.warn("Skipping event with invalid date:", {
         id: event.node.id,
         date: dateValue,
-        title: event.node.postTypeEvent.primaryHeader
+        title: postTypeEvent.primaryHeader,
       });
+      continue;
+    }
+
+    // Skip events that have already happened.
+    if (parsedDate < startOfToday) {
       continue;
     }
 
@@ -147,16 +203,23 @@ export function processAndSortEvents(
 
     // Warn if start time is missing but still include the event
     if (!parsedStartTime && startTimeValue) {
-      console.warn('Event has invalid start time format:', {
+      console.warn("Event has invalid start time format:", {
         id: event.node.id,
         startTime: startTimeValue,
-        title: event.node.postTypeEvent.primaryHeader
+        title: postTypeEvent.primaryHeader,
       });
     }
 
-    // Include all events with valid dates
+    // Include all events with valid dates. Null out malformed image data so
+    // the calendar components never have to destructure `null`.
     allEvents.push({
-      ...event,
+      node: {
+        ...event.node,
+        postTypeEvent: {
+          ...postTypeEvent,
+          image: normalizeImage(postTypeEvent.image),
+        },
+      },
       parsedEventDate: parsedDate,
       parsedStartTime: parsedStartTime,
     });
