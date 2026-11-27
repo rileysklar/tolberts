@@ -31,3 +31,6 @@ repomix-output.txt
 
 # code workspace
 tolbertsrestaurant.code-workspace
+
+# private planning notes (not published)
+.local/
